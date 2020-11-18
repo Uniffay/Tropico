@@ -1,0 +1,50 @@
+[
+  {
+    "name": "capitaliste",
+    "partisan": 15 ,
+    "fulfillment": 50,
+    "image": "capitalist.png"
+  },
+  {
+    "name": "communiste",
+    "partisan": 15 ,
+    "fulfillment": 50,
+    "image": "communist.png"
+  },
+  {
+    "name": "libéraux",
+    "partisan": 15 ,
+    "fulfillment": 50,
+    "image": "liberals.png"
+  },
+  {
+    "name": "religieux",
+    "partisan": 15 ,
+    "fulfillment": 50,
+    "image": "religious.png"
+  },
+  {
+    "name": "militariste",
+    "partisan": 15,
+    "fulfillment": 50,
+    "image": "militarist.png"
+  },
+  {
+    "name": "écologiste",
+    "partisan": 15,
+    "fulfillment": 50,
+    "image": "ecologist.png"
+  },
+  {
+    "name": "nationaliste",
+    "partisan": 15 ,
+    "fulfillment": 50,
+    "image": "nationalist.png"
+  },
+  {
+    "name": "loyaliste",
+    "partisan": 15,
+    "fulfillment": 100,
+    "image": "loyalist.png"
+  }
+]
