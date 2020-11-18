@@ -26,7 +26,7 @@ public class App extends Application {
         Controller c = loader.getController();
         System.out.println(c);
         scene = new Scene(loader.load());
-
+    
         stage.setScene(scene);
         stage.show();
     }
