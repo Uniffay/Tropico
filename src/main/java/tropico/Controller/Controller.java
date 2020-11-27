@@ -213,5 +213,10 @@ public class Controller {
         Background.setImage(image);
     }
 
+    @FXML
+    void removeFactionBar(MouseEvent event) {
+
+    }
+
 
 }

@@ -94,10 +94,11 @@
          <Label fx:id="Loyalist_partisan" layoutX="146.0" layoutY="708.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="73.0" layoutY="740.0" text="Satisfaction:" textFill="#f0f0f0" />
          <Label fx:id="Loyalist_fulfillment" layoutX="146.0" layoutY="740.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label layoutX="195.0" layoutY="4.0" onMouseClicked="#removeFactionBar" prefHeight="19.0" prefWidth="18.0" style="-fx-border-color: white;" text="&lt;-" textFill="#f0f0f0" />
       </AnchorPane>
    </ScrollPane>
    <Rectangle arcHeight="5.0" arcWidth="5.0" height="454.0" layoutX="406.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="552.0" />
-   <Label fx:id="Event" layoutX="444.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textFill="#f5f5f5" wrapText="true" />
+   <Label fx:id="Event" layoutX="444.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textAlignment="CENTER" textFill="#f5f5f5" wrapText="true" />
    <Label fx:id="Choice1" layoutX="440.0" layoutY="294.0" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
       <opaqueInsets>
          <Insets />
