@@ -11,12 +11,15 @@ public class Data {
 	private int turn;
 	private int playerPlaying;
 	private final HashMap<Season, ArrayList<Event>> eventsBySeason;
+	private Event eventChosen;
 	
 	
 	public Data(int numberOfPlayer, String[] names, String jsonParserResource, String jsonParserFactions, String jsonParserEvents) throws IOException {
 		this.turn = 0;
 		players = new DictatorManagement(numberOfPlayer, names, jsonParserResource, jsonParserFactions);
 		eventsBySeason = EventManagement.getEvent(jsonParserEvents);
+		System.out.println(EventManagement.getEvent(jsonParserEvents));
+		pickRandomEventFromSeason(Season.Spring);
 	}
 	
 	public void endTurn() {
@@ -28,11 +31,23 @@ public class Data {
 		turn ++;
 	}
 
-	public Event pickRandomEventFromSeason(Season season){
+	public void pickRandomEventFromSeason(Season season){
 		Random r = new Random();
 		ArrayList<Event> e = eventsBySeason.get(season);
+		System.out.println(e);
 		int x = r.nextInt(e.size());
-		return e.get(x);
+		eventChosen = e.get(x);
 	}
 
+	public Dictator getPlayerPlaying(){
+		return players.get(playerPlaying);
+	}
+
+	public int getTurn() {
+		return turn;
+	}
+
+	public Event getEventChosen() {
+		return eventChosen;
+	}
 }

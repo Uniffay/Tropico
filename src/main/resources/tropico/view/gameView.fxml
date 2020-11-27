@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -9,11 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" style="-fx-background-image: img\background.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.Controller">
    <ImageView fitHeight="750.0" fitWidth="1050.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../img/background.png" />
-      </image>
+      <Image url="@../../img/background.png"/>
    </ImageView>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="433.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="242.0" stroke="BLACK" strokeType="INSIDE" width="809.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="435.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="651.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="851.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
@@ -97,4 +96,28 @@
          <Label fx:id="Loyalist_fulfillment" layoutX="146.0" layoutY="740.0" text="NUMBER" textFill="#fdfdfd" />
       </AnchorPane>
    </ScrollPane>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="454.0" layoutX="406.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="552.0" />
+   <Label fx:id="Event" layoutX="444.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textFill="#f5f5f5" wrapText="true" />
+   <Label fx:id="Choice1" layoutX="440.0" layoutY="294.0" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+   </Label>
+   <Label fx:id="Choice2" layoutX="440.0" layoutY="369.0" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+   </Label>
+   <Label fx:id="Choice3" layoutX="440.0" layoutY="446.0" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+   </Label>
+   <Label fx:id="Choice4" layoutX="440.0" layoutY="523.0" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+   </Label>
+   <Label fx:id="Date" alignment="CENTER" layoutX="242.0" prefHeight="25.0" prefWidth="186.0" style="-fx-padding: 5;" text="DATE" textFill="WHITE" wrapText="true" />
+   <Label fx:id="Season" alignment="CENTER" layoutX="256.0" layoutY="28.0" prefHeight="18.0" prefWidth="166.0" text="Season" textFill="WHITE" />
 </AnchorPane>

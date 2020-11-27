@@ -18,4 +18,8 @@ public class Choice {
                 ", effect=" + effect +
                 '}';
     }
+
+    public String getLabel() {
+        return label;
+    }
 }

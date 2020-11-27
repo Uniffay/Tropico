@@ -20,5 +20,8 @@ public class DictatorManagement {
 	public int size() {
 		return dictators.size();
 	}
-	
+
+    public Dictator get(int dictator) {
+		return dictators.get(dictator);
+    }
 }

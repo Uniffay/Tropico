@@ -10,8 +10,8 @@ import java.util.Map;
 
 public class Resource {
 
-    private double farming;
-    private double industry;
+    private short farming;
+    private short industry;
     private double money;
 
     public Resource(String jsonPath){
@@ -19,8 +19,8 @@ public class Resource {
             Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
             Map<?, ?> map = gson.fromJson(reader, Map.class);
-            farming = (double)map.get("farming");
-            industry = (double)map.get("industry");
+            farming = (short)(double)map.get("farming");
+            industry = (short)(double)map.get("industry");
             money = (double)map.get("money");
         }catch (IOException e){
             e.printStackTrace();
@@ -49,5 +49,17 @@ public class Resource {
 
     public void changeMoney(double money){
         this.money += money;
+    }
+
+    public double getFarming(){
+        return farming;
+    }
+
+    public double getIndustry(){
+        return industry;
+    }
+
+    public double getMoney(){
+        return money;
     }
 }

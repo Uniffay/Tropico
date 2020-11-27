@@ -18,4 +18,12 @@ public class Faction {
 	public String toString(){
 		return name + " " + partisan + " " + fulfillment;
 	}
+
+	public int getPartisan() {
+		return partisan;
+	}
+
+	public short getFulfillment() {
+		return fulfillment;
+	}
 }

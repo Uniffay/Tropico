@@ -22,12 +22,14 @@ public class EventManagement {
         try {
             Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
-           Event[] eventTab = gson.fromJson(reader, Event[].class);
+            Event[] eventTab = gson.fromJson(reader, Event[].class);
 
-            for (Season season : events.keySet())
-                for (Event event : eventTab) {
-                    System.out.println(event);
-                }
+             for (Season season : events.keySet())
+                 for (Event event : eventTab) {
+                     if(event.getSeason().contains(season)){
+                         events.get(season).add(event);
+                     }
+                 }
         } catch (IOException | JsonIOException ioException) {
             ioException.printStackTrace();
         }

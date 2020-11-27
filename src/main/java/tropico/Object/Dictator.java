@@ -20,4 +20,12 @@ public class Dictator {
 	public String toString(){
 		return name + ":\n" + resource + factions;
 	}
+
+	public Resource getResource(){
+		return resource;
+	}
+
+	public FactionsList getFactions(){
+		return factions;
+	}
 }
