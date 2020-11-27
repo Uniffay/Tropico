@@ -1,14 +1,32 @@
 package tropico.Object;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Dictator {
 
 	private final String name;
-	private final Resource resource;
+	private final HashMap<String, Integer> resource = new HashMap<>();
 	private final FactionsList factions;
 	
 	public Dictator(String name, String jsonPathResource, String jsonPathFaction) {
 		this.name = name;
-		this.resource = new Resource(jsonPathResource);
+		try {
+			Gson gson = new Gson();
+			Reader reader = Files.newBufferedReader(Paths.get(jsonPathResource));
+			Map<String, Double> map = gson.fromJson(reader, Map.class);
+			resource.put("farming", map.get("farming").intValue());
+			resource.put("industry", map.get("industry").intValue());
+			resource.put("money", map.get("money").intValue());
+		}catch (IOException e){
+			e.printStackTrace();
+		}
 		factions = new FactionsList(jsonPathFaction);
 	}
 	
@@ -21,11 +39,27 @@ public class Dictator {
 		return name + ":\n" + resource + factions;
 	}
 
-	public Resource getResource(){
-		return resource;
-	}
-
 	public FactionsList getFactions(){
 		return factions;
 	}
+
+    public void haveChosen(Choice choice) {
+		if(choice.getEffect_resource() != null){
+			for (String effect: choice.getEffect_resource().keySet()){
+				resource.replace(effect, resource.get(effect) + choice.getEffect_resource().get(effect));
+			}
+		}
+		if(choice.getEffect_fulfillment() != null){
+			factions.changeFulfillment(choice.getEffect_fulfillment());
+		}
+		if(choice.getEffect_partisan() != null){
+			factions.changePartisan(choice.getEffect_partisan());
+		}
+    }
+
+	public HashMap<String, Integer> getResource() {
+		return resource;
+	}
+
+
 }

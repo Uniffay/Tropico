@@ -6,6 +6,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FactionsList {
@@ -47,4 +48,25 @@ public class FactionsList {
 		return factions.toString();
 	}
 
+	public void changePartisan(HashMap<String, Integer> effect_partisan) {
+		for(String effect: effect_partisan.keySet()) {
+			for (Faction faction : factions) {
+				if (faction.getEnglishName().equals(effect)){
+					faction.changePartisan(effect_partisan.get(effect));
+					break;
+				}
+			}
+		}
+	}
+
+	public void changeFulfillment(HashMap<String, Integer> effect_fulfillment) {
+		for(String effect: effect_fulfillment.keySet()) {
+			for (Faction faction : factions) {
+				if (faction.getEnglishName().equals(effect)){
+					faction.changeFulfillment(effect_fulfillment.get(effect).shortValue());
+					break;
+				}
+			}
+		}
+	}
 }

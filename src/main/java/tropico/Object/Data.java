@@ -9,6 +9,7 @@ public class Data {
 	
 	private final DictatorManagement players; 
 	private int turn;
+	private Season season;
 	private int playerPlaying;
 	private final HashMap<Season, ArrayList<Event>> eventsBySeason;
 	private Event eventChosen;
@@ -16,25 +17,29 @@ public class Data {
 	
 	public Data(int numberOfPlayer, String[] names, String jsonParserResource, String jsonParserFactions, String jsonParserEvents) throws IOException {
 		this.turn = 0;
+		season = Season.SPRING;
 		players = new DictatorManagement(numberOfPlayer, names, jsonParserResource, jsonParserFactions);
 		eventsBySeason = EventManagement.getEvent(jsonParserEvents);
-		System.out.println(EventManagement.getEvent(jsonParserEvents));
-		pickRandomEventFromSeason(Season.Spring);
+		pickRandomEventFromSeason(Season.SPRING);
 	}
 	
 	public void endTurn() {
-		if(players.size() > playerPlaying) {
-			playerPlaying = ((playerPlaying+ 1) % players.size());
+		if(players.size() > playerPlaying + 1) {
+			playerPlaying = ((playerPlaying + 1) % players.size());
 		}
-		if(++turn % 4 == 0){
+		else{
+			playerPlaying = 0;
+			turn ++;
+			season = season.next();
+			pickRandomEventFromSeason(season);
 		}
-		turn ++;
+		if(turn % 4 == 0){
+		}
 	}
 
 	public void pickRandomEventFromSeason(Season season){
 		Random r = new Random();
 		ArrayList<Event> e = eventsBySeason.get(season);
-		System.out.println(e);
 		int x = r.nextInt(e.size());
 		eventChosen = e.get(x);
 	}
@@ -49,5 +54,9 @@ public class Data {
 
 	public Event getEventChosen() {
 		return eventChosen;
+	}
+
+	public Season getSeason() {
+		return season;
 	}
 }

@@ -2,40 +2,43 @@
   {
     "label": "L’Organisation des Caraïbes-Unis souhaite que vous accueillez des réfugiés climatiques\nsuite aux récentes inondations dans la région",
     "seasons": [
-      "Winter",
-      "Summer",
-      "Autumn",
-      "Spring"
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
     ],
     "choices": [
       {
         "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
-        "effect": {
+        "effect_fulfillment": {
           "religious": -15,
           "liberals": -15
         }
       },
       {
         "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
-        "effect": {
+        "effect_fulfillment": {
           "religious": 15,
           "liberals": -15
         }
       },
       {
         "label": "Accepter sans condition",
-        "effect": {
+        "effect_fulfillment": {
           "religious": 10,
           "liberals": 10,
-          "nationalists": -20
+          "nationalist": -20
         }
       },
       {
         "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
-        "effect": {
-          "nationalists": -20,
-          "capitalists": 10,
-          "argent": 200
+        "effect_fulfillment": {
+          "nationalist": -20,
+          "capitalist": 10
+
+        },
+        "effect_resource": {
+          "money": 200
         }
       }
     ],

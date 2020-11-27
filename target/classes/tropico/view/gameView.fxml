@@ -9,8 +9,8 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" style="-fx-background-image: img\background.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.Controller">
-   <ImageView fitHeight="750.0" fitWidth="1050.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../img/background.png"/>
+   <ImageView fx:id="Background" fitHeight="750.0" fitWidth="1050.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../Controller/backgroundSummer.png" />
    </ImageView>
    <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="242.0" stroke="BLACK" strokeType="INSIDE" width="809.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="435.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
@@ -28,7 +28,7 @@
    <Label fx:id="Money" alignment="CENTER" layoutX="468.0" layoutY="3.0" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
    <Label fx:id="Industry" alignment="CENTER" layoutX="705.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="Industry" textAlignment="CENTER" />
    <Label fx:id="Farming" alignment="CENTER" layoutX="885.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="Farming" textAlignment="CENTER" />
-   <ScrollPane layoutY="1.0" prefHeight="750.0" prefWidth="241.0">
+   <ScrollPane layoutY="1.0" prefHeight="750.0" prefWidth="241.0" style="-fx-background-color: black; -fx-border-color: black;">
       <AnchorPane prefHeight="800.0" prefWidth="223.0" style="-fx-background-color: black;">
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="19.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/capitalism.png" />

@@ -4,11 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import tropico.Model.DataManagement;
 import tropico.Object.Data;
 import tropico.Object.Faction;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,28 +95,26 @@ public class Controller {
     @FXML
     private Label Season;
 
+    @FXML
+    private ImageView Background;
+
     public void initialize() {
         Data gameData = DataManagement.getData();
         int turn = gameData.getTurn();
-        Date.setText("24/" + getMonth(turn) + "/"+ String.valueOf(turn % 4 + 2015));
-        Season.setText(getSeasonFromTurn(turn));
-        Money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().getMoney()));
-        Farming.setText(String.valueOf(gameData.getPlayerPlaying().getResource().getFarming()) + "%");
-        Industry.setText(String.valueOf(gameData.getPlayerPlaying().getResource().getIndustry()) + "%");
-
-        Event.setText(gameData.getEventChosen().getLabel());
+        Date.setText("24/" + getMonth(turn) + "/"+ String.valueOf(turn / 4 + 2015));
+        Season.setText(gameData.getSeason().getName());
+        Money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("money")));
+        Farming.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("farming") + "%"));
+        Industry.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("industry") + "%"));
         initialize_event(gameData);
-
-
+        initialize_factionLabel(gameData);
     }
 
     private void initialize_event(Data gameData) {
-        initialize_factionLabel(gameData);
-
+        Event.setText(gameData.getEventChosen().getLabel());
         ArrayList<Label> Choices = initialize_choicesManagement();
-
         for (int i = 0; i < 4; i++){
-            if(i > gameData.getEventChosen().getChoices().size()){
+            if(i >= gameData.getEventChosen().getChoices().size()){
                 Choices.get(i).setVisible(false);
             }
             else{
@@ -130,19 +131,6 @@ public class Controller {
                 Choice3,
                 Choice4
         ));
-    }
-
-    private String getSeasonFromTurn(int turn) {
-        switch(turn % 4){
-            case 0:
-                return "Printemps";
-            case 1:
-                return "Été";
-            case 2:
-                return "Automne";
-            default:
-                return "Hiver";
-        }
     }
 
     private String getMonth(int turn) {
@@ -184,22 +172,45 @@ public class Controller {
 
     @FXML
     void choice1Handle(MouseEvent event) {
-        System.out.println("1");
+        Data gameData = DataManagement.getData();
+        gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(0));
+        gameData.endTurn();
+        setBackground(gameData);
+        initialize();
+
     }
 
     @FXML
     void choice2Handle(MouseEvent event) {
-        System.out.println("2");
+        Data gameData = DataManagement.getData();
+        gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(1));
+        gameData.endTurn();
+        setBackground(gameData);
+        initialize();
     }
 
     @FXML
     void choice3Handle(MouseEvent event) {
-        System.out.println("3");
+        Data gameData = DataManagement.getData();
+        gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(2));
+        gameData.endTurn();
+        setBackground(gameData);
+        initialize();
     }
 
     @FXML
     void choice4Handle(MouseEvent event) {
-        System.out.println("4");
+        Data gameData = DataManagement.getData();
+        gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(3));
+        gameData.endTurn();
+        setBackground(gameData);
+        initialize();
+    }
+
+    private void setBackground(Data gameData) {
+        InputStream input = getClass().getResourceAsStream("background" + gameData.getSeason().name() + ".png");
+        Image image = new Image(input);
+        Background.setImage(image);
     }
 
 

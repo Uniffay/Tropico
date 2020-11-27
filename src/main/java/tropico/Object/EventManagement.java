@@ -15,10 +15,10 @@ public class EventManagement {
 
     public static HashMap<Season , ArrayList<Event>> getEvent(String jsonPath) throws IOException {
         HashMap<Season, ArrayList<Event>> events =  new HashMap<>();
-        events.put(Season.Spring, new ArrayList<>());
-        events.put(Season.Winter, new ArrayList<>());
-        events.put(Season.Summer, new ArrayList<>());
-        events.put(Season.Autumn, new ArrayList<>());
+        events.put(Season.SPRING, new ArrayList<>());
+        events.put(Season.WINTER, new ArrayList<>());
+        events.put(Season.SUMMER, new ArrayList<>());
+        events.put(Season.AUTUMN, new ArrayList<>());
         try {
             Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
