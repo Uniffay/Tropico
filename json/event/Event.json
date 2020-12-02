@@ -35,7 +35,6 @@
         "effect_fulfillment": {
           "nationalist": -20,
           "capitalist": 10
-
         },
         "effect_resource": {
           "money": 200
