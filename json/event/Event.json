@@ -11,7 +11,8 @@
       {
         "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
         "effect_fulfillment": {
-          "religious": -15, "liberals": -15
+          "religious": -15,
+          "liberals": -15
         },
         "effect_partisan": {},
         "effect_resource": {}
@@ -19,7 +20,8 @@
       {
         "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
         "effect_fulfillment": {
-          "religious": 15, "liberals": -15
+          "religious": 15,
+          "liberals": -15
         },
         "effect_partisan": {},
         "effect_resource": {}
@@ -27,7 +29,9 @@
       {
         "label": "Accepter sans condition",
         "effect_fulfillment": {
-          "religious": 10, "liberals": 10, "nationalists": -20
+          "religious": 10,
+          "liberals": 10,
+          "nationalists": -20
         },
         "effect_partisan": {},
         "effect_resource": {}
@@ -59,7 +63,8 @@
       {
         "label": "Utilisons-le pour améliorer le bien-être des citoyens !",
         "effect_fulfillment": {
-          "communists": +10, "capitalists": -30
+          "communists": +10,
+          "capitalists": -30
         },
         "effect_partisan": {},
         "effect_resource": {
@@ -69,7 +74,9 @@
       {
         "label": "Exploitons-le au maximum pour moderniser le pays !",
         "effect_fulfillment": {
-          "communists": 5, "ecologists": -20, "capitalists": 10
+          "communists": 5,
+          "ecologists": -20,
+          "capitalists": 10
         },
         "effect_partisan": {},
         "effect_resource": {
@@ -79,7 +86,8 @@
       {
         "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
         "effect_fulfillment": {
-          "loyalists": 15, "nationalists": -30
+          "loyalists": 15,
+          "nationalists": -30
         },
         "effect_partisan": {},
         "effect_resource": {}
@@ -91,10 +99,8 @@
   {
     "label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
     "season": [
-      "WINTER",
       "SUMMER",
-      "AUTUMN",
-      "SPRING"
+      "AUTUMN"
     ],
     "choices": [
       {
@@ -102,7 +108,6 @@
         "effect_fulfillment": {
           "capitalists": -20,
           "communists": -20,
-          "industry": -20,
           "religious": -20,
           "militarists": -20,
           "ecologists": -20,
@@ -126,6 +131,59 @@
     ],
     "next": {}
   },
+  {
+    "label": "Une avalanche s'est produite sur les nouvelles pistes de ski !",
+    "season": [
+      "WINTER"
+    ],
+    "choices": [
+      {
+        "label": "Envoyer les secours pour chercher des rescapés."
+        "effect_fulfillment": {
+          "communists": 10,
+          "religious": 20,
+          "militarists": 10,
+          "ecologists": 20,
+          "nationalists": 20
+        }
+        "effect_partisan": {
+          "communists": 10,
+          "religious": 10,
+          "militarists": 15,
+          "ecologists": 10,
+          "nationalists": 10,
+          "loyalists": 20
+        }
+        "effect_resource": {
+          "money": -100
+        }
+      },
+      {
+        "label": "Ne rien faire."
+        "effect_fulfillment": {
+          "capitalists": -20,
+          "communists": -20,
+          "industry": -20,
+          "religious": -20,
+          "militarists": -20,
+          "ecologists": -20,
+          "nationalists": -20
+        }
+        "effect_partisan": {
+          "capitalists": -10,
+          "communists": -10,
+          "liberalists": -10,
+          "religious": -10,
+          "militarists": -10,
+          "ecologists": -10,
+          "nationalists": -10,
+          "loyalists": -10
+        }
+        "effect_resource": {}
+      }
+    ],
+    "next": {}
+  },
 
   {
     "label": "L'armée est faible, et le peuple est paresseux. Nous devrions reinstaurer le service militaire.",
@@ -139,31 +197,47 @@
       {
         "label": "Accepter",
         "effect_fulfillment": {
-          "communists": +10, "capitalists": -30
+          "communists": 10,
+          "militarists": 20,
+          "religious": -15
         },
-        "effect_partisan": {},
+        "effect_partisan": {
+          "militarists": 30,
+          "capitalists": -5,
+          "communists": -5,
+          "liberalists": -5,
+          "religious": -5,
+          "ecologists": -5,
+          "nationalists": 5,
+          "loyalists": 10
+        },
         "effect_resource": {
-          "money": 10
+          "money": -30
         }
       },
       {
-        "label": "Refuser",
+        "label": "Accepter en négociant les termes.",
         "effect_fulfillment": {
-          "communists": 5, "ecologists": -20, "capitalists": 10
+          "militarists": 10,
+          "religious": -5
         },
-        "effect_partisan": {},
+        "effect_partisan": {
+          "militarists": 15,
+          "religious": -5,
+          "ecologists": -5
+        },
         "effect_resource": {
-          "industry": 20
+          "money": -20
         }
       },
       {
-        "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
+        "label": "Refuser.",
         "effect_fulfillment": {
-          "loyalists": 15, "nationalists": -30
+          "militarists": -15
         },
         "effect_partisan": {},
         "effect_resource": {}
-      }
+      },
     ],
     "next": {}
   }
