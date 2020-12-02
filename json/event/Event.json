@@ -13,24 +13,24 @@
         "effect_fulfillment": {
           "religious": -15, "liberals": -15
         },
-	"effect_part": {},
-	"effect_resource": {}
+        "effect_partisan": {},
+        "effect_resource": {}
       },
       {
         "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
         "effect_fulfillment": {
           "religious": 15, "liberals": -15
         },
-	"effect_part": {},
-	"effect_resource": {}
+        "effect_partisan": {},
+        "effect_resource": {}
       },
       {
         "label": "Accepter sans condition",
         "effect_fulfillment": {
           "religious": 10, "liberals": 10, "nationalists": -20
         },
-	"effect_part": {},
-	"effect_resource": {}
+        "effect_partisan": {},
+        "effect_resource": {}
       },
       {
         "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
@@ -38,14 +38,15 @@
           "nationalists": -20,
           "capitalists": 10
         },
-	"effect_part": {},
-	"effect_resource": {
-	"argent": 200
-	}
+        "effect_partisan": {},
+        "effect_resource": {
+          "money": 200
+        }
       }
     ],
     "next": {}
   },
+
   {
     "label": "Vous avez découvert un gisement d’or ! Que faire ?",
     "season": [
@@ -60,28 +61,28 @@
         "effect_fulfillment": {
           "communists": +10, "capitalists": -30
         },
-	"effect_part": {},
-	"effect_resource": {
-	"industry": 10
-	}
+        "effect_partisan": {},
+        "effect_resource": {
+          "industry": 10
+        }
       },
       {
         "label": "Exploitons-le au maximum pour moderniser le pays !",
         "effect_fulfillment": {
           "communists": 5, "ecologists": -20, "capitalists": 10
         },
-	"effect_part": {},
-	"effect_resource": {
-	"industry": 20
-	}
+        "effect_partisan": {},
+        "effect_resource": {
+          "industry": 20
+        }
       },
       {
         "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
         "effect_fulfillment": {
           "loyalists": 15, "nationalists": -30
         },
-	"effect_part": {},
-	"effect_resource": {}
+        "effect_partisan": {},
+        "effect_resource": {}
       }
     ],
     "next": {}
@@ -98,19 +99,71 @@
     "choices": [
       {
         "label": "Se mettre à l’abri"
-        "effect_sat": {
-          "capitalists": -20, "communists": -20,  "industry": -20,
-"religious": -20, "militarists": -20, "ecologists": -20, "nationalists": -20
+        "effect_fulfillment": {
+          "capitalists": -20,
+          "communists": -20,
+          "industry": -20,
+          "religious": -20,
+          "militarists": -20,
+          "ecologists": -20,
+          "nationalists": -20
         }
-	"effect_part": {
-          "capitalists": -10, "communists": -10, "liberalists": -10,
-"religious": -10, "militarists": -10, "ecologists": -10, "nationalists": -10,
-"loyalists": -10
+        "effect_partisan": {
+          "capitalists": -10,
+          "communists": -10,
+          "liberalists": -10,
+          "religious": -10,
+          "militarists": -10,
+          "ecologists": -10,
+          "nationalists": -10,
+          "loyalists": -10
         }
-	"effect_resource": {
-          "industry": -20, "farming": -10
-	}
+        "effect_resource": {
+          "industry": -20,
+          "farming": -10
+        }
       },
+    ],
+    "next": {}
+  },
+
+  {
+    "label": "L'armée est faible, et le peuple est paresseux. Nous devrions reinstaurer le service militaire.",
+    "season": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "choices": [
+      {
+        "label": "Accepter",
+        "effect_fulfillment": {
+          "communists": +10, "capitalists": -30
+        },
+        "effect_partisan": {},
+        "effect_resource": {
+          "money": 10
+        }
+      },
+      {
+        "label": "Refuser",
+        "effect_fulfillment": {
+          "communists": 5, "ecologists": -20, "capitalists": 10
+        },
+        "effect_partisan": {},
+        "effect_resource": {
+          "industry": 20
+        }
+      },
+      {
+        "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
+        "effect_fulfillment": {
+          "loyalists": 15, "nationalists": -30
+        },
+        "effect_partisan": {},
+        "effect_resource": {}
+      }
     ],
     "next": {}
   }
