@@ -2,7 +2,10 @@
   {
     "label": "L’Organisation des Caraïbes-Unis souhaite que vous accueillez des réfugiés climatiques\nsuite aux récentes inondations dans la région",
     "season": [
-      "Winter", "Summer", "Autumn", "Spring"
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
     ],
     "choices": [
       {
@@ -32,7 +35,8 @@
       {
         "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
         "effect_fulfillment": {
-          "nationalists": -20, "capitalists": 10
+          "nationalists": -20,
+          "capitalists": 10
         },
 	"effect_part": {},
 	"effect_resource": {
@@ -42,10 +46,13 @@
     ],
     "next": {}
   },
-{
-"label": "Vous avez découvert un gisement d’or ! Que faire ?",
+  {
+    "label": "Vous avez découvert un gisement d’or ! Que faire ?",
     "season": [
-      "Winter", "Summer", "Autumn", "Spring"
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
     ],
     "choices": [
       {
@@ -80,10 +87,13 @@
     "next": {}
   },
 
-{
-"label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
+  {
+    "label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
     "season": [
-      "Winter", "Summer", "Autumn", "Spring"
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
     ],
     "choices": [
       {
