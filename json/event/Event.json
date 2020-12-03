@@ -1,7 +1,7 @@
 [
   {
     "label": "L’Organisation des Caraïbes-Unis souhaite que vous accueillez des réfugiés climatiques\nsuite aux récentes inondations dans la région",
-    "season": [
+    "seasons": [
       "WINTER",
       "SUMMER",
       "AUTUMN",
@@ -39,21 +39,19 @@
       {
         "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
         "effect_fulfillment": {
-          "nationalists": -20,
-          "capitalists": 10
+          "nationalist": -20,
+          "capitalist": 10
         },
         "effect_partisan": {},
         "effect_resource": {
           "money": 200
         }
       }
-    ],
-    "next": {}
+    ]
   },
-
   {
     "label": "Vous avez découvert un gisement d’or ! Que faire ?",
-    "season": [
+    "seasons": [
       "WINTER",
       "SUMMER",
       "AUTUMN",
@@ -63,10 +61,9 @@
       {
         "label": "Utilisons-le pour améliorer le bien-être des citoyens !",
         "effect_fulfillment": {
-          "communists": +10,
-          "capitalists": -30
+          "communist": 10,
+          "capitalist": -30
         },
-        "effect_partisan": {},
         "effect_resource": {
           "industry": 10
         }
@@ -74,11 +71,10 @@
       {
         "label": "Exploitons-le au maximum pour moderniser le pays !",
         "effect_fulfillment": {
-          "communists": 5,
-          "ecologists": -20,
-          "capitalists": 10
+          "communist": 5,
+          "ecologist": -20,
+          "capitalist": 10
         },
-        "effect_partisan": {},
         "effect_resource": {
           "industry": 20
         }
@@ -86,11 +82,9 @@
       {
         "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
         "effect_fulfillment": {
-          "loyalists": 15,
-          "nationalists": -30
-        },
-        "effect_partisan": {},
-        "effect_resource": {}
+          "loyalist": 15,
+          "nationalist": -30
+        }
       }
     ],
     "next": {}
@@ -98,88 +92,81 @@
 
   {
     "label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
-    "season": [
+    "seasons": [
       "SUMMER",
       "AUTUMN"
     ],
     "choices": [
       {
-        "label": "Se mettre à l’abri"
+        "label": "Se mettre à l’abri",
         "effect_fulfillment": {
-          "capitalists": -20,
-          "communists": -20,
+          "capitalist": -20,
+          "communist": -20,
           "religious": -20,
-          "militarists": -20,
-          "ecologists": -20,
-          "nationalists": -20
-        }
+          "militarist": -20,
+          "ecologist": -20,
+          "nationalist": -20
+        },
         "effect_partisan": {
-          "capitalists": -10,
-          "communists": -10,
-          "liberalists": -10,
+          "capitalist": -10,
+          "communist": -10,
+          "liberalist": -10,
           "religious": -10,
-          "militarists": -10,
-          "ecologists": -10,
-          "nationalists": -10,
-          "loyalists": -10
-        }
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
         "effect_resource": {
           "industry": -20,
           "farming": -10
         }
-      },
+      }
     ],
     "next": {}
   },
   {
     "label": "Une avalanche s'est produite sur les nouvelles pistes de ski !",
-    "season": [
+    "seasons": [
       "WINTER"
     ],
     "choices": [
       {
-        "label": "Envoyer les secours pour chercher des rescapés."
+        "label": "Envoyer les secours pour chercher des rescapés.",
         "effect_fulfillment": {
-          "communists": 10,
+          "communist": 10,
           "religious": 20,
-          "militarists": 10,
-          "ecologists": 20,
-          "nationalists": 20
-        }
-        "effect_partisan": {
-          "communists": 10,
-          "religious": 10,
-          "militarists": 15,
-          "ecologists": 10,
-          "nationalists": 10,
-          "loyalists": 20
-        }
+          "militarist": 10,
+          "ecologist": 20,
+          "nationalist": 20
+        },
         "effect_resource": {
-          "money": -100
+          "money": -200
         }
       },
       {
-        "label": "Ne rien faire."
+        "label": "Ne rien faire.",
         "effect_fulfillment": {
-          "capitalists": -20,
-          "communists": -20,
-          "industry": -20,
+          "capitalist": -20,
+          "communist": -20,
           "religious": -20,
           "militarists": -20,
           "ecologists": -20,
           "nationalists": -20
-        }
+        },
         "effect_partisan": {
-          "capitalists": -10,
-          "communists": -10,
-          "liberalists": -10,
+          "capitalist": -10,
+          "communist": -10,
+          "liberalist": -10,
           "religious": -10,
-          "militarists": -10,
-          "ecologists": -10,
-          "nationalists": -10,
-          "loyalists": -10
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effect_resource": {
+          "money": -20
         }
-        "effect_resource": {}
       }
     ],
     "next": {}
@@ -187,7 +174,7 @@
 
   {
     "label": "L'armée est faible, et le peuple est paresseux. Nous devrions reinstaurer le service militaire.",
-    "season": [
+    "seasons": [
       "WINTER",
       "SUMMER",
       "AUTUMN",
@@ -201,43 +188,16 @@
           "militarists": 20,
           "religious": -15
         },
-        "effect_partisan": {
-          "militarists": 30,
-          "capitalists": -5,
-          "communists": -5,
-          "liberalists": -5,
-          "religious": -5,
-          "ecologists": -5,
-          "nationalists": 5,
-          "loyalists": 10
-        },
         "effect_resource": {
-          "money": -30
-        }
-      },
-      {
-        "label": "Accepter en négociant les termes.",
-        "effect_fulfillment": {
-          "militarists": 10,
-          "religious": -5
-        },
-        "effect_partisan": {
-          "militarists": 15,
-          "religious": -5,
-          "ecologists": -5
-        },
-        "effect_resource": {
-          "money": -20
+          "money": -50
         }
       },
       {
         "label": "Refuser.",
         "effect_fulfillment": {
           "militarists": -15
-        },
-        "effect_partisan": {},
-        "effect_resource": {}
-      },
+        }
+      }
     ],
     "next": {}
   }

@@ -17,12 +17,30 @@ public class Choice {
 
     @Override
     public String toString() {
-        return "Choice{" +
-                "label='" + label + '\'' +
-                ", effect_fulfillment=" + effect_fulfillment +
-                ", effect_partisan=" + effect_partisan +
-                ", effect_resource=" + effect_resource +
-                '}';
+        StringBuilder text = new StringBuilder();
+        if(effect_fulfillment != null) {
+            for (String effect : effect_fulfillment.keySet()) {
+                text.append("Satisfaction des ").append(effect).append(": ").append(effect_fulfillment.get(effect)).append("%\n");
+            }
+        }
+        if(effect_partisan != null) {
+            for (String effect : effect_partisan.keySet()) {
+                text.append("Partisan des ").append(effect).append(": ").append(effect_partisan.get(effect)).append("%\n");
+            }
+        }
+        if(effect_resource != null) {
+            for (String effect : effect_resource.keySet()) {
+                text.append("Ressource ").append(effect).append(": ").append(effect_resource.get(effect));
+                if(!effect.equals("money")){
+                    text.append("%");
+                }
+                else{
+                    text.append("$");
+                }
+                text.append("\n");
+            }
+        }
+        return text.toString();
     }
 
     public String getLabel() {

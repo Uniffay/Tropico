@@ -23,6 +23,9 @@ public class Dictator {
 			Map<String, Double> map = gson.fromJson(reader, Map.class);
 			resource.put("farming", map.get("farming").intValue());
 			resource.put("industry", map.get("industry").intValue());
+			if(resource.get("farming") + resource.get("industry") > 100) {
+				throw new IllegalArgumentException("sum of farming and industry musn't be superior to 100");
+			}
 			resource.put("money", map.get("money").intValue());
 		}catch (IOException e){
 			e.printStackTrace();
@@ -46,7 +49,17 @@ public class Dictator {
     public void haveChosen(Choice choice) {
 		if(choice.getEffect_resource() != null){
 			for (String effect: choice.getEffect_resource().keySet()){
-				resource.replace(effect, resource.get(effect) + choice.getEffect_resource().get(effect));
+				try {
+					int resourceValue = choice.getEffect_resource().get(effect);
+					if (!effect.equals("money")) {
+						if (resource.get("farming") + resourceValue + resource.get("industry") > 100) {
+							resourceValue = 100 - (resource.get("farming") + resource.get("industry"));
+						}
+					}
+					resource.replace(effect, Math.max(resource.get(effect) + resourceValue, 0));
+				} catch (NullPointerException e){
+					throw new IllegalArgumentException(effect + " is not a resource");
+				}
 			}
 		}
 		if(choice.getEffect_fulfillment() != null){

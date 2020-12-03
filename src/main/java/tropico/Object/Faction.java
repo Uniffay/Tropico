@@ -34,7 +34,7 @@ public class Faction {
 	}
 
 	public void changePartisan(Integer partisan) {
-		this.partisan = Math.max(this.partisan + partisan, 0);
+		this.partisan = Math.max(this.partisan * (100 + partisan) / 100, 0);
 	}
 
 	public void changeFulfillment(short fulfillment) {

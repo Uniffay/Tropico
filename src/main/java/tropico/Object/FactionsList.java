@@ -49,24 +49,36 @@ public class FactionsList {
 	}
 
 	public void changePartisan(HashMap<String, Integer> effect_partisan) {
+		boolean verify = false;
 		for(String effect: effect_partisan.keySet()) {
 			for (Faction faction : factions) {
 				if (faction.getEnglishName().equals(effect)){
 					faction.changePartisan(effect_partisan.get(effect));
+					verify = true;
 					break;
 				}
 			}
+			if(!verify){
+				throw new IllegalArgumentException(effect + " is not a faction");
+			}
+			verify = false;
 		}
 	}
 
 	public void changeFulfillment(HashMap<String, Integer> effect_fulfillment) {
+		boolean verify = false;
 		for(String effect: effect_fulfillment.keySet()) {
 			for (Faction faction : factions) {
 				if (faction.getEnglishName().equals(effect)){
 					faction.changeFulfillment(effect_fulfillment.get(effect).shortValue());
+					verify = true;
 					break;
 				}
 			}
+			if(!verify){
+				throw new IllegalArgumentException(effect + " is not a faction");
+			}
+			verify = false;
 		}
 	}
 }

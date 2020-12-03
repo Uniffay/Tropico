@@ -1,16 +1,26 @@
 package tropico.Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.OverrunStyle;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.Polygon;
+import javafx.stage.Stage;
 import tropico.Model.DataManagement;
+import tropico.Model.StageManagement;
+import tropico.Model.ViewManagement;
+import tropico.Object.Choice;
 import tropico.Object.Data;
 import tropico.Object.Faction;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,100 +28,135 @@ import java.util.List;
 public class Controller {
 
     @FXML
-    private Label Money;
+    private Label money;
 
     @FXML
-    private Label Industry;
+    private Label industry;
 
     @FXML
-    private Label Farming;
+    private Label farming;
 
     @FXML
-    private Label Capitalist_partisan;
+    private Label capitalistPartisan;
 
     @FXML
-    private Label Capitalist_fulfillment;
+    private Label capitalistFulfillment;
 
     @FXML
-    private Label Communist_partisan;
+    private Label communistPartisan;
 
     @FXML
-    private Label Communist_fulfillment;
+    private Label communistFulfillment;
 
     @FXML
-    private Label Liberal_partisan;
+    private Label liberalPartisan;
 
     @FXML
-    private Label Liberal_fulfillment;
+    private Label liberalFulfillment;
 
     @FXML
-    private Label Religious_partisan;
+    private Label religiousPartisan;
 
     @FXML
-    private Label Religious_fulfillment;
+    private Label religiousFulfillment;
 
     @FXML
-    private Label Militarist_partisan;
+    private Label militaristPartisan;
 
     @FXML
-    private Label Militarist_fulfillment;
+    private Label militaristFulfillment;
 
     @FXML
-    private Label Ecologist_partisan;
+    private Label ecologistPartisan;
 
     @FXML
-    private Label Ecologist_fulfillment;
+    private Label ecologistFulfillment;
 
     @FXML
-    private Label Nationalist_partisan;
+    private Label nationalistPartisan;
 
     @FXML
-    private Label Nationalist_fulfillment;
+    private Label nationalistFulfillment;
 
     @FXML
-    private Label Loyalist_partisan;
+    private Label loyalistPartisan;
 
     @FXML
-    private Label Loyalist_fulfillment;
+    private Label loyalistFulfillment;
 
     @FXML
-    private Label Event;
+    private Label eventLabel;
 
     @FXML
-    private Label Choice1;
+    private Label choice1;
 
     @FXML
-    private Label Choice2;
+    private Label choice2;
 
     @FXML
-    private Label Choice3;
+    private Label choice3;
 
     @FXML
-    private Label Choice4;
+    private Label choice4;
 
     @FXML
-    private Label Date;
+    private Label date;
 
     @FXML
-    private Label Season;
+    private Label season;
 
     @FXML
-    private ImageView Background;
+    private ImageView background;
+
+    @FXML
+    private Label next;
+
+    @FXML
+    private Label effect;
+
+    @FXML
+    private ScrollPane scrollPaneLabel;
+
+    @FXML
+    private ScrollPane factionScrollPane;
+
+    @FXML
+    private AnchorPane eventPane;
+
+    @FXML
+    private Arc buttonFaction;
+
+    @FXML
+    private Polygon arrowAddFaction;
+
+    @FXML
+    private Arc buttonEvent;
+
+    @FXML
+    private Polygon arrowAddEvent;
+
+    @FXML
+    private AnchorPane results;
+
+    @FXML
+    private Label resultLabel;
+
 
     public void initialize() {
         Data gameData = DataManagement.getData();
         int turn = gameData.getTurn();
-        Date.setText("24/" + getMonth(turn) + "/"+ String.valueOf(turn / 4 + 2015));
-        Season.setText(gameData.getSeason().getName());
-        Money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("money")));
-        Farming.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("farming") + "%"));
-        Industry.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("industry") + "%"));
+        date.setText("24/" + getMonth(turn) + "/"+ String.valueOf(turn / 4 + 2015));
+        season.setText(gameData.getSeason().getName());
+        money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("money")));
+        farming.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("farming") + "%"));
+        industry.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("industry") + "%"));
+        setBackground(gameData);
         initialize_event(gameData);
         initialize_factionLabel(gameData);
     }
 
     private void initialize_event(Data gameData) {
-        Event.setText(gameData.getEventChosen().getLabel());
+        eventLabel.setText(gameData.getEventChosen().getLabel());
         ArrayList<Label> Choices = initialize_choicesManagement();
         for (int i = 0; i < 4; i++){
             if(i >= gameData.getEventChosen().getChoices().size()){
@@ -126,10 +171,10 @@ public class Controller {
 
     private ArrayList<Label> initialize_choicesManagement() {
         return new ArrayList<>(List.of(
-                Choice1,
-                Choice2,
-                Choice3,
-                Choice4
+                choice1,
+                choice2,
+                choice3,
+                choice4
         ));
     }
 
@@ -151,22 +196,22 @@ public class Controller {
 
     private ArrayList<Label> initialize_labelManagement() {
         return  new ArrayList<>(List.of(
-                Capitalist_partisan,
-                Capitalist_fulfillment,
-                Communist_partisan,
-                Communist_fulfillment,
-                Liberal_partisan,
-                Liberal_fulfillment,
-                Religious_partisan,
-                Religious_fulfillment,
-                Militarist_partisan,
-                Militarist_fulfillment,
-                Ecologist_partisan,
-                Ecologist_fulfillment,
-                Nationalist_partisan,
-                Nationalist_fulfillment,
-                Loyalist_partisan,
-                Loyalist_fulfillment
+                capitalistPartisan,
+                capitalistFulfillment,
+                communistPartisan,
+                communistFulfillment,
+                liberalPartisan,
+                liberalFulfillment,
+                religiousPartisan,
+                religiousFulfillment,
+                militaristPartisan,
+                militaristFulfillment,
+                ecologistPartisan,
+                ecologistFulfillment,
+                nationalistPartisan,
+                nationalistFulfillment,
+                loyalistPartisan,
+                loyalistFulfillment
         ));
     }
 
@@ -174,9 +219,8 @@ public class Controller {
     void choice1Handle(MouseEvent event) {
         Data gameData = DataManagement.getData();
         gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(0));
-        gameData.endTurn();
-        setBackground(gameData);
-        initialize();
+
+        showEffect(gameData.getEventChosen().getChoices().get(0));
 
     }
 
@@ -184,39 +228,103 @@ public class Controller {
     void choice2Handle(MouseEvent event) {
         Data gameData = DataManagement.getData();
         gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(1));
-        gameData.endTurn();
-        setBackground(gameData);
-        initialize();
+        showEffect(gameData.getEventChosen().getChoices().get(1));
     }
 
     @FXML
     void choice3Handle(MouseEvent event) {
         Data gameData = DataManagement.getData();
         gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(2));
-        gameData.endTurn();
-        setBackground(gameData);
-        initialize();
+        showEffect(gameData.getEventChosen().getChoices().get(2));
     }
 
     @FXML
     void choice4Handle(MouseEvent event) {
         Data gameData = DataManagement.getData();
         gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(3));
-        gameData.endTurn();
-        setBackground(gameData);
-        initialize();
+        showEffect(gameData.getEventChosen().getChoices().get(3));
     }
 
     private void setBackground(Data gameData) {
-        InputStream input = getClass().getResourceAsStream("background" + gameData.getSeason().name() + ".png");
+        int numberIndustry = gameData.getPlayerPlaying().getResource().get("industry") / 20 * 20;
+        int numberFarming = gameData.getPlayerPlaying().getResource().get("farming") / 20 * 20;
+        InputStream input = getClass().getResourceAsStream("background" + gameData.getSeason().name() + numberIndustry + "_0" + ".png");
         Image image = new Image(input);
-        Background.setImage(image);
+        background.setImage(image);
     }
 
     @FXML
-    void removeFactionBar(MouseEvent event) {
+    void removeFactionBar(MouseEvent event) throws IOException {
+        eventPane.setLayoutX(275);
+        eventPane.setLayoutY(158);
+        buttonFaction.setVisible(true);
+        factionScrollPane.setVisible(false);
+        arrowAddFaction.setVisible(true);
+    }
+
+    private void showEffect(Choice choice) {
+        eventLabel.setVisible(false);
+        choice1.setVisible(false);
+        choice2.setVisible(false);
+        choice3.setVisible(false);
+        choice4.setVisible(false);
+        effect.setVisible(true);
+        scrollPaneLabel.setVisible(true);
+        effect.setText(choice.toString());
+        next.setVisible(true);
+    }
+
+    @FXML
+    void nextEvent(MouseEvent event) {
+        Data gameData = DataManagement.getData();
+        eventLabel.setVisible(true);
+        effect.setVisible(false);
+        scrollPaneLabel.setVisible(false);
+        next.setVisible(false);
+        gameData.endTurn();
+        initialize();
+    }
+
+    @FXML
+    void removeEventBar(MouseEvent event) throws IOException {
+        eventPane.setVisible(false);
+        arrowAddEvent.setVisible(true);
+        buttonEvent.setVisible(true);
 
     }
 
+    @FXML
+    public void addFactionBar(MouseEvent mouseEvent) {
+        eventPane.setLayoutX(361);
+        eventPane.setLayoutY(158);
+        buttonFaction.setVisible(false);
+        factionScrollPane.setVisible(true);
+        arrowAddFaction.setVisible(false);
+    }
 
+    @FXML
+    void addEventBar(MouseEvent event) {
+        eventPane.setVisible(true);
+        arrowAddEvent.setVisible(false);
+        buttonEvent.setVisible(false);
+    }
+
+    @FXML
+    void factionResults(MouseEvent event) {
+
+    }
+
+    @FXML
+    void farmingResults(MouseEvent event) {
+
+    }
+
+    @FXML
+    void industryResults(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void removeBilanBar(MouseEvent mouseEvent) {
+    }
 }

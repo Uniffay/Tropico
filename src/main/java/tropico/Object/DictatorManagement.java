@@ -6,13 +6,13 @@ public class DictatorManagement {
 	
 	private final ArrayList<Dictator> dictators = new ArrayList<>();
 	
-	public DictatorManagement(int number, String[] name, String jsonParserRessource, String jsonParserFactions) {
+	public DictatorManagement(int number, String[] name, String jsonParserResource, String jsonParserFactions) {
 		for (int i = 0; i < number; i++) {
 			if(i < name.length) {
-				dictators.add(new Dictator(name[i], jsonParserRessource, jsonParserFactions));
+				dictators.add(new Dictator(name[i], jsonParserResource, jsonParserFactions));
 			}
 			else{
-				dictators.add(new Dictator("player" + i, jsonParserRessource, jsonParserFactions));
+				dictators.add(new Dictator("player" + i, jsonParserResource, jsonParserFactions));
 			}
 		}
 	}

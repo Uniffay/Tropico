@@ -6,119 +6,197 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" style="-fx-background-image: img\background.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.Controller">
-   <ImageView fx:id="Background" fitHeight="750.0" fitWidth="1050.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../Controller/backgroundSummer.png" />
+   <ImageView fx:id="background" fitHeight="760.0" fitWidth="1050.0" layoutY="-5.0" pickOnBounds="true">
+      <Image url="@../Controller/backgroundSpring0.png" />
    </ImageView>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="242.0" stroke="BLACK" strokeType="INSIDE" width="809.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="435.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="651.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="851.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="657.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="454.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="596.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="54.0" layoutX="615.0" stroke="BLACK" strokeType="INSIDE" width="186.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="54.0" layoutX="801.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="54.0" layoutX="923.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
+   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="802.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../img/industry.png" />
    </ImageView>
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="864.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="928.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../img/wheat.png" />
    </ImageView>
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="439.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="617.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../img/money.png" />
    </ImageView>
-   <Label fx:id="Money" alignment="CENTER" layoutX="468.0" layoutY="3.0" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
-   <Label fx:id="Industry" alignment="CENTER" layoutX="705.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="Industry" textAlignment="CENTER" />
-   <Label fx:id="Farming" alignment="CENTER" layoutX="885.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="Farming" textAlignment="CENTER" />
-   <ScrollPane layoutY="1.0" prefHeight="750.0" prefWidth="241.0" style="-fx-background-color: black; -fx-border-color: black;">
+   <Label fx:id="money" alignment="CENTER" layoutX="646.0" layoutY="1.0" prefHeight="50.0" prefWidth="144.0" text="Money" textAlignment="CENTER">
+      <font>
+         <Font name="Comic Sans MS Bold" size="18.0" />
+      </font></Label>
+   <Label fx:id="industry" alignment="CENTER" layoutX="833.0" prefHeight="50.0" prefWidth="94.0" text="Industry" textAlignment="CENTER">
+      <font>
+         <Font name="Comic Sans MS Bold" size="18.0" />
+      </font></Label>
+   <Label fx:id="farming" alignment="CENTER" layoutX="937.0" layoutY="1.0" prefHeight="50.0" prefWidth="108.0" text="Farming" textAlignment="CENTER">
+      <font>
+         <Font name="Comic Sans MS Bold" size="18.0" />
+      </font></Label>
+   <ScrollPane fx:id="factionScrollPane" layoutY="1.0" prefHeight="750.0" prefWidth="241.0" style="-fx-background-color: black; -fx-border-color: black;">
       <AnchorPane prefHeight="800.0" prefWidth="223.0" style="-fx-background-color: black;">
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="19.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/capitalism.png" />
          </ImageView>
          <Label layoutX="19.0" layoutY="12.0" prefHeight="18.0" prefWidth="145.0" text="Capitalistes:" textFill="WHITE" />
          <Label layoutX="78.0" layoutY="35.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Capitalist_partisan" layoutX="151.0" layoutY="40.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="capitalistPartisan" layoutX="151.0" layoutY="40.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="78.0" layoutY="72.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Capitalist_fulfillment" layoutX="151.0" layoutY="72.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="capitalistFulfillment" layoutX="151.0" layoutY="72.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="19.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/communist.png" />
          </ImageView>
          <Label layoutX="19.0" layoutY="112.0" prefHeight="18.0" prefWidth="145.0" text="Communistes:" textFill="WHITE" />
          <Label layoutX="78.0" layoutY="135.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Communist_partisan" layoutX="151.0" layoutY="140.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="communistPartisan" layoutX="151.0" layoutY="140.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="78.0" layoutY="172.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Communist_fulfillment" layoutX="151.0" layoutY="172.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="communistFulfillment" layoutX="151.0" layoutY="172.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="20.0" layoutY="227.0" pickOnBounds="true">
             <Image url="@../../img/liberals.png" />
          </ImageView>
          <Label layoutX="20.0" layoutY="204.0" prefHeight="18.0" prefWidth="145.0" text="Libéraux:" textFill="WHITE" />
          <Label layoutX="79.0" layoutY="227.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Liberal_partisan" layoutX="152.0" layoutY="232.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="liberalPartisan" layoutX="152.0" layoutY="232.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="79.0" layoutY="264.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Liberal_fulfillment" layoutX="152.0" layoutY="264.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="liberalFulfillment" layoutX="152.0" layoutY="264.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="14.0" layoutY="322.0" pickOnBounds="true">
             <Image url="@../../img/religious.png" />
          </ImageView>
          <Label layoutX="14.0" layoutY="299.0" prefHeight="18.0" prefWidth="145.0" text="Religieux:" textFill="WHITE" />
          <Label layoutX="73.0" layoutY="322.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Religious_partisan" layoutX="146.0" layoutY="327.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="religiousPartisan" layoutX="146.0" layoutY="327.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="73.0" layoutY="359.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Religious_fulfillment" layoutX="146.0" layoutY="359.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="religiousFulfillment" layoutX="146.0" layoutY="359.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="15.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/militarist.png" />
          </ImageView>
          <Label layoutX="15.0" layoutY="395.0" prefHeight="18.0" prefWidth="145.0" text="Militaristes:" textFill="WHITE" />
          <Label layoutX="74.0" layoutY="418.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Militarist_partisan" layoutX="147.0" layoutY="423.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="militaristPartisan" layoutX="147.0" layoutY="423.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="74.0" layoutY="455.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Militarist_fulfillment" layoutX="147.0" layoutY="455.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="militaristFulfillment" layoutX="147.0" layoutY="455.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="16.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/ecologist.png" />
          </ImageView>
          <Label layoutX="16.0" layoutY="484.0" prefHeight="18.0" prefWidth="145.0" text="Ecologistes:" textFill="WHITE" />
          <Label layoutX="75.0" layoutY="507.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Ecologist_partisan" layoutX="148.0" layoutY="512.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="ecologistPartisan" layoutX="148.0" layoutY="512.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="75.0" layoutY="544.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Ecologist_fulfillment" layoutX="148.0" layoutY="544.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="ecologistFulfillment" layoutX="148.0" layoutY="544.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="12.0" layoutY="606.0" pickOnBounds="true">
             <Image url="@../../img/nationalist.png" />
          </ImageView>
          <Label layoutX="12.0" layoutY="583.0" prefHeight="18.0" prefWidth="145.0" text="Nationalistes:" textFill="WHITE" />
          <Label layoutX="71.0" layoutY="606.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Nationalist_partisan" layoutX="144.0" layoutY="611.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="nationalistPartisan" layoutX="144.0" layoutY="611.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="71.0" layoutY="643.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Nationalist_fulfillment" layoutX="144.0" layoutY="643.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="nationalistFulfillment" layoutX="144.0" layoutY="643.0" text="NUMBER" textFill="#fdfdfd" />
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="14.0" layoutY="703.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/loyalist.png" />
          </ImageView>
          <Label layoutX="14.0" layoutY="680.0" prefHeight="18.0" prefWidth="145.0" text="Loyalistes:" textFill="WHITE" />
          <Label layoutX="73.0" layoutY="703.0" prefHeight="27.0" prefWidth="50.0" text="Partisan:" textFill="#f5f5f5" />
-         <Label fx:id="Loyalist_partisan" layoutX="146.0" layoutY="708.0" text="NUMBER" textFill="#fdfdfd" />
+         <Label fx:id="loyalistPartisan" layoutX="146.0" layoutY="708.0" text="NUMBER" textFill="#fdfdfd" />
          <Label layoutX="73.0" layoutY="740.0" text="Satisfaction:" textFill="#f0f0f0" />
-         <Label fx:id="Loyalist_fulfillment" layoutX="146.0" layoutY="740.0" text="NUMBER" textFill="#fdfdfd" />
-         <Label layoutX="195.0" layoutY="4.0" onMouseClicked="#removeFactionBar" prefHeight="19.0" prefWidth="18.0" style="-fx-border-color: white;" text="&lt;-" textFill="#f0f0f0" />
+         <Label fx:id="loyalistFulfillment" layoutX="146.0" layoutY="740.0" text="NUMBER" textFill="#fdfdfd" />
+         <Polygon fill="#fdfdfd" layoutX="216.0" layoutY="56.0" onMouseClicked="#removeFactionBar" points="-24.79998779296875, -34.400001525878906, -6.1999969482421875, -19.199996948242188, -6.1999969482421875, -50.400001525878906" stroke="BLACK" strokeType="INSIDE" />
       </AnchorPane>
    </ScrollPane>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" height="454.0" layoutX="406.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="552.0" />
-   <Label fx:id="Event" layoutX="444.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textAlignment="CENTER" textFill="#f5f5f5" wrapText="true" />
-   <Label fx:id="Choice1" layoutX="440.0" layoutY="294.0" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-   </Label>
-   <Label fx:id="Choice2" layoutX="440.0" layoutY="369.0" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-   </Label>
-   <Label fx:id="Choice3" layoutX="440.0" layoutY="446.0" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-   </Label>
-   <Label fx:id="Choice4" layoutX="440.0" layoutY="523.0" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-      <opaqueInsets>
-         <Insets />
-      </opaqueInsets>
-   </Label>
-   <Label fx:id="Date" alignment="CENTER" layoutX="242.0" prefHeight="25.0" prefWidth="186.0" style="-fx-padding: 5;" text="DATE" textFill="WHITE" wrapText="true" />
-   <Label fx:id="Season" alignment="CENTER" layoutX="256.0" layoutY="28.0" prefHeight="18.0" prefWidth="166.0" text="Season" textFill="WHITE" />
+   <Label fx:id="date" alignment="CENTER" layoutX="452.0" layoutY="4.0" prefHeight="27.0" prefWidth="166.0" style="-fx-padding: 5;" text="DATE" textFill="WHITE" wrapText="true" />
+   <Label fx:id="season" alignment="CENTER" layoutX="455.0" layoutY="32.0" prefHeight="18.0" prefWidth="157.0" text="Season" textFill="WHITE" />
+   <AnchorPane fx:id="eventPane" layoutX="361.0" layoutY="158.0" prefHeight="462.0" prefWidth="571.0" style="-fx-background-color: black;">
+      <Label fx:id="eventLabel" layoutX="41.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textAlignment="CENTER" textFill="#f5f5f5" wrapText="true">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font></Label>
+      <Label fx:id="choice1" layoutX="40.0" layoutY="109.0" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="choice2" layoutX="40.0" layoutY="192.0" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="choice3" layoutX="40.0" layoutY="283.0" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="choice4" layoutX="40.0" layoutY="365.0" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="11.0" layoutX="511.0" layoutY="21.0" onMouseClicked="#removeEventBar" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <ScrollPane fx:id="scrollPaneLabel" layoutX="27.0" layoutY="14.0" prefHeight="374.0" prefWidth="531.0" style="-fx-border-color: black; -fx-background-color: black;" visible="false">
+         <opaqueInsets>
+            <Insets bottom="10.0" />
+         </opaqueInsets>
+         <content>
+            <AnchorPane prefHeight="370.0" prefWidth="527.0" style="-fx-background-color: black;">
+               <children>
+                  <Label fx:id="effect" alignment="CENTER" layoutX="-8.0" layoutY="-13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="531.0" style="-fx-background-color: black;" text="Label" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Label fx:id="next" layoutX="464.0" layoutY="419.0" onMouseClicked="#nextEvent" prefHeight="27.0" prefWidth="79.0" style="-fx-border-color: white; -fx-padding: 5;" text="Suivant" textFill="#f5f5f5" visible="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+   </AnchorPane>
+   <Arc fx:id="buttonFaction" layoutY="363.0" length="180.0" onMouseClicked="#addFactionBar" radiusX="58.0" radiusY="54.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+   <Polygon fx:id="arrowAddFaction" fill="WHITE" layoutX="63.0" layoutY="344.0" onMouseClicked="#addFactionBar" points="-50.0, 40.0, -19.800003051757812, 18.0, -50.0000114440918, -2.800018310546875" stroke="BLACK" strokeType="INSIDE" visible="false" />
+   <Arc fx:id="buttonEvent" layoutX="634.0" layoutY="755.0" length="180.0" onMouseClicked="#addEventBar" radiusX="58.0" radiusY="54.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+   <Polygon fx:id="arrowAddEvent" fill="WHITE" layoutX="669.0" layoutY="714.0" onMouseClicked="#addEventBar" points="-57.79998779296875, 24.0, -11.39996337890625, 24.0, -37.79998779296875, 2.800048828125" stroke="BLACK" strokeType="INSIDE" visible="false" />
+   <AnchorPane fx:id="results" layoutX="366.0" layoutY="163.0" prefHeight="423.0" prefWidth="490.0" style="-fx-background-color: black;" visible="false">
+      <children>
+         <Label alignment="CENTER" onMouseClicked="#farmingResults" prefHeight="43.0" prefWidth="102.0" style="-fx-border-color: white;" text="Agriculture" textFill="WHITE">
+            <font>
+               <Font name="Comic Sans MS" size="14.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="102.0" onMouseClicked="#factionResults" prefHeight="43.0" prefWidth="102.0" style="-fx-border-color: white;" text="Faction" textFill="WHITE">
+            <font>
+               <Font name="Comic Sans MS" size="14.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="204.0" onMouseClicked="#industryResults" prefHeight="43.0" prefWidth="102.0" style="-fx-border-color: white;" text="Industrie" textFill="WHITE">
+            <font>
+               <Font name="Comic Sans MS" size="14.0" />
+            </font>
+         </Label>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="11.0" layoutX="440.0" layoutY="16.0" onMouseClicked="#removeBilanBar" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+         <Label fx:id="resultLabel" alignment="TOP_LEFT" layoutX="13.0" layoutY="59.0" prefHeight="314.0" prefWidth="462.0" textFill="WHITE" />
+      </children>
+   </AnchorPane>
 </AnchorPane>

@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tropico.Controller.Controller;
 import tropico.Model.DataManagement;
+import tropico.Model.StageManagement;
 import tropico.Object.Data;
 
 import java.io.IOException;
@@ -26,7 +27,9 @@ public class App extends Application {
         DataManagement.setData(gameData);
         try {
             primaryStage = stage;
-            AnchorPane root = FXMLLoader.load(getClass().getResource("gameView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("gameView.fxml"));
+            AnchorPane root = loader.load();
+            StageManagement.setStage(primaryStage);
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
