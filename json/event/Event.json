@@ -184,8 +184,8 @@
       {
         "label": "Accepter",
         "effect_fulfillment": {
-          "communists": 10,
-          "militarists": 20,
+          "communist": 10,
+          "militarist": 20,
           "religious": -15
         },
         "effect_resource": {
@@ -195,7 +195,7 @@
       {
         "label": "Refuser.",
         "effect_fulfillment": {
-          "militarists": -15
+          "militarist": -15
         }
       }
     ],
