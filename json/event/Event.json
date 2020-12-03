@@ -86,8 +86,7 @@
           "nationalist": -30
         }
       }
-    ],
-    "next": {}
+    ]
   },
 
   {
@@ -122,8 +121,7 @@
           "farming": -10
         }
       }
-    ],
-    "next": {}
+    ]
   },
   {
     "label": "Une avalanche s'est produite sur les nouvelles pistes de ski !",
@@ -168,8 +166,7 @@
           "money": -20
         }
       }
-    ],
-    "next": {}
+    ]
   },
 
   {
@@ -198,7 +195,6 @@
           "militarist": -15
         }
       }
-    ],
-    "next": {}
+    ]
   }
 ]
