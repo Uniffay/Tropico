@@ -12,7 +12,7 @@
         "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
         "effect_fulfillment": {
           "religious": -15,
-          "liberals": -15
+          "liberal": -15
         },
         "effect_partisan": {},
         "effect_resource": {}
@@ -21,7 +21,7 @@
         "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
         "effect_fulfillment": {
           "religious": 15,
-          "liberals": -15
+          "liberal": -15
         },
         "effect_partisan": {},
         "effect_resource": {}
@@ -30,7 +30,7 @@
         "label": "Accepter sans condition",
         "effect_fulfillment": {
           "religious": 10,
-          "liberals": 10,
+          "liberal": 10,
           "nationalists": -20
         },
         "effect_partisan": {},
@@ -109,7 +109,7 @@
         "effect_partisan": {
           "capitalist": -10,
           "communist": -10,
-          "liberalist": -10,
+          "liberal": -10,
           "religious": -10,
           "militarist": -10,
           "ecologist": -10,
@@ -148,14 +148,14 @@
           "capitalist": -20,
           "communist": -20,
           "religious": -20,
-          "militarists": -20,
-          "ecologists": -20,
-          "nationalists": -20
+          "militarist": -20,
+          "ecologist": -20,
+          "nationalist": -20
         },
         "effect_partisan": {
           "capitalist": -10,
           "communist": -10,
-          "liberalist": -10,
+          "liberal": -10,
           "religious": -10,
           "militarist": -10,
           "ecologist": -10,
