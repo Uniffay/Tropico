@@ -101,10 +101,12 @@
         "effect_fulfillment": {
           "capitalist": -20,
           "communist": -20,
+          "liberal": -10,
           "religious": -20,
           "militarist": -20,
           "ecologist": -20,
-          "nationalist": -20
+          "nationalist": -20,
+          "loyalist": -10
         },
         "effect_partisan": {
           "capitalist": -10,

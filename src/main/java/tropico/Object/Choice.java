@@ -25,7 +25,7 @@ public class Choice {
         }
         if(effect_partisan != null) {
             for (String effect : effect_partisan.keySet()) {
-                text.append("Partisan des ").append(effect).append(": ").append(effect_partisan.get(effect)).append("%\n");
+                text.append("Partisan des ").append(FactionsList.get(effect)).append(": ").append(effect_partisan.get(effect)).append("%\n");
             }
         }
         if(effect_resource != null) {

@@ -11,7 +11,8 @@ import java.util.Map;
 
 public class FactionsList {
 	
-	private final ArrayList<Faction> factions= new ArrayList<>();;
+	private final ArrayList<Faction> factions= new ArrayList<>();
+	private static HashMap<String, String> FACTIONS_NAME;
 	
 	public FactionsList(String jsonPath) {
 		try {
@@ -20,7 +21,8 @@ public class FactionsList {
 
 			// create a reader
 			Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
-
+			Reader readerName = Files.newBufferedReader(Paths.get("json/faction/factionName.json"));
+			FACTIONS_NAME = gson.fromJson(readerName, HashMap.class);
 			// convert JSON file to map
 			Map<?, ?>[] map = gson.fromJson(reader, Map[].class);
 
@@ -37,8 +39,12 @@ public class FactionsList {
 			ex.printStackTrace();
 		}
 
-	}	
-	
+	}
+
+	public static String get(String name) {
+		return FACTIONS_NAME.get(name);
+	}
+
 	public ArrayList<Faction> getFactions(){
 		return factions;
 	}
