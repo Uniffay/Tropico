@@ -2,6 +2,7 @@ package tropico.Object;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Event {
 
@@ -29,15 +30,15 @@ public class Event {
                 '}';
     }
 
-    public ArrayList<Season> getSeason() {
-        return seasons;
+    public List<Season> getSeason() {
+        return new ArrayList<>(seasons);
     }
 
     public String getLabel() {
         return label;
     }
 
-    public ArrayList<Choice> getChoices() {
-        return choices;
+    public List<Choice> getChoices() {
+        return new ArrayList<>(choices);
     }
 }

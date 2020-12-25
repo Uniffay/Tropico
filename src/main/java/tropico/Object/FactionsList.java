@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FactionsList {
@@ -21,7 +22,7 @@ public class FactionsList {
 
 			// create a reader
 			Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
-			Reader readerName = Files.newBufferedReader(Paths.get("json/faction/factionName.json"));
+			Reader readerName = Files.newBufferedReader(Paths.get("json/faction/name.json"));
 			FACTIONS_NAME = gson.fromJson(readerName, HashMap.class);
 			// convert JSON file to map
 			Map<?, ?>[] map = gson.fromJson(reader, Map[].class);
@@ -45,8 +46,8 @@ public class FactionsList {
 		return FACTIONS_NAME.get(name);
 	}
 
-	public ArrayList<Faction> getFactions(){
-		return factions;
+	public List<Faction> getFactions(){
+		return new ArrayList<>(factions);
 	}
 
 	@Override
@@ -54,7 +55,7 @@ public class FactionsList {
 		return factions.toString();
 	}
 
-	public void changePartisan(HashMap<String, Integer> effect_partisan) {
+	public void changePartisan(Map<String, Integer> effect_partisan) {
 		boolean verify = false;
 		for(String effect: effect_partisan.keySet()) {
 			for (Faction faction : factions) {
@@ -71,7 +72,7 @@ public class FactionsList {
 		}
 	}
 
-	public void changeFulfillment(HashMap<String, Integer> effect_fulfillment) {
+	public void changeFulfillment(Map<String, Integer> effect_fulfillment) {
 		boolean verify = false;
 		for(String effect: effect_fulfillment.keySet()) {
 			for (Faction faction : factions) {

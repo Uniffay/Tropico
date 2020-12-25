@@ -10,8 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Polygon;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import tropico.Model.DataManagement;
 import tropico.Model.StageManagement;
@@ -112,10 +114,13 @@ public class Controller {
     private Label next;
 
     @FXML
-    private Label effect;
+    private Text effect;
 
     @FXML
     private ScrollPane scrollPaneLabel;
+
+    @FXML
+    private AnchorPane resultEventPane;
 
     @FXML
     private ScrollPane factionScrollPane;
@@ -189,7 +194,7 @@ public class Controller {
         int i = 0;
         for (Faction faction: gameData.getPlayerPlaying().getFactions().getFactions()){
             LabelManagement.get(i).setText(String.valueOf(faction.getPartisan()));
-            LabelManagement.get(i + 1).setText(String.valueOf(faction.getFulfillment()));
+            LabelManagement.get(i + 1).setText(String.valueOf(faction.getFulfillment()) + "%");
             i += 2;
         }
     }
@@ -219,7 +224,6 @@ public class Controller {
     void choice1Handle(MouseEvent event) {
         Data gameData = DataManagement.getData();
         gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(0));
-
         showEffect(gameData.getEventChosen().getChoices().get(0));
 
     }
@@ -257,29 +261,31 @@ public class Controller {
     void removeFactionBar(MouseEvent event) throws IOException {
         eventPane.setLayoutX(275);
         eventPane.setLayoutY(158);
+        resultEventPane.setLayoutX(275);
+        resultEventPane.setLayoutY(158);
         buttonFaction.setVisible(true);
         factionScrollPane.setVisible(false);
         arrowAddFaction.setVisible(true);
     }
 
     private void showEffect(Choice choice) {
-        eventLabel.setVisible(false);
-        choice1.setVisible(false);
-        choice2.setVisible(false);
-        choice3.setVisible(false);
-        choice4.setVisible(false);
-        effect.setVisible(true);
-        scrollPaneLabel.setVisible(true);
+        eventPane.setVisible(false);
+        resultEventPane.setVisible(true);
         effect.setText(choice.toString());
+        replaceText();
         next.setVisible(true);
+    }
+
+    private void replaceText() {
+        double y = scrollPaneLabel.getBoundsInLocal().getHeight() / 2 - effect.getBoundsInLocal().getHeight() / 2 + 21;
+        effect.setLayoutY(Math.max(y, 21));
     }
 
     @FXML
     void nextEvent(MouseEvent event) {
         Data gameData = DataManagement.getData();
-        eventLabel.setVisible(true);
-        effect.setVisible(false);
-        scrollPaneLabel.setVisible(false);
+        eventPane.setVisible(true);
+        resultEventPane.setVisible(false);
         next.setVisible(false);
         gameData.endTurn();
         initialize();
@@ -297,6 +303,8 @@ public class Controller {
     public void addFactionBar(MouseEvent mouseEvent) {
         eventPane.setLayoutX(361);
         eventPane.setLayoutY(158);
+        resultEventPane.setLayoutX(361);
+        resultEventPane.setLayoutY(158);
         buttonFaction.setVisible(false);
         factionScrollPane.setVisible(true);
         arrowAddFaction.setVisible(false);

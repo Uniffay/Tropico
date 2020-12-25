@@ -70,8 +70,8 @@ public class Dictator {
 		}
     }
 
-	public HashMap<String, Integer> getResource() {
-		return resource;
+	public Map<String, Integer> getResource() {
+		return new HashMap<>(resource);
 	}
 
 

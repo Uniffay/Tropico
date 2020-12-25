@@ -10,40 +10,40 @@
     "choices": [
       {
         "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "religious": -15,
           "liberal": -15
         },
-        "effect_partisan": {},
-        "effect_resource": {}
+        "effectPartisan": {},
+        "effectResource": {}
       },
       {
         "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "religious": 15,
           "liberal": -15
         },
-        "effect_partisan": {},
-        "effect_resource": {}
+        "effectPartisan": {},
+        "effectResource": {}
       },
       {
         "label": "Accepter sans condition",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "religious": 10,
           "liberal": 10,
-          "nationalists": -20
+          "nationalist": -20
         },
-        "effect_partisan": {},
-        "effect_resource": {}
+        "effectPartisan": {},
+        "effectResource": {}
       },
       {
         "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "nationalist": -20,
           "capitalist": 10
         },
-        "effect_partisan": {},
-        "effect_resource": {
+        "effectPartisan": {},
+        "effectResource": {
           "money": 200
         }
       }
@@ -60,31 +60,35 @@
     "choices": [
       {
         "label": "Utilisons-le pour améliorer le bien-être des citoyens !",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "communist": 10,
           "capitalist": -30
         },
-        "effect_resource": {
+        "effectPartisan": {},
+        "effectResource": {
           "industry": 10
         }
       },
       {
         "label": "Exploitons-le au maximum pour moderniser le pays !",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "communist": 5,
           "ecologist": -20,
           "capitalist": 10
         },
-        "effect_resource": {
+        "effectPartisan": {},
+        "effectResource": {
           "industry": 20
         }
       },
       {
         "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "loyalist": 15,
           "nationalist": -30
-        }
+        },
+        "effectPartisan": {},
+        "effectResource": {}
       }
     ]
   },
@@ -98,7 +102,7 @@
     "choices": [
       {
         "label": "Se mettre à l’abri",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "capitalist": -20,
           "communist": -20,
           "liberal": -10,
@@ -108,7 +112,7 @@
           "nationalist": -20,
           "loyalist": -10
         },
-        "effect_partisan": {
+        "effectPartisan": {
           "capitalist": -10,
           "communist": -10,
           "liberal": -10,
@@ -118,7 +122,7 @@
           "nationalist": -10,
           "loyalist": -10
         },
-        "effect_resource": {
+        "effectResource": {
           "industry": -20,
           "farming": -10
         }
@@ -133,20 +137,21 @@
     "choices": [
       {
         "label": "Envoyer les secours pour chercher des rescapés.",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "communist": 10,
           "religious": 20,
           "militarist": 10,
           "ecologist": 20,
           "nationalist": 20
         },
-        "effect_resource": {
+        "effectPartisan": {},
+        "effectResource": {
           "money": -200
         }
       },
       {
         "label": "Ne rien faire.",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "capitalist": -20,
           "communist": -20,
           "religious": -20,
@@ -154,7 +159,7 @@
           "ecologist": -20,
           "nationalist": -20
         },
-        "effect_partisan": {
+        "effectPartisan": {
           "capitalist": -10,
           "communist": -10,
           "liberal": -10,
@@ -164,7 +169,7 @@
           "nationalist": -10,
           "loyalist": -10
         },
-        "effect_resource": {
+        "effectResource": {
           "money": -20
         }
       }
@@ -182,20 +187,24 @@
     "choices": [
       {
         "label": "Accepter",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "communist": 10,
           "militarist": 20,
           "religious": -15
         },
-        "effect_resource": {
+        "effectPartisan": {},
+        "effectResource": {
           "money": -50
         }
       },
       {
         "label": "Refuser.",
-        "effect_fulfillment": {
+        "effectFulfillment": {
           "militarist": -15
-        }
+        },
+        "effectPartisan": {},
+        "effectResource": {}
+
       }
     ]
   }

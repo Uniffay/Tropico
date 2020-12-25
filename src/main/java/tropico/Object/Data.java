@@ -1,9 +1,7 @@
 package tropico.Object;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class Data {
 	
@@ -11,7 +9,7 @@ public class Data {
 	private int turn;
 	private Season season;
 	private int playerPlaying;
-	private final HashMap<Season, ArrayList<Event>> eventsBySeason;
+	private final Map<Season, List<Event>> eventsBySeason;
 	private Event eventChosen;
 	
 	
@@ -39,7 +37,7 @@ public class Data {
 
 	public void pickRandomEventFromSeason(Season season){
 		Random r = new Random();
-		ArrayList<Event> e = eventsBySeason.get(season);
+		List<Event> e = eventsBySeason.get(season);
 		int x = r.nextInt(e.size());
 		eventChosen = e.get(x);
 	}

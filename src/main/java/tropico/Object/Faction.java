@@ -38,6 +38,6 @@ public class Faction {
 	}
 
 	public void changeFulfillment(short fulfillment) {
-		this.fulfillment = (short) Math.min(Math.max(this.fulfillment + fulfillment, 0), 100);
+		this.fulfillment =(this.fulfillment > 0) ? (short) Math.min(Math.max(this.fulfillment + fulfillment, 0), 100) : 0;
 	}
 }
