@@ -12,20 +12,29 @@ import java.util.*;
 public class EventManagement {
 
     public static Map<Season , List<Event>> getEvent(String jsonPath) throws IOException {
-        Map<Season, List<Event>> events =  new HashMap<>();
-        events.put(Season.SPRING, new ArrayList<>());
-        events.put(Season.WINTER, new ArrayList<>());
-        events.put(Season.SUMMER, new ArrayList<>());
-        events.put(Season.AUTUMN, new ArrayList<>());
+        Map<Season, List<Event>> events =  initialiseMapSeasonEvent();
         try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
-            Event[] eventTab = gson.fromJson(reader, Event[].class);
+            var eventTab = getEvenFromJson(jsonPath);
             for (Season season : events.keySet())
                 events.get(season).addAll(getEventForSeason(season, eventTab));
         } catch (IOException | JsonIOException ioException) {
             ioException.printStackTrace();
         }
+        return events;
+    }
+
+    private static Event[] getEvenFromJson(String jsonPath) throws IOException {
+        Gson gson = new Gson();
+        Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
+        return gson.fromJson(reader, Event[].class);
+    }
+
+    private static Map<Season, List<Event>> initialiseMapSeasonEvent(){
+        Map<Season, List<Event>> events =  new HashMap<>();
+        events.put(Season.SPRING, new ArrayList<>());
+        events.put(Season.WINTER, new ArrayList<>());
+        events.put(Season.SUMMER, new ArrayList<>());
+        events.put(Season.AUTUMN, new ArrayList<>());
         return events;
     }
 

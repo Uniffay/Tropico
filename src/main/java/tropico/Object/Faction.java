@@ -6,7 +6,7 @@ public class Faction {
 	private final String englishName;
 	private int partisan;
 	private short fulfillment; // %
-	private String image;
+	private final String image;
 	
 	public Faction(String name, double partisan, double fulfillment, String image) {
 		this.name = name;

@@ -1,33 +1,35 @@
 package tropico.Controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import tropico.Model.DataManagement;
 import tropico.Model.StageManagement;
-import tropico.Model.ViewManagement;
 import tropico.Object.Choice;
 import tropico.Object.Data;
 import tropico.Object.Faction;
+import tropico.Object.Season;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Label money;
@@ -90,16 +92,43 @@ public class Controller {
     private Label eventLabel;
 
     @FXML
-    private Label choice1;
+    private HBox choice1;
 
     @FXML
-    private Label choice2;
+    private HBox choice2;
 
     @FXML
-    private Label choice3;
+    private HBox choice3;
 
     @FXML
-    private Label choice4;
+    private HBox choice4;
+
+    @FXML
+    private Label labelChoice1;
+
+    @FXML
+    private Label labelChoice2;
+
+    @FXML
+    private Label labelChoice3;
+
+    @FXML
+    private Label labelChoice4;
+
+    @FXML
+    private Label money1;
+
+    @FXML
+    private Label money2;
+
+    @FXML
+    private Label money3;
+
+    @FXML
+    private Label money4;
+
+    @FXML
+    private Label errorEvent;
 
     @FXML
     private Label date;
@@ -140,46 +169,105 @@ public class Controller {
     @FXML
     private Polygon arrowAddEvent;
 
-    @FXML
-    private AnchorPane results;
-
-    @FXML
-    private Label resultLabel;
-
 
     public void initialize() {
         Data gameData = DataManagement.getData();
+        setTextHeaderBar(gameData);
+        initializeGraphics(gameData);
+        initializeEvent(gameData);
+        initializeFactionLabel(gameData);
+        nodesToFront();
+    }
+
+    private void nodesToFront() {
+        eventPane.toFront();
+        resultEventPane.toFront();
+        factionScrollPane.toFront();
+    }
+
+    private void initializeGraphics(Data gameData) {
+        setBackground(gameData);
+        List<Node> images = initializeTree(gameData.getSeason(), (5 - gameData.getPlayerPlaying().getResource().get("industry") / 20));
+        anchorPane.getChildren().addAll(images);
+    }
+
+    private List<Node> initializeTree(Season season, int number) {
+        List<Node> trees = new ArrayList<>();
+        for (int i = 1; i < number + 1; i++){
+            trees.add(createImage("tree" + season + i + ".png"));
+        }
+        return trees;
+    }
+
+    private ImageView createImage(String name){
+        URL imageURL = getClass().getResource(name);
+        Image image = new Image(imageURL.toExternalForm());
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(750);
+        imageView.setFitWidth(1050);
+        return imageView;
+    }
+
+    private void setTextHeaderBar(Data gameData){
         int turn = gameData.getTurn();
         date.setText("24/" + getMonth(turn) + "/"+ String.valueOf(turn / 4 + 2015));
         season.setText(gameData.getSeason().getName());
         money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("money")));
         farming.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("farming") + "%"));
         industry.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("industry") + "%"));
-        setBackground(gameData);
-        initialize_event(gameData);
-        initialize_factionLabel(gameData);
     }
 
-    private void initialize_event(Data gameData) {
+    private void initializeEvent(Data gameData) {
         eventLabel.setText(gameData.getEventChosen().getLabel());
-        ArrayList<Label> Choices = initialize_choicesManagement();
+        ArrayList<HBox> choices = initializeChoicesManagement();
+        ArrayList<Label> labels = initializeLabelChoiceManagement();
+        ArrayList<Label> moneyManagement = initialize_moneyManagement();
         for (int i = 0; i < 4; i++){
             if(i >= gameData.getEventChosen().getChoices().size()){
-                Choices.get(i).setVisible(false);
+                choices.get(i).setVisible(false);
+                continue;
             }
-            else{
-                Choices.get(i).setVisible(true);
-                Choices.get(i).setText(gameData.getEventChosen().getChoices().get(i).getLabel());
-            }
+            choices.get(i).setVisible(true);
+            labels.get(i).setText(gameData.getEventChosen().getChoices().get(i).getLabel());
+            int price = gameData.getEventChosen().getChoices().get(i).getPrice();
+            moneyManagement.get(i).setText(price + "$");
+            setFillMoney(price, gameData, moneyManagement.get(i));
         }
     }
 
-    private ArrayList<Label> initialize_choicesManagement() {
+    private void setFillMoney(int price, Data gameData, Label money) {
+        if(price <= gameData.getPlayerPlaying().getResource().get("money")) {
+            money.setTextFill(Color.GREEN);
+            return;
+        }
+        money.setTextFill(Color.RED);
+
+    }
+
+    private ArrayList<Label> initializeLabelChoiceManagement() {
+        return new ArrayList<>(List.of(
+                labelChoice1,
+                labelChoice2,
+                labelChoice3,
+                labelChoice4
+        ));
+    }
+
+    private ArrayList<HBox> initializeChoicesManagement() {
         return new ArrayList<>(List.of(
                 choice1,
                 choice2,
                 choice3,
                 choice4
+        ));
+    }
+
+    private ArrayList<Label> initialize_moneyManagement() {
+        return new ArrayList<>(List.of(
+                money1,
+                money2,
+                money3,
+                money4
         ));
     }
 
@@ -189,7 +277,7 @@ public class Controller {
         return month;
     }
 
-    private void initialize_factionLabel(Data gameData) {
+    private void initializeFactionLabel(Data gameData) {
         ArrayList<Label> LabelManagement = initialize_labelManagement();
         int i = 0;
         for (Faction faction: gameData.getPlayerPlaying().getFactions().getFactions()){
@@ -252,7 +340,7 @@ public class Controller {
     private void setBackground(Data gameData) {
         int numberIndustry = gameData.getPlayerPlaying().getResource().get("industry") / 20 * 20;
         int numberFarming = gameData.getPlayerPlaying().getResource().get("farming") / 20 * 20;
-        InputStream input = getClass().getResourceAsStream("background" + gameData.getSeason().name() + numberIndustry + "_0" + ".png");
+        InputStream input = getClass().getResourceAsStream("background" + gameData.getSeason() + ".png");
         Image image = new Image(input);
         background.setImage(image);
     }

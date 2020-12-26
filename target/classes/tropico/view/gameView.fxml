@@ -6,13 +6,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" style="-fx-background-image: img\background.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" style="-fx-background-image: img\background.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.Controller">
    <ImageView fx:id="background" fitHeight="760.0" fitWidth="1050.0" layoutY="-5.0" pickOnBounds="true">
       <Image url="@../Controller/backgroundSPRING0_0.png" />
    </ImageView>
@@ -104,28 +105,107 @@
    <Label fx:id="date" alignment="CENTER" layoutX="242.0" prefHeight="25.0" prefWidth="186.0" style="-fx-padding: 5;" text="DATE" textFill="WHITE" wrapText="true" />
    <Label fx:id="season" alignment="CENTER" layoutX="256.0" layoutY="28.0" prefHeight="18.0" prefWidth="166.0" text="Season" textFill="WHITE" />
    <AnchorPane fx:id="eventPane" layoutX="361.0" layoutY="158.0" prefHeight="462.0" prefWidth="571.0" style="-fx-background-color: black;">
-      <Label fx:id="eventLabel" layoutX="41.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textAlignment="CENTER" textFill="#f5f5f5" wrapText="true" />
-      <Label fx:id="choice1" layoutX="40.0" layoutY="109.0" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <Label fx:id="choice2" layoutX="40.0" layoutY="192.0" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <Label fx:id="choice3" layoutX="40.0" layoutY="283.0" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <Label fx:id="choice4" layoutX="40.0" layoutY="365.0" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white; -fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
+      <Label fx:id="eventLabel" layoutX="41.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textAlignment="CENTER" textFill="#f5f5f5" wrapText="true">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="11.0" layoutX="511.0" layoutY="21.0" onMouseClicked="#removeEventBar" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <HBox fx:id="choice1" layoutX="40.0" layoutY="109.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+         <children>
+            <Label fx:id="labelChoice1" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="66.0" prefWidth="54.0" text="   coût:" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="money1" alignment="CENTER" prefHeight="66.0" prefWidth="53.0" text="money" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="choice2" layoutX="40.0" layoutY="198.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+         <children>
+            <Label fx:id="labelChoice2" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="66.0" prefWidth="60.0" text="   coût:" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="money2" alignment="CENTER" prefHeight="66.0" prefWidth="52.0" text="money" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="choice3" layoutX="40.0" layoutY="283.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+         <children>
+            <Label fx:id="labelChoice3" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="66.0" prefWidth="58.0" text="   coût:" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="money3" alignment="CENTER" prefHeight="66.0" prefWidth="53.0" text="money" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="choice4" layoutX="40.0" layoutY="366.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+         <children>
+            <Label fx:id="labelChoice4" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label prefHeight="66.0" prefWidth="56.0" text="   coût:" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="money4" alignment="CENTER" prefHeight="66.0" prefWidth="50.0" text="money" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="errorEvent" alignment="CENTER" layoutX="41.0" layoutY="6.0" prefHeight="18.0" prefWidth="448.0" text="error" textFill="RED" visible="false">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </Label>
    </AnchorPane>
    <Arc fx:id="buttonFaction" layoutY="363.0" length="180.0" onMouseClicked="#addFactionBar" radiusX="58.0" radiusY="54.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
    <Polygon fx:id="arrowAddFaction" fill="WHITE" layoutX="63.0" layoutY="344.0" onMouseClicked="#addFactionBar" points="-50.0, 40.0, -19.800003051757812, 18.0, -50.0000114440918, -2.800018310546875" stroke="BLACK" strokeType="INSIDE" visible="false" />

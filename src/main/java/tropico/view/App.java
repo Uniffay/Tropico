@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tropico.Controller.Controller;
@@ -13,27 +15,23 @@ import tropico.Model.StageManagement;
 import tropico.Object.Data;
 
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
-    private static Stage primaryStage;
-
     @Override
     public void start(Stage stage) throws IOException {
         Data gameData = new Data(1, new String[]{"Player1"}, "json/setting/setting.json", "json/faction/faction.json", "json/event/Event.json");
         DataManagement.setData(gameData);
         try {
-            primaryStage = stage;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("gameView.fxml"));
-            AnchorPane root = loader.load();
-            StageManagement.setStage(primaryStage);
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-            primaryStage.setResizable(false);
+            StageManagement.setStage(stage);
+            StageManagement.setScene(loader);
+            stage.show();
+            stage.setResizable(false);
         } catch(Exception e) {
             e.printStackTrace();
         }

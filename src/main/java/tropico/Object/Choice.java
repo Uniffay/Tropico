@@ -34,21 +34,6 @@ public class Choice {
         return text.toString();
     }
 
-    private String toStringResource(){
-        StringBuilder text = new StringBuilder();
-        for (String effect : effectResource.keySet()) {
-            text.append("Ressource ").append(effect).append(": ").append(effectResource.get(effect));
-            if(!effect.equals("money")){
-                text.append("%");
-            }
-            else{
-                text.append("$");
-            }
-            text.append("\n");
-        }
-        return text.toString();
-    }
-
     public String getLabel() {
         return label;
     }
@@ -63,5 +48,9 @@ public class Choice {
 
     public Map<String, Integer> getEffect_resource() {
         return effectResource;
+    }
+
+    public int getPrice(){
+        return Math.max(-effectResource.getOrDefault("money", 0), 0);
     }
 }
