@@ -1,4 +1,4 @@
-package tropico.Model;
+package tropico.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

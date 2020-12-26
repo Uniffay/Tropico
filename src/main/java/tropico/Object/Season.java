@@ -29,4 +29,17 @@ public enum Season {
                 return SPRING;
         }
     }
+
+    public Season previous() {
+        switch(this){
+            case SUMMER:
+                return SPRING;
+            case AUTUMN:
+                return SUMMER;
+            case WINTER:
+                return AUTUMN;
+            default:
+                return WINTER;
+        }
+    }
 }

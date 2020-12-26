@@ -30,7 +30,7 @@
    <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="439.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../img/money.png" />
    </ImageView>
-   <Label fx:id="money" alignment="CENTER" layoutX="468.0" layoutY="3.0" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
+   <Label fx:id="money" alignment="CENTER" layoutX="468.0" layoutY="3.0" onMouseClicked="#zazrazrazr" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
    <Label fx:id="industry" alignment="CENTER" layoutX="705.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="Industry" textAlignment="CENTER" />
    <Label fx:id="farming" alignment="CENTER" layoutX="885.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="Farming" textAlignment="CENTER" />
    <ScrollPane fx:id="factionScrollPane" layoutY="1.0" prefHeight="750.0" prefWidth="241.0" style="-fx-background-color: black; -fx-border-color: black;">
@@ -110,9 +110,9 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font></Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="11.0" layoutX="511.0" layoutY="21.0" onMouseClicked="#removeEventBar" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <HBox fx:id="choice1" layoutX="40.0" layoutY="109.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+      <HBox fx:id="choice1" layoutX="40.0" layoutY="109.0" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
          <children>
-            <Label fx:id="labelChoice1" onMouseClicked="#choice1Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+            <Label fx:id="labelChoice1" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -135,9 +135,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="choice2" layoutX="40.0" layoutY="198.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+      <HBox fx:id="choice2" layoutX="40.0" layoutY="198.0" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
          <children>
-            <Label fx:id="labelChoice2" onMouseClicked="#choice2Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+            <Label fx:id="labelChoice2" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -157,9 +157,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="choice3" layoutX="40.0" layoutY="283.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+      <HBox fx:id="choice3" layoutX="40.0" layoutY="283.0" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
          <children>
-            <Label fx:id="labelChoice3" onMouseClicked="#choice3Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+            <Label fx:id="labelChoice3" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_3" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -179,9 +179,9 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="choice4" layoutX="40.0" layoutY="366.0" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
+      <HBox fx:id="choice4" layoutX="40.0" layoutY="366.0" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="482.0" style="-fx-border-color: white;">
          <children>
-            <Label fx:id="labelChoice4" onMouseClicked="#choice4Handle" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+            <Label fx:id="labelChoice4" prefHeight="66.0" prefWidth="385.0" style="-fx-padding: 5;" text="Choice_4" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

@@ -75,17 +75,19 @@ public class FactionsList {
 	public void changeFulfillment(Map<String, Integer> effect_fulfillment) {
 		boolean verify = false;
 		for(String effect: effect_fulfillment.keySet()) {
-			for (Faction faction : factions) {
-				if (faction.getEnglishName().equals(effect)){
-					faction.changeFulfillment(effect_fulfillment.get(effect).shortValue());
-					verify = true;
-					break;
-				}
-			}
-			if(!verify){
+			if(!changeFulfillmentFaction(effect, effect_fulfillment)){
 				throw new IllegalArgumentException(effect + " is not a faction");
 			}
-			verify = false;
 		}
+	}
+
+	private boolean changeFulfillmentFaction(String effect, Map<String, Integer> effect_fulfillment){
+		for (Faction faction : factions) {
+			if (faction.getEnglishName().equals(effect)){
+				faction.changeFulfillment(effect_fulfillment.get(effect).shortValue());
+				return true;
+			}
+		}
+		return false;
 	}
 }

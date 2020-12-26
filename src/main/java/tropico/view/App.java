@@ -1,21 +1,12 @@
 package tropico.view;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import tropico.Controller.Controller;
 import tropico.Model.DataManagement;
-import tropico.Model.StageManagement;
 import tropico.Object.Data;
 
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * JavaFX App
