@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.MenuController">
+   <children>
+      <MediaView fx:id="mediaView" fitHeight="750.0" fitWidth="1050.0" onMouseClicked="#openMenu" preserveRatio="false" />
+      <Label fx:id="title" alignment="CENTER" layoutX="339.0" layoutY="45.0" prefHeight="111.0" prefWidth="372.0" style="-fx-font-weight: bold;" text="TROPICO" textFill="#aa11ac" visible="false">
+         <font>
+            <Font name="Monospaced Regular" size="65.0" />
+         </font>
+      </Label>
+      <VBox fx:id="firstOption" layoutX="285.0" layoutY="225.0" prefHeight="383.0" prefWidth="480.0" spacing="20.0" visible="false">
+         <children>
+            <Label alignment="CENTER" onMouseClicked="#playMenu" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="JOUER" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="37.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" onMouseClicked="#optionMenu" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="OPTION" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="37.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" onMouseClicked="#openCredits" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="CREDITS" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="37.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" onMouseClicked="#leave" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="RETOUR AU BUREAU" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="37.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <Polygon fx:id="backArrow" fill="WHITE" layoutX="88.0" layoutY="93.0" onMouseClicked="#previousMenu" points="-47.19999313354492, -47.400001525878906, -10.400009155273438, -19.400001525878906, -10.400009155273438, -73.79999542236328" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <Label fx:id="clickLabel" alignment="CENTER" layoutX="418.0" layoutY="660.0" prefHeight="18.0" prefWidth="311.0" style="-fx-font-weight: bold;" text="cliquer pour ouvrir le menu" visible="false">
+         <font>
+            <Font name="Monospaced Regular" size="17.0" />
+         </font>
+      </Label>
+      <VBox fx:id="creditsMenu" layoutX="123.0" layoutY="33.0" prefHeight="646.0" prefWidth="802.0" visible="false">
+         <children>
+            <Label alignment="CENTER" prefHeight="142.0" prefWidth="802.0" text="CREDITS" underline="true">
+               <font>
+                  <Font name="Monospaced Bold" size="55.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="804.0" text="La personne qui trouve les manteaux indispensables : Quentin BOULET">
+               <font>
+                  <Font name="Monospaced Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="807.0" text="La personne qui n'aime pas les manteaux : Cléis Benoit-Gonin">
+               <font>
+                  <Font name="Monospaced Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="932.0" text="ET VOUS ÊTES VOUS, TEAM MANTEAU ?">
+               <font>
+                  <Font name="Monospaced Bold" size="30.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="339.0" prefWidth="802.0">
+               <children>
+                  <ImageView fitHeight="352.0" fitWidth="324.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../img/coat.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="352.0" prefWidth="154.0" text="VS" textFill="RED">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="52.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="247.0" fitWidth="250.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../img/coat2.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="35.0" top="35.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox fx:id="optionMenu" layoutX="133.0" layoutY="43.0" prefHeight="646.0" prefWidth="802.0" visible="false">
+         <children>
+            <Label alignment="CENTER" prefHeight="117.0" prefWidth="802.0" text="OPTION" underline="true">
+               <font>
+                  <Font name="Monospaced Bold" size="55.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Label>
+            <ImageView fx:id="imageSound" fitHeight="207.0" fitWidth="213.0" onMouseClicked="#muteSounds" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Model/soundOn.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="300.0" />
+               </VBox.margin>
+            </ImageView>
+            <ImageView fx:id="unicornSound" fitHeight="220.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Model/unicornOn.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="300.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox fx:id="optionMenu1" layoutX="143.0" layoutY="53.0" prefHeight="646.0" prefWidth="802.0" visible="false">
+         <children>
+            <Label alignment="CENTER" prefHeight="99.0" prefWidth="802.0" text="PLAY" underline="true">
+               <font>
+                  <Font name="Monospaced Bold" size="55.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

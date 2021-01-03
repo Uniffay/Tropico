@@ -32,6 +32,7 @@ public class Data {
 			pickRandomEventFromSeason(season);
 		}
 		if(turn % 4 == 0){
+			players.stream().forEach(dictator -> dictator.addInterest());
 		}
 	}
 

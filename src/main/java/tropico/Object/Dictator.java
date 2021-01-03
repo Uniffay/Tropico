@@ -14,6 +14,7 @@ public class Dictator {
 	private final String name;
 	private final HashMap<String, Integer> resource = new HashMap<>();
 	private final FactionsList factions;
+	private int debt = 0;
 	
 	public Dictator(String name, String jsonPathResource, String jsonPathFaction) {
 		this.name = name;
@@ -47,27 +48,21 @@ public class Dictator {
 	}
 
     public void haveChosen(Choice choice) {
-		if(choice.getEffect_resource() != null){
-			for (String effect: choice.getEffect_resource().keySet()){
-				try {
-					int resourceValue = choice.getEffect_resource().get(effect);
-					if (!effect.equals("money")) {
-						if (resource.get("farming") + resourceValue + resource.get("industry") > 100) {
-							resourceValue = 100 - (resource.get("farming") + resource.get("industry"));
-						}
-					}
-					resource.replace(effect, Math.max(resource.get(effect) + resourceValue, 0));
-				} catch (NullPointerException e){
-					throw new IllegalArgumentException(effect + " is not a resource");
+		for (String effect: choice.getEffect_resource().keySet()){
+			try {
+				int resourceValue = choice.getEffect_resource().get(effect);
+				if (effect.equals("money")) {
+					resource.replace(effect, resource.get(effect) + resourceValue);
+					continue;
 				}
+				resourceValue = (resource.get("farming") + resourceValue + resource.get("industry") > 100) ? 100 - (resource.get("farming") + resource.get("industry")): resourceValue;
+				resource.replace(effect, Math.max(resource.get(effect) + resourceValue, 0));
+			} catch (NullPointerException e){
+				throw new IllegalArgumentException(effect + " is not a resource");
 			}
 		}
-		if(choice.getEffect_fulfillment() != null){
-			factions.changeFulfillment(choice.getEffect_fulfillment());
-		}
-		if(choice.getEffect_partisan() != null){
-			factions.changePartisan(choice.getEffect_partisan());
-		}
+		factions.changeFulfillment(choice.getEffect_fulfillment());
+		factions.changePartisan(choice.getEffect_partisan());
     }
 
 	public Map<String, Integer> getResource() {
@@ -75,4 +70,27 @@ public class Dictator {
 	}
 
 
+	public boolean canLoan(int loanValue) {
+		return debt + loanValue <= 10000;
+	}
+
+	public void addDebt(int loanValue) {
+		debt += loanValue * 1.1;
+	}
+
+	public void addMoney(int loanValue){
+		resource.replace("money", resource.get("money") + loanValue);
+	}
+
+	public void addInterest() {
+		debt += debt * 0.1;
+	}
+
+	public boolean haveDebt() {
+		return debt > 0;
+	}
+
+	public int getDebt() {
+		return debt;
+	}
 }

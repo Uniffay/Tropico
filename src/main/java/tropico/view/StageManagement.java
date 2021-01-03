@@ -20,6 +20,7 @@ public class StageManagement {
         STAGE_SAVE = Objects.requireNonNull(stage);
     }
 
+
     public static void setScene(FXMLLoader loader) throws IOException {
         AnchorPane gameViewFactionLess = loader.load();
         Scene scene = new Scene(gameViewFactionLess);

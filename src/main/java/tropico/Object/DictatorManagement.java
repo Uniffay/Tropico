@@ -1,6 +1,7 @@
 package tropico.Object;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class DictatorManagement {
 	
@@ -24,4 +25,8 @@ public class DictatorManagement {
     public Dictator get(int dictator) {
 		return dictators.get(dictator);
     }
+
+    public Stream<Dictator> stream(){
+		return dictators.stream();
+	}
 }

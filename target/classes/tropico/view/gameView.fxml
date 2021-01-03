@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
@@ -14,27 +15,11 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" style="-fx-background-image: img\background.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.Controller">
-   <ImageView fx:id="background" fitHeight="760.0" fitWidth="1050.0" layoutY="-5.0" pickOnBounds="true">
+   <ImageView fx:id="background" fitHeight="760.0" fitWidth="1050.0" layoutX="13.0" layoutY="-5.0" pickOnBounds="true">
       <Image url="@../Controller/backgroundSPRING0_0.png" />
    </ImageView>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="242.0" stroke="BLACK" strokeType="INSIDE" width="809.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="435.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="651.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="851.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="657.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../img/industry.png" />
-   </ImageView>
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="864.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../img/wheat.png" />
-   </ImageView>
-   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="439.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../img/money.png" />
-   </ImageView>
-   <Label fx:id="money" alignment="CENTER" layoutX="468.0" layoutY="3.0" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
-   <Label fx:id="industry" alignment="CENTER" layoutX="705.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="Industry" textAlignment="CENTER" />
-   <Label fx:id="farming" alignment="CENTER" layoutX="885.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="Farming" textAlignment="CENTER" />
-   <ScrollPane fx:id="factionScrollPane" layoutY="1.0" prefHeight="750.0" prefWidth="241.0" style="-fx-background-color: black; -fx-border-color: black;">
-      <AnchorPane prefHeight="800.0" prefWidth="223.0" style="-fx-background-color: black;">
+   <ScrollPane fx:id="factionScrollPane" prefHeight="755.0" prefWidth="242.0" style="-fx-background-color: black; -fx-border-color: black;">
+      <AnchorPane prefHeight="745.0" prefWidth="223.0" style="-fx-background-color: black;">
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="19.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/capitalism.png" />
          </ImageView>
@@ -102,8 +87,6 @@
          <Polygon fill="#fdfdfd" layoutX="216.0" layoutY="56.0" onMouseClicked="#removeFactionBar" points="-24.79998779296875, -34.400001525878906, -6.1999969482421875, -19.199996948242188, -6.1999969482421875, -50.400001525878906" stroke="BLACK" strokeType="INSIDE" />
       </AnchorPane>
    </ScrollPane>
-   <Label fx:id="date" alignment="CENTER" layoutX="242.0" prefHeight="25.0" prefWidth="186.0" style="-fx-padding: 5;" text="DATE" textFill="WHITE" wrapText="true" />
-   <Label fx:id="season" alignment="CENTER" layoutX="256.0" layoutY="28.0" prefHeight="18.0" prefWidth="166.0" text="Season" textFill="WHITE" />
    <AnchorPane fx:id="eventPane" layoutX="361.0" layoutY="158.0" prefHeight="462.0" prefWidth="571.0" style="-fx-background-color: black;">
       <Label fx:id="eventLabel" layoutX="41.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="481.0" text="TEXT LABEL" textAlignment="CENTER" textFill="#f5f5f5" wrapText="true">
          <font>
@@ -201,11 +184,6 @@
             </Label>
          </children>
       </HBox>
-      <Label fx:id="errorEvent" alignment="CENTER" layoutX="41.0" layoutY="6.0" prefHeight="18.0" prefWidth="448.0" text="error" textFill="RED" visible="false">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-      </Label>
    </AnchorPane>
    <Arc fx:id="buttonFaction" layoutY="363.0" length="180.0" onMouseClicked="#addFactionBar" radiusX="58.0" radiusY="54.0" startAngle="270.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
    <Polygon fx:id="arrowAddFaction" fill="WHITE" layoutX="63.0" layoutY="344.0" onMouseClicked="#addFactionBar" points="-50.0, 40.0, -19.800003051757812, 18.0, -50.0000114440918, -2.800018310546875" stroke="BLACK" strokeType="INSIDE" visible="false" />
@@ -233,4 +211,88 @@
          </Label>
       </children>
    </AnchorPane>
+   <AnchorPane fx:id="header" layoutX="242.0" prefHeight="56.0" prefWidth="809.0">
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" stroke="BLACK" strokeType="INSIDE" width="809.0" />
+         <Label fx:id="date" alignment="CENTER" layoutX="2.0" layoutY="1.0" prefHeight="25.0" prefWidth="186.0" style="-fx-padding: 5;" text="DATE" textFill="WHITE" wrapText="true" />
+         <Label fx:id="season" alignment="CENTER" layoutX="16.0" layoutY="26.0" prefHeight="18.0" prefWidth="166.0" text="Season" textFill="WHITE" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="196.0" onMouseClicked="#openLoanMenu" stroke="BLACK" strokeType="INSIDE" width="206.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="412.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="55.0" layoutX="612.0" stroke="BLACK" strokeType="INSIDE" width="194.0" />
+         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="418.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../img/industry.png" />
+         </ImageView>
+         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="625.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../img/wheat.png" />
+         </ImageView>
+         <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="200.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../img/money.png" />
+         </ImageView>
+         <Label fx:id="money" alignment="CENTER" layoutX="229.0" layoutY="3.0" onMouseClicked="#openLoanMenu" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
+         <Label fx:id="industry" alignment="CENTER" layoutX="466.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="Industry" textAlignment="CENTER" />
+         <Label fx:id="farming" alignment="CENTER" layoutX="646.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="Farming" textAlignment="CENTER" />
+         <HBox fx:id="debtShow" layoutX="255.0" layoutY="4.0" prefHeight="18.0" prefWidth="128.0" visible="false">
+            <children>
+               <Label prefHeight="18.0" prefWidth="24.0" text="Dette:" textFill="#ff0202">
+                  <font>
+                     <Font size="8.0" />
+                  </font>
+               </Label>
+               <Label fx:id="debtValue" prefHeight="18.0" prefWidth="94.0" text="Label" textFill="RED">
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+                  <HBox.margin>
+                     <Insets left="2.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="8.0" />
+                  </font>
+               </Label>
+            </children>
+         </HBox>
+         <Label fx:id="debtMessage" alignment="CENTER" layoutX="255.0" layoutY="36.0" prefHeight="18.0" prefWidth="142.0" text="Commence par rembourser tes dettes !" textFill="#f20000" visible="false">
+            <font>
+               <Font size="8.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <HBox fx:id="loanMenu" layoutX="439.0" layoutY="56.0" prefHeight="52.0" prefWidth="242.0" style="-fx-background-color: white; -fx-border-color: black;" visible="false">
+      <children>
+         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
+            <image>
+               <Image url="@../../img/bank.png" />
+            </image>
+         </ImageView>
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <Label alignment="CENTER" prefHeight="18.0" prefWidth="48.0" text="intérêt: 10%" textFill="RED">
+                  <font>
+                     <Font size="8.0" />
+                  </font>
+               </Label>
+               <Label fx:id="loan" alignment="CENTER" prefHeight="55.0" prefWidth="46.0" text="0" />
+            </children>
+         </VBox>
+         <ImageView fitHeight="59.0" fitWidth="43.0" onMouseClicked="#addLoan" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../img/plus.png" />
+            </image>
+            <HBox.margin>
+               <Insets top="5.0" />
+            </HBox.margin>
+         </ImageView>
+         <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#removeLoan" pickOnBounds="true">
+            <image>
+               <Image url="@../../img/moins.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="51.0" fitWidth="50.0" onMouseClicked="#validLoan" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../img/validate.png" />
+            </image>
+         </ImageView>
+      </children>
+   </HBox>
 </AnchorPane>
