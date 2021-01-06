@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,11 +16,11 @@ public class Dictator {
 	private final FactionsList factions;
 	private int debt = 0;
 	
-	public Dictator(String name, String jsonPathResource, String jsonPathFaction) {
+	public Dictator(String name, String jsonPathResource, String jsonPathFaction)  {
 		this.name = name;
+		Gson gson = new Gson();
 		try {
-			Gson gson = new Gson();
-			Reader reader = Files.newBufferedReader(Paths.get(jsonPathResource));
+			Reader reader = Files.newBufferedReader(Path.of(jsonPathResource));
 			Map<String, Double> map = gson.fromJson(reader, Map.class);
 			resource.put("farming", map.get("farming").intValue());
 			resource.put("industry", map.get("industry").intValue());
@@ -32,10 +32,6 @@ public class Dictator {
 			e.printStackTrace();
 		}
 		factions = new FactionsList(jsonPathFaction);
-	}
-	
-	public Dictator(String name) {
-		this(name, "json/setting/setting.json", "json/faction/faction.json");
 	}
 
 	@Override
@@ -92,5 +88,10 @@ public class Dictator {
 
 	public int getDebt() {
 		return debt;
+	}
+
+	public void addBonus() {
+		int money = resource.get("money");
+		resource.replace("money", money + resource.get("industry") * 10);
 	}
 }

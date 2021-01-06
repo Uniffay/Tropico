@@ -1,5 +1,7 @@
 package tropico.Object;
 
+import tropico.Controller.Controller;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -32,7 +34,8 @@ public class Data {
 			pickRandomEventFromSeason(season);
 		}
 		if(turn % 4 == 0){
-			players.stream().forEach(dictator -> dictator.addInterest());
+			players.get(playerPlaying).addInterest();
+			players.get(playerPlaying).addBonus();
 		}
 	}
 
@@ -57,5 +60,9 @@ public class Data {
 
 	public Season getSeason() {
 		return season;
+	}
+
+	public boolean isYearEnding() {
+		return turn % 4 == 0;
 	}
 }

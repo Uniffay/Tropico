@@ -20,9 +20,8 @@ public class App extends Application {
         Data gameData = new Data(1, new String[]{"Player1"}, "json/setting/setting.json", "json/faction/faction.json", "json/event/Event.json");
         DataManagement.setData(gameData);
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("gameMenu.fxml"));
             StageManagement.setStage(stage);
-            StageManagement.setScene(loader);
+            StageManagement.setScene(StageEnum.MENU);
             stage.show();
             stage.setResizable(false);
 
@@ -34,6 +33,8 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        String cc = "cc";
+        String cc2 = cc;
         launch(args);
     }
 

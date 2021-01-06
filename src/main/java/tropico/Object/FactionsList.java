@@ -2,13 +2,12 @@ package tropico.Object;
 
 import com.google.gson.Gson;
 
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.file.Path;
+import java.util.*;
 
 public class FactionsList {
 	
@@ -21,8 +20,8 @@ public class FactionsList {
 			Gson gson = new Gson();
 
 			// create a reader
-			Reader reader = Files.newBufferedReader(Paths.get(jsonPath));
-			Reader readerName = Files.newBufferedReader(Paths.get("json/faction/name.json"));
+			Reader reader = Files.newBufferedReader(Path.of(jsonPath));
+			Reader readerName = Files.newBufferedReader(Path.of("json/faction/name.json"));
 			FACTIONS_NAME = gson.fromJson(readerName, HashMap.class);
 			// convert JSON file to map
 			Map<?, ?>[] map = gson.fromJson(reader, Map[].class);
@@ -32,8 +31,6 @@ public class FactionsList {
 				factions.add(new Faction((String)value.get("name"), (double)value.get("partisan"), (double)value.get("fulfillment"), (String)value.get("image")));
 			}
 			// close reader
-			reader.close();
-			Reader reader12 = Files.newBufferedReader(Paths.get(jsonPath));
 			reader.close();
 
 		} catch (Exception ex) {
@@ -47,7 +44,11 @@ public class FactionsList {
 	}
 
 	public List<Faction> getFactions(){
-		return new ArrayList<>(factions);
+		return factions;
+	}
+
+	public Faction getFaction(String name){
+		return factions.stream().filter(f -> f.getEnglishName().equals(name)).findFirst().orElse(null);
 	}
 
 	@Override
@@ -89,5 +90,9 @@ public class FactionsList {
 			}
 		}
 		return false;
+	}
+
+	public int getTotalPartisan() {
+		return factions.stream().mapToInt(Faction::getPartisan).sum();
 	}
 }

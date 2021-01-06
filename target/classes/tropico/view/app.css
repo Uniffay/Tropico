@@ -1,0 +1,18 @@
+#button {
+    -fx-border-width: 1;
+    -fx-smooth: true;
+    -fx-border-color: #000000;
+    -fx-background-color: #FFFFFF;
+}
+
+#menu {
+    -fx-background-color: #000000
+}
+
+.tab-pane *.tab-header-area *.tab-header-background {
+  -fx-background-color:transparent;
+  -fx-tab-min-width:120px;
+  -fx-tab-max-width:120px;
+  -fx-tab-min-height:50px;
+  -fx-tab-max-height:50px;
+}

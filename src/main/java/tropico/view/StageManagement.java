@@ -21,7 +21,8 @@ public class StageManagement {
     }
 
 
-    public static void setScene(FXMLLoader loader) throws IOException {
+    public static void setScene(StageEnum stageEnum) throws IOException {
+        FXMLLoader loader = new FXMLLoader(StageManagement.class.getResource(stageEnum.getName()));
         AnchorPane gameViewFactionLess = loader.load();
         Scene scene = new Scene(gameViewFactionLess);
         STAGE_SAVE.setScene(scene);
