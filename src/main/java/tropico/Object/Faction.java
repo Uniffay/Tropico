@@ -40,4 +40,16 @@ public class Faction {
 	public void changeFulfillment(short fulfillment) {
 		this.fulfillment =(this.fulfillment > 0) ? (short) Math.min(Math.max(this.fulfillment + fulfillment, 0), 100) : 0;
 	}
+
+    public void killAPartisan() {
+		partisan -= 1;
+    }
+
+	public void addAPartisan() {
+		partisan += 1;
+	}
+
+	public void addFulfillment(Integer number) {
+		fulfillment += number;
+	}
 }

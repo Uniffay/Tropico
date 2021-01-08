@@ -39,5 +39,10 @@ public class FoodManagement {
         FOOD_BOUGHT = (missingFood < FOOD_BOUGHT + number)? missingFood : Math.max(FOOD_BOUGHT + number, 0);
         return FOOD_BOUGHT - foodBoughtBefore;
     }
+
+    public static void validate(Data gameData) {
+        System.out.println(getFoodMissing() - FOOD_BOUGHT);
+        gameData.getPlayerPlaying().managePartisan(getFoodMissing() - FOOD_BOUGHT);
+    }
 }
 

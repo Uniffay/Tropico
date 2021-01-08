@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.function.Predicate;
 
 public class FactionsList {
 	
@@ -94,5 +95,34 @@ public class FactionsList {
 
 	public int getTotalPartisan() {
 		return factions.stream().mapToInt(Faction::getPartisan).sum();
+	}
+
+	public void killARandomPartisan() {
+		getRandomFactionFilter(faction -> faction.getPartisan() > 0).killAPartisan();
+	}
+
+	public void birth() {
+		int randomInteger = getRandomInteger(10) + 1;
+		while(randomInteger > 0) {
+			getRandomFaction().addAPartisan();
+			randomInteger --;
+		}
+	}
+
+	private Faction getRandomFactionFilter(Predicate<Faction> filter) {
+		return factions.stream().filter(filter).findAny().orElse(null);
+	}
+
+	private int getRandomInteger(int bounds){
+		Random random = new Random();
+		return random.nextInt(bounds);
+	}
+
+	private Faction getRandomFaction(){
+		return factions.get(getRandomInteger(factions.size()));
+	}
+
+	public void addFulfillment(String name, Integer number) {
+		getFaction(name).addFulfillment(number);
 	}
 }

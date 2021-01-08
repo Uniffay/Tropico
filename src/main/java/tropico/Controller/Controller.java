@@ -651,7 +651,7 @@ public class Controller {
     private void initializeTextFieldListener(String name, TextField textField) {
         textField.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
             if (!newPropertyValue)
-                modifyAndRefreshTextField(name, Integer.parseInt(textField.getText()) - FactionAddManagement.get(name));
+                modifyAndRefreshTextField(name, (Integer.parseInt(textField.getText()) - FactionAddManagement.get(name)));
         });
 
     }
@@ -693,7 +693,7 @@ public class Controller {
     private void initializeFoodMenu(Data gameData) {
         FoodManagement.initialize(gameData);
         initializeFoodLabel(gameData);
-        foodBought.setText("0$");
+        foodBought.setText("0");
 
     }
 
@@ -756,7 +756,6 @@ public class Controller {
         FactionAddManagement.initializeFactions();
         List<Label> fulfillment = getFulfillmentFactionList();
         initializeFulfillmentValue(fulfillment, gameData);
-
     }
 
     private void initializeFulfillmentValue(List<Label> fulfillment, Data gameData) {
@@ -770,21 +769,25 @@ public class Controller {
     void enterFaction(ActionEvent event){
         var source = (TextField)event.getSource();
         String name = source.getId();
-        modifyAndRefreshTextField(name, Integer.parseInt(source.getText()) - FactionAddManagement.get(name));
+        modifyAndRefreshTextField(name, (Integer.parseInt(source.getText()) - FactionAddManagement.get(name)) );
     }
 
     @FXML
     void addFaction(MouseEvent event){
         ImageView source = (ImageView)event.getSource();
         String name = source.getId().substring(0,  source.getId().length() - 1);
-        modifyAndRefreshTextField(name, 1);
+        modifyAndRefreshTextField(name, 10);
     }
 
     void modifyAndRefreshTextField(String name, int number){
         int numberAdded = FactionAddManagement.addFactionFulfillment(name, number);
         refreshFactionTextField(name);
-        int totalPriceAdded = setTotalPriceFaction(name, numberAdded);
+        int totalPriceAdded = setTotalPriceFaction(name, round(numberAdded));//rounded to superior
         setTotalPrice(totalPriceAdded);
+    }
+
+    private int round(int numberAdded) {
+        return (numberAdded < 0)? (numberAdded - 9) / 10 : (numberAdded + 9) / 10;
     }
 
     private void setTotalPrice(int totalPriceAdded) {
@@ -813,7 +816,7 @@ public class Controller {
     void removeFaction(MouseEvent event){
         ImageView cc = (ImageView)event.getSource();
         String name = cc.getId().substring(0,  cc.getId().length() - 1);
-        modifyAndRefreshTextField(name, -1);
+        modifyAndRefreshTextField(name, -10);
     }
 
     @FXML
@@ -824,6 +827,9 @@ public class Controller {
         if(totalPriceValue > gameData.getPlayerPlaying().getResource().get("money")){
             return;
         }
+        FoodManagement.validate(gameData);
+        FactionAddManagement.validate(gameData);
+        gameData.getPlayerPlaying().changeMoney(-totalPriceValue);
         endYearMenu.setVisible(false);
         nextEvent();
     }

@@ -94,4 +94,25 @@ public class Dictator {
 		int money = resource.get("money");
 		resource.replace("money", money + resource.get("industry") * 10);
 	}
+
+	public void managePartisan(int food) {
+		if(food < 0){
+			factions.birth();
+			return;
+		}
+		while (food > 0){
+			factions.killARandomPartisan();
+			food -= 4;
+		}
+
+
+	}
+
+	public void addFulfillment(String name, Integer number) {
+		factions.addFulfillment(name, number);
+	}
+
+	public void changeMoney(int money) {
+		resource.replace("money", resource.get("money") + money);
+	}
 }
