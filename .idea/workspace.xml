@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abe72990-25fe-4894-b599-2d36006b3213" name="Default Changelist" comment="" />
+    <list default="true" id="abe72990-25fe-4894-b599-2d36006b3213" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,13 +28,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="D:\intellij\IntelliJ IDEA Community Edition 2020.2.3\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1kTrvHZgSoJG4UBJ2GadEK9JG4n" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -66,9 +62,22 @@
       <recent name="C:\Users\Quentin\Documents\Projet\Tropico\tropico\Tropico\src\main\resources\tropico.Controller.img" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tropico.view.App" />
+      <module name="tropico3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tropico.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tropico.view.Main" />
       <module name="tropico3" />
       <extension name="coverage">
         <pattern>
@@ -83,6 +92,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -96,112 +106,6 @@
       <updated>1605735651870</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="544" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609666315977">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="544" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1609666315977" />
-    <state x="531" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1609731745257">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="531" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1609731745257" />
-    <state x="947" y="218" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1609722477334">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="947" y="218" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1609722477334" />
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1609018216254">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1609018216254" />
-    <state x="446" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1609658293590">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="446" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1609658293590" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609632539163">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1609632539163" />
-    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1606463387484">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606463387484" />
-    <state x="528" y="282" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606454683725">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="528" y="282" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1606454683725" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1609722482363">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609722482363" />
-    <state width="1493" height="195" key="GridCell.Tab.0.bottom" timestamp="1610191218990">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610191218990" />
-    <state width="1493" height="195" key="GridCell.Tab.0.center" timestamp="1610191218990">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610191218990" />
-    <state width="1493" height="195" key="GridCell.Tab.0.left" timestamp="1610191218990">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610191218990" />
-    <state width="1493" height="195" key="GridCell.Tab.0.right" timestamp="1610191218990">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610191218990" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1609734494794">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609734494794" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1609734494794">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609734494794" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1609734494793">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609734494793" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1609734494794">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609734494794" />
-    <state x="421" y="10" width="1038" height="814" key="SettingsEditor" timestamp="1609765509465">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="421" y="10" width="1038" height="814" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609765509465" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1608911570516">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1608911570516" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1606454732804">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1606454732804" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609609105599">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1609609105599" />
-    <state x="302" y="148" width="931" height="628" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1606455207588">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="302" y="148" width="931" height="628" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1606455207588" />
-    <state x="209" y="73" key="new project wizard" timestamp="1607345595797">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="209" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1607345595797" />
-    <state x="410" y="139" width="700" height="530" key="recent.locations.popup" timestamp="1609731360176">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="410" y="139" width="700" height="530" key="recent.locations.popup/0.0.1536.824@0.0.1536.824" timestamp="1609731360176" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1606838345841">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606838345841" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610111137181">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610111137181" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
