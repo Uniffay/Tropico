@@ -1,5 +1,7 @@
 package tropico.Object;
 
+import tropico.Model.Utils;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -27,7 +29,7 @@ public class Choice {
     private static String toStringGeneral(HashMap<String, Integer> effects, String prefix, Function<String, String> suffix){
         StringBuilder text = new StringBuilder();
         for (String effect : effects.keySet()) {
-            text.append(prefix).append(FactionsList.get(effect)).append(": ").append(effects.get(effect));
+            text.append(prefix).append(FactionsList.get(effect)).append(": ").append(Utils.modifiedByDifficulty(effects.get(effect)));
             text.append(suffix.apply(effect));
             text.append("\n");
         }

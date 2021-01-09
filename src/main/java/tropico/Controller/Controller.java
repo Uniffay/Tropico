@@ -16,12 +16,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
-import tropico.Model.DataManagement;
-import tropico.Model.FactionAddManagement;
-import tropico.Model.FoodManagement;
-import tropico.Model.ImageManagement;
+import tropico.Model.*;
 import tropico.Object.Choice;
 import tropico.Object.Data;
+import tropico.Object.Dictator;
 import tropico.Object.Faction;
 
 import java.io.InputStream;
@@ -419,7 +417,7 @@ public class Controller {
             choices.get(i).setVisible(true);
             labels.get(i).setText(gameData.getEventChosen().getChoices().get(i).getLabel());
             int price = gameData.getEventChosen().getChoices().get(i).getPrice();
-            moneyManagement.get(i).setText(price + "$");
+            moneyManagement.get(i).setText(Utils.modifiedByDifficulty(-price) + "$");
             setFillMoney(price, gameData, moneyManagement.get(i));
         }
     }
@@ -620,10 +618,13 @@ public class Controller {
     void validLoan(){
         Data gameData = DataManagement.getData();
         int loanValue = Integer.parseInt(loan.getText());
-        if (gameData.getPlayerPlaying().canLoan(loanValue)) {
-            gameData.getPlayerPlaying().addDebt(loanValue);
-            gameData.getPlayerPlaying().addMoney(loanValue);
+        Dictator playerPlaying = gameData.getPlayerPlaying();
+        if (playerPlaying.canLoan(loanValue)) {
+            playerPlaying.addDebt(loanValue);
+            playerPlaying.addMoney(loanValue);
             debtValue.setText(String.valueOf(gameData.getPlayerPlaying().getDebt()));
+            int totalPriceValue = Integer.parseInt(totalPrice.getText().substring(0, totalPrice.getText().length() - 1));
+            totalPrice.setTextFill((playerPlaying.getMoney() > totalPriceValue)? Color.GREEN: Color.RED);
             setTextHeaderBar(gameData);
         }
         else
@@ -687,7 +688,7 @@ public class Controller {
     private void refreshFoodLabel() {
         foodBought.setText(String.valueOf(FoodManagement.getFoodBought()));
         totalPriceFood.setText(FoodManagement.getFoodBought() * 8 + "$");
-        missingFood.setText(String.valueOf(FoodManagement.getFoodMissingWithFoodBought()));
+        missingFood.setText(String.valueOf(Math.max(FoodManagement.getFoodMissingWithFoodBought(), 0)));
     }
 
     private void initializeFoodMenu(Data gameData) {
@@ -780,6 +781,9 @@ public class Controller {
     }
 
     void modifyAndRefreshTextField(String name, int number){
+        if(DataManagement.getData().getPlayerPlaying().getFactions().getFaction(name).getFulfillment() == 0){
+            return;
+        }
         int numberAdded = FactionAddManagement.addFactionFulfillment(name, number);
         refreshFactionTextField(name);
         int totalPriceAdded = setTotalPriceFaction(name, round(numberAdded));//rounded to superior
@@ -827,11 +831,11 @@ public class Controller {
         if(totalPriceValue > gameData.getPlayerPlaying().getResource().get("money")){
             return;
         }
-        FoodManagement.validate(gameData);
         FactionAddManagement.validate(gameData);
+        FoodManagement.validate(gameData);
         gameData.getPlayerPlaying().changeMoney(-totalPriceValue);
         endYearMenu.setVisible(false);
-        nextEvent();
+        showEvent();
     }
 
     @FXML

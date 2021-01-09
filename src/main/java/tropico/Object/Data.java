@@ -1,8 +1,13 @@
 package tropico.Object;
 
+import com.google.gson.Gson;
 import tropico.Controller.Controller;
+import tropico.Model.Difficulty;
 
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class Data {
@@ -13,16 +18,33 @@ public class Data {
 	private int playerPlaying;
 	private final Map<Season, List<Event>> eventsBySeason;
 	private Event eventChosen;
+	private double difficulty;
 	
 	
 	public Data(int numberOfPlayer, String[] names, String jsonParserResource, String jsonParserFactions, String jsonParserEvents) throws IOException {
 		this.turn = 0;
 		season = Season.SPRING;
+		setDifficultyFromJSON(jsonParserResource);
 		players = new DictatorManagement(numberOfPlayer, names, jsonParserResource, jsonParserFactions);
 		eventsBySeason = EventManagement.getEvent(jsonParserEvents);
 		pickRandomEventFromSeason(Season.SPRING);
 	}
-	
+
+	private void setDifficultyFromJSON(String jsonParserResource) {
+		try{
+			Gson gson = new Gson();
+			Reader reader = Files.newBufferedReader(Path.of(jsonParserResource));
+			Map<String, Double> map = gson.fromJson(reader, Map.class);
+			difficulty = map.get("difficulty");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public double getDifficulty() {
+		return difficulty;
+	}
+
 	public void endTurn() {
 		if(players.size() > playerPlaying + 1) {
 			playerPlaying = ((playerPlaying + 1) % players.size());

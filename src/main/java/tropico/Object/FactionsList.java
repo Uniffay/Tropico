@@ -1,14 +1,14 @@
 package tropico.Object;
 
 import com.google.gson.Gson;
+import tropico.Model.Utils;
 
-import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class FactionsList {
 	
@@ -62,7 +62,7 @@ public class FactionsList {
 		for(String effect: effect_partisan.keySet()) {
 			for (Faction faction : factions) {
 				if (faction.getEnglishName().equals(effect)){
-					faction.changePartisan(effect_partisan.get(effect));
+					faction.changePartisan(Utils.modifiedByDifficulty(effect_partisan.get(effect)));
 					verify = true;
 					break;
 				}
@@ -86,7 +86,7 @@ public class FactionsList {
 	private boolean changeFulfillmentFaction(String effect, Map<String, Integer> effect_fulfillment){
 		for (Faction faction : factions) {
 			if (faction.getEnglishName().equals(effect)){
-				faction.changeFulfillment(effect_fulfillment.get(effect).shortValue());
+				faction.changeFulfillment((short)Utils.modifiedByDifficulty(effect_fulfillment.get(effect)));
 				return true;
 			}
 		}
@@ -110,7 +110,9 @@ public class FactionsList {
 	}
 
 	private Faction getRandomFactionFilter(Predicate<Faction> filter) {
-		return factions.stream().filter(filter).findAny().orElse(null);
+		Random r = new Random();
+		List<Faction> factionFiltered = factions.stream().filter(filter).collect(Collectors.toList());
+		return factionFiltered.get(r.nextInt(factionFiltered.size()));
 	}
 
 	private int getRandomInteger(int bounds){
@@ -122,7 +124,7 @@ public class FactionsList {
 		return factions.get(getRandomInteger(factions.size()));
 	}
 
-	public void addFulfillment(String name, Integer number) {
-		getFaction(name).addFulfillment(number);
+	public int addFulfillment(String name, Integer number) {
+		return getFaction(name).addFulfillment(number);
 	}
 }

@@ -1,14 +1,11 @@
 package tropico.view;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import tropico.Model.DataManagement;
 import tropico.Object.Data;
 
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * JavaFX App
@@ -33,8 +30,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        String cc = "cc";
-        String cc2 = cc;
         launch(args);
     }
 

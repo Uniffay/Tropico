@@ -2,7 +2,6 @@ package tropico.Model;
 
 import tropico.Object.Data;
 import tropico.Object.Dictator;
-import tropico.Object.Faction;
 
 import java.util.HashMap;
 import java.util.function.Predicate;
@@ -46,6 +45,7 @@ public class FactionAddManagement {
     public static void validate(Data gameData) {
         Dictator playerPlaying = gameData.getPlayerPlaying();
         Predicate<String> predicate = faction -> FACTIONS_SAVE.get(faction) > 0;
-        FACTIONS_SAVE.keySet().stream().filter(predicate).forEach(name->playerPlaying.addFulfillment(name, FACTIONS_SAVE.get(name)));
+        FACTIONS_SAVE.keySet().stream().filter(predicate).forEach(name->playerPlaying.bribeFulfillment(name, FACTIONS_SAVE.get(name)));
+
     }
 }

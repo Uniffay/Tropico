@@ -7,8 +7,8 @@ public enum Difficulty {
     DIFFICULT("setting", "faction"),
     PERSONALIZED("", "");
 
-    private String jsonSetting;
-    private String jsonFaction;
+    private final String jsonSetting;
+    private final String jsonFaction;
 
     Difficulty(String jsonSetting, String jsonFaction){
         this.jsonSetting = jsonSetting;

@@ -1,6 +1,8 @@
 package tropico.Object;
 
 import com.google.gson.Gson;
+import javafx.scene.paint.Paint;
+import tropico.Model.Utils;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -46,7 +48,7 @@ public class Dictator {
     public void haveChosen(Choice choice) {
 		for (String effect: choice.getEffect_resource().keySet()){
 			try {
-				int resourceValue = choice.getEffect_resource().get(effect);
+				int resourceValue = Utils.modifiedByDifficulty(choice.getEffect_resource().get(effect));
 				if (effect.equals("money")) {
 					resource.replace(effect, resource.get(effect) + resourceValue);
 					continue;
@@ -104,15 +106,18 @@ public class Dictator {
 			factions.killARandomPartisan();
 			food -= 4;
 		}
-
-
 	}
 
-	public void addFulfillment(String name, Integer number) {
-		factions.addFulfillment(name, number);
+	public void bribeFulfillment(String name, Integer number) {
+		int loyalistDissatisfaction = factions.addFulfillment(name, number);
+		factions.getFaction("loyalist").loseFulfillment(loyalistDissatisfaction);
 	}
 
 	public void changeMoney(int money) {
 		resource.replace("money", resource.get("money") + money);
+	}
+
+	public int getMoney() {
+		return resource.get("money");
 	}
 }

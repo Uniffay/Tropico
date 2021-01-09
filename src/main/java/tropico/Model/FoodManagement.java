@@ -41,7 +41,6 @@ public class FoodManagement {
     }
 
     public static void validate(Data gameData) {
-        System.out.println(getFoodMissing() - FOOD_BOUGHT);
         gameData.getPlayerPlaying().managePartisan(getFoodMissing() - FOOD_BOUGHT);
     }
 }

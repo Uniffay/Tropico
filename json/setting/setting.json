@@ -1,5 +1,6 @@
 {
-  "farming": 0,
+  "farming": 15,
   "industry": 15,
-  "money": 200
+  "money": 200,
+  "difficulty": 0.5
 }

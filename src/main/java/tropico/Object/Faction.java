@@ -7,7 +7,7 @@ public class Faction {
 	private int partisan;
 	private short fulfillment; // %
 	private final String image;
-	
+
 	public Faction(String name, double partisan, double fulfillment, String image) {
 		this.name = name;
 		this.englishName = image.substring(0, image.length() - 4); // We remove .png from the image name that is englishName.png
@@ -49,7 +49,12 @@ public class Faction {
 		partisan += 1;
 	}
 
-	public void addFulfillment(Integer number) {
-		fulfillment += number;
+	public int addFulfillment(Integer number) {
+		fulfillment += Math.min(100, number);
+		return ((number + 9) / 10) * 15 * partisan / 10;
+	}
+
+	public void loseFulfillment(Integer number) {
+		fulfillment -=Math.max(number, 0);
 	}
 }
