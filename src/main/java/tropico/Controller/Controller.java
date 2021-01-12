@@ -15,13 +15,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import tropico.Model.*;
 import tropico.Object.Choice;
 import tropico.Object.Data;
 import tropico.Object.Dictator;
 import tropico.Object.Faction;
+import tropico.view.StageEnum;
+import tropico.view.StageManagement;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -258,7 +262,42 @@ public class Controller {
     private Label totalPriceFaction;
 
     @FXML
+    private TextField refund;
+
+    @FXML
+    private Label refundLeft;
+
+    @FXML
     private Label totalPrice;
+
+    @FXML
+    private HBox setting;
+
+    @FXML
+    private Rectangle graySetting;
+
+    @FXML
+    private AnchorPane settingMenu;
+
+    @FXML
+    private ImageView soundImage;
+
+    @FXML
+    private ImageView unicornImage;
+
+    @FXML
+    private AnchorPane warningMenu;
+
+    @FXML
+    private Text warning;
+
+    @FXML
+    private AnchorPane playerInfo;
+
+    @FXML
+    private Label player;
+
+    private Runnable actionAccepted;
 
     private final HashMap<String,TextField> factionsTextField = new HashMap<>();
 
@@ -310,8 +349,17 @@ public class Controller {
         initializeGraphics(gameData);
         initializeEvent(gameData);
         initializeFactionLabel(gameData);
+        setSoundSetting();
+        if(!gameData.isSolo())
+            showPlayerPlaying();
         List<Node> needInFront = initializeFrontNodes();
         nodesToFront(needInFront);
+    }
+
+    private void setSoundSetting() {
+        String suffix = (SoundManagement.isSoundOn())? "On2.png":"Off2.png";
+        soundImage.setImage(ImageManagement.createImage("sound" + suffix));
+        unicornImage.setImage(ImageManagement.createImage("unicorn" + suffix.replace("2", "")));
     }
 
     private List<Node> initializeFrontNodes() {
@@ -325,7 +373,12 @@ public class Controller {
                 arrowAddFaction,
                 header,
                 loanMenu,
-                endYearMenu
+                endYearMenu,
+                graySetting,
+                setting,
+                settingMenu,
+                warningMenu,
+                playerInfo
         );
     }
 
@@ -397,9 +450,9 @@ public class Controller {
         int turn = gameData.getTurn();
         if (gameData.getPlayerPlaying().haveDebt())
             debtShow.setVisible(true);
-        date.setText("24/" + getMonth(turn) + "/"+ (turn / 4 + 2015));
+        date.setText("24/" + getMonth(turn) + "/"+ (turn / 4 + 2020));
         season.setText(gameData.getSeason().getName());
-        money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("money")));
+        money.setText(String.valueOf(gameData.getPlayerPlaying().getMoney()));
         farming.setText(gameData.getPlayerPlaying().getResource().get("farming") + "%");
         industry.setText(gameData.getPlayerPlaying().getResource().get("industry") + "%");
     }
@@ -416,14 +469,19 @@ public class Controller {
             }
             choices.get(i).setVisible(true);
             labels.get(i).setText(gameData.getEventChosen().getChoices().get(i).getLabel());
-            int price = gameData.getEventChosen().getChoices().get(i).getPrice();
-            moneyManagement.get(i).setText(Utils.modifiedByDifficulty(-price) + "$");
-            setFillMoney(price, gameData, moneyManagement.get(i));
+            int price = Utils.modifiedByDifficulty(-gameData.getEventChosen().getChoices().get(i).getPrice());
+            moneyManagement.get(i).setText(price + "$");
+            setFillMoney(-price, gameData, moneyManagement.get(i));
         }
     }
 
+    private void showPlayerPlaying(){
+        playerInfo.setVisible(true);
+        player.setText(DataManagement.getData().getPlayerPlaying().getName());
+    }
+
     private void setFillMoney(int price, Data gameData, Label money) {
-        if(price <= gameData.getPlayerPlaying().getResource().get("money") || price == 0) {
+        if(price <= gameData.getPlayerPlaying().getMoney() || price == 0) {
             money.setTextFill(Color.GREEN);
             return;
         }
@@ -552,9 +610,14 @@ public class Controller {
     }
 
     @FXML
-    void nextEvent() {
+    void nextEvent() throws IOException {
         Data gameData = DataManagement.getData();
         gameData.endTurn();
+        if(gameData.isGameEnded()){
+            return;
+        }
+        if(!gameData.isSolo())
+            showPlayerPlaying();
         next.setVisible(false);
         debtMessage.setVisible(false);
         if(gameData.isYearEnding()) {
@@ -615,21 +678,19 @@ public class Controller {
     }
 
     @FXML
-    void validLoan(){
+    void validLoan() {
         Data gameData = DataManagement.getData();
         int loanValue = Integer.parseInt(loan.getText());
         Dictator playerPlaying = gameData.getPlayerPlaying();
-        if (playerPlaying.canLoan(loanValue)) {
-            playerPlaying.addDebt(loanValue);
-            playerPlaying.addMoney(loanValue);
-            debtValue.setText(String.valueOf(gameData.getPlayerPlaying().getDebt()));
-            int totalPriceValue = Integer.parseInt(totalPrice.getText().substring(0, totalPrice.getText().length() - 1));
-            totalPrice.setTextFill((playerPlaying.getMoney() > totalPriceValue)? Color.GREEN: Color.RED);
-            setTextHeaderBar(gameData);
-        }
-        else
-            debtMessage.setVisible(true);
-        money.setText(String.valueOf(gameData.getPlayerPlaying().getResource().get("money")));
+        playerPlaying.addDebt(loanValue);
+        playerPlaying.addMoney(loanValue);
+        debtValue.setText(String.valueOf(gameData.getPlayerPlaying().getDebt()));
+        int totalPriceValue = Integer.parseInt(totalPrice.getText().substring(0, totalPrice.getText().length() - 1));
+        totalPrice.setTextFill((playerPlaying.getMoney() > totalPriceValue) ? Color.GREEN : Color.RED);
+        RefundManagement.update(gameData);
+        refundLeft.setText(RefundManagement.getLoanSave() - RefundManagement.getLoanRefund() + "$");
+        setTextHeaderBar(gameData);
+        money.setText(String.valueOf(gameData.getPlayerPlaying().getMoney()));
         loan.setText("0");
         loanMenu.setVisible(false);
     }
@@ -640,13 +701,28 @@ public class Controller {
         initializeReport(gameData);
         initializeFoodMenu(gameData);
         initializeFactionMenu(gameData);
+        initializeRefundMenu(gameData);
         initializeAllTextFieldListener();
         totalPrice.setText("0$");
     }
 
+    private void initializeRefundMenu(Data gameData) {
+        RefundManagement.initialize(gameData);
+        refundLeft.setText(RefundManagement.getLoanSave() + "$");
+        refund.setText("0");
+    }
+
     private void initializeAllTextFieldListener() {
         initializeFoodTextFieldListener();
+        initializeRefundTextFieldListener();
         factionsTextField.keySet().forEach(f->initializeTextFieldListener(f, factionsTextField.get(f)));
+    }
+
+    private void initializeRefundTextFieldListener() {
+        refund.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if(!newPropertyValue)
+                enterRefund();
+        });
     }
 
     private void initializeTextFieldListener(String name, TextField textField) {
@@ -799,7 +875,7 @@ public class Controller {
         int totalPriceValue = Integer.parseInt(totalPriceString);
         totalPrice.setText(totalPriceValue + totalPriceAdded + "$");
         totalPrice.setTextFill(Color.GREEN);
-        if(totalPriceAdded + totalPriceValue > DataManagement.getData().getPlayerPlaying().getResource().get("money"))
+        if(totalPriceAdded + totalPriceValue > DataManagement.getData().getPlayerPlaying().getMoney())
             totalPrice.setTextFill(Color.RED);
     }
 
@@ -826,16 +902,26 @@ public class Controller {
     @FXML
     void validEndYearChoice(){
         Data gameData = DataManagement.getData();
+        Dictator playerPlaying = gameData.getPlayerPlaying();
         var totalPriceString = totalPrice.getText().substring(0, totalPrice.getText().length() - 1);
         int totalPriceValue = Integer.parseInt(totalPriceString);
-        if(totalPriceValue > gameData.getPlayerPlaying().getResource().get("money")){
+        if(totalPriceValue > playerPlaying.getMoney()){
             return;
         }
         FactionAddManagement.validate(gameData);
         FoodManagement.validate(gameData);
-        gameData.getPlayerPlaying().changeMoney(-totalPriceValue);
+        playerPlaying.changeMoney(-totalPriceValue);
         endYearMenu.setVisible(false);
+        validateRefund(playerPlaying);
         showEvent();
+    }
+
+    private void validateRefund(Dictator playerPlaying) {
+        playerPlaying.repayDebt(RefundManagement.getLoanRefund());
+        if(playerPlaying.getDebt() == 0)
+            debtShow.setVisible(false);
+        playerPlaying.addInterest();
+        debtValue.setText(String.valueOf(playerPlaying.getDebt()));
     }
 
     @FXML
@@ -850,5 +936,101 @@ public class Controller {
         if(source.getLength() > 4 || Integer.parseInt(source.getText()) > 100){
             source.setText(String.valueOf(100));
         }
+    }
+
+    @FXML
+    void addRefund(){
+        modifyAndRefreshRefund(10);
+    }
+
+    @FXML
+    void removeRefund(){
+        modifyAndRefreshRefund(-10);
+    }
+
+    @FXML
+    void enterRefund(){
+        modifyAndRefreshRefund(Integer.parseInt(refund.getText()) - RefundManagement.getLoanRefund());
+    }
+
+    private void modifyAndRefreshRefund(int number) {
+        int modified = RefundManagement.updateRefund(number);
+        refundLeft.setText((RefundManagement.getLoanSave() - RefundManagement.getLoanRefund()) + "$");
+        refund.setText(String.valueOf(RefundManagement.getLoanRefund()));
+        setTotalPrice(modified);
+    }
+
+    @FXML
+    void verifyKeyTypedRefund(KeyEvent event){
+        TextField source = (TextField)(event.getSource());
+        if(notNumeric(event.getCharacter())){
+            source.setText(source.getText().replace(event.getCharacter(), ""));
+        }
+        if(source.getLength() == 0){
+            source.setText("0");
+        }
+        if(source.getLength() > 8){
+            source.setText(source.getText().substring(1));
+        }
+    }
+
+    @FXML
+    void openSetting(){
+        settingMenu.setVisible(!settingMenu.isVisible());
+        graySetting.setVisible(!graySetting.isVisible());
+    }
+
+    @FXML
+    void continuePlaying(){
+        settingMenu.setVisible(false);
+        graySetting.setVisible(false);
+    }
+
+    @FXML
+    void saveGame(){
+        warningMenu.setVisible(true);
+        warning.setText("Sauvegarder écrasera la dernière sauvegarde !");
+        actionAccepted = () -> {
+            try {
+                DataManagement.getData().save();
+                warningMenu.setVisible(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    @FXML
+    void backToMenu(){
+        warningMenu.setVisible(true);
+        warning.setText("Vous allez perdre tous les progrès que vous n'avez pas sauvegardé !");
+        actionAccepted = () -> {
+            try {
+                StageManagement.setScene(StageEnum.MENU);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    @FXML
+    void switchSound(){
+        SoundManagement.switchSoundOn();
+        setSoundSetting();
+    }
+
+    @FXML
+    void denied(){
+        warningMenu.setVisible(false);
+    }
+
+    @FXML
+    void accepted(){
+        actionAccepted.run();
+    }
+
+    @FXML
+    void playerFinish(){
+        playerInfo.setVisible(false);
     }
 }

@@ -1,19 +1,20 @@
 package tropico.Object;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.stream.Stream;
+import java.util.Map;
 
-public class DictatorManagement {
+public class DictatorManagement implements Serializable {
 	
 	private final ArrayList<Dictator> dictators = new ArrayList<>();
 	
-	public DictatorManagement(int number, String[] name, String jsonParserResource, String jsonParserFactions) {
+	public DictatorManagement(int number, String[] name, Map<String, Double> resource, String jsonParserFactions) {
 		for (int i = 0; i < number; i++) {
 			if(i < name.length) {
-				dictators.add(new Dictator(name[i], jsonParserResource, jsonParserFactions));
+				dictators.add(new Dictator(name[i], resource, jsonParserFactions));
 			}
 			else{
-				dictators.add(new Dictator("player" + i, jsonParserResource, jsonParserFactions));
+				dictators.add(new Dictator("player" + i, resource, jsonParserFactions));
 			}
 		}
 	}
@@ -26,7 +27,11 @@ public class DictatorManagement {
 		return dictators.get(dictator);
     }
 
-    public Stream<Dictator> stream(){
-		return dictators.stream();
+	public void remove(Dictator dictator) {
+		dictators.remove(dictator);
+	}
+
+	public boolean isEmpty() {
+		return dictators.isEmpty();
 	}
 }

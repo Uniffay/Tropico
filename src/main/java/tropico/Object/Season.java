@@ -1,13 +1,15 @@
 package tropico.Object;
 
-public enum Season {
+import java.io.Serializable;
+
+public enum Season implements Serializable {
 
     SUMMER("Été"),
     WINTER("Hiver"),
     AUTUMN("Automne"),
     SPRING("Printemps");
 
-    private String name;
+    private final String name;
 
     Season(String name){
         this.name = name;

@@ -53,4 +53,8 @@ public class JSonPathManagement {
         }
         return 0;
     }
+
+    public static String toStringS() {
+        return "event;" + JSON_EVENT + " faction:" + JSON_FACTION + " setting: " +JSON_SETTING;
+    }
 }

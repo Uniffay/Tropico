@@ -30,6 +30,11 @@
                   <Font name="Monospaced Regular" size="37.0" />
                </font>
             </Label>
+            <Label alignment="CENTER" onMouseClicked="#load" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="CHARGER SAUVEGARDE" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="37.0" />
+               </font>
+            </Label>
             <Label alignment="CENTER" onMouseClicked="#openOptionMenu" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="OPTION" textFill="WHITE">
                <font>
                   <Font name="Monospaced Regular" size="37.0" />
@@ -251,10 +256,53 @@
                   </children>
                </VBox>
             </HBox>
-            <Label alignment="CENTER" onMouseClicked="#startGame" prefHeight="88.0" prefWidth="190.0" style="-fx-background-color: hotpink;" text="CONFIRMER" textFill="#bf09bf">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" onMouseClicked="#switchPlayerState" prefHeight="88.0" prefWidth="270.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="Gerer Les Joueurs" textFill="#bf09bf">
+                     <font>
+                        <Font name="Monospaced Bold" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" onMouseClicked="#startGame" prefHeight="88.0" prefWidth="190.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="CONFIRMER" textFill="#bf09bf">
+                     <font>
+                        <Font name="Monospaced Bold" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
                <VBox.margin>
-                  <Insets left="400.0" top="100.0" />
+                  <Insets top="100.0" />
                </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="playerMenu" layoutX="206.0" layoutY="94.0" prefHeight="523.0" prefWidth="603.0" style="-fx-background-color: hotpink; -fx-background-radius: 50;" visible="false">
+         <children>
+            <TextField fx:id="player1" alignment="CENTER" layoutX="227.0" layoutY="128.0" onKeyPressed="#verifyKey" promptText="Player1" />
+            <ImageView fitHeight="58.0" fitWidth="67.0" layoutX="410.0" layoutY="439.0" onMouseClicked="#addPlayer" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/plus.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="488.0" layoutY="432.0" onMouseClicked="#removePlayer" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/moins.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="192.0" layoutY="22.0" prefHeight="72.0" prefWidth="218.0" text="JOUEURS" textFill="#cd1cc4">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="89.0" layoutY="443.0" onMouseClicked="#switchPlayerState" prefHeight="54.0" prefWidth="154.0" style="-fx-background-color: hotpink; -fx-border-color: purple;" text="CONFIRMER" textFill="#bf09bf">
                <font>
                   <Font name="Monospaced Bold" size="22.0" />
                </font>
@@ -263,6 +311,6 @@
                </cursor>
             </Label>
          </children>
-      </VBox>
+      </AnchorPane>
    </children>
 </AnchorPane>

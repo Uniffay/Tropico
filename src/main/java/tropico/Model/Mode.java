@@ -1,13 +1,13 @@
 package tropico.Model;
 
 public enum Mode {
-    SANDBOX("Event1"),
-    IUT("Event2"),
-    SEAOFTHIEVES("Event3"),
-    MARIO("Event4"),
+    SANDBOX("Event"),
+    IUT("Event"),
+    SEAOFTHIEVES("Event"),
+    MARIO("Event"),
     PERSONALIZED("");
 
-    private String jsonName;
+    private final String jsonName;
 
     Mode(String jsonName){
         this.jsonName = jsonName;

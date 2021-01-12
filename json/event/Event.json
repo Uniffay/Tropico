@@ -186,7 +186,7 @@
     ],
     "choices": [
       {
-        "label": "Accepter",
+        "label": "Accepter.",
         "effectFulfillment": {
           "communist": 10,
           "militarist": 20,

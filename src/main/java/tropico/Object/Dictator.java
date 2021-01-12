@@ -1,38 +1,30 @@
 package tropico.Object;
 
-import com.google.gson.Gson;
-import javafx.scene.paint.Paint;
+import tropico.Model.DataManagement;
 import tropico.Model.Utils;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
-public class Dictator {
+public class Dictator implements Serializable {
 
 	private final String name;
 	private final HashMap<String, Integer> resource = new HashMap<>();
 	private final FactionsList factions;
 	private int debt = 0;
+	private boolean lost = false;
+	private int turnLost = 0;
 	
-	public Dictator(String name, String jsonPathResource, String jsonPathFaction)  {
+	public Dictator(String name, Map<String, Double> resource, String jsonPathFaction)  {
 		this.name = name;
-		Gson gson = new Gson();
-		try {
-			Reader reader = Files.newBufferedReader(Path.of(jsonPathResource));
-			Map<String, Double> map = gson.fromJson(reader, Map.class);
-			resource.put("farming", map.get("farming").intValue());
-			resource.put("industry", map.get("industry").intValue());
-			if(resource.get("farming") + resource.get("industry") > 100) {
-				throw new IllegalArgumentException("sum of farming and industry musn't be superior to 100");
-			}
-			resource.put("money", map.get("money").intValue());
-		}catch (IOException e){
-			e.printStackTrace();
+		this.resource.put("farming", resource.get("farming").intValue());
+		this.resource.put("industry", resource.get("industry").intValue());
+		if(this.resource.get("farming") + this.resource.get("industry") > 100) {
+			throw new IllegalArgumentException("sum of farming and industry musn't be superior to 100");
 		}
+		this.resource.put("money", resource.get("money").intValue());
 		factions = new FactionsList(jsonPathFaction);
 	}
 
@@ -67,10 +59,6 @@ public class Dictator {
 		return new HashMap<>(resource);
 	}
 
-
-	public boolean canLoan(int loanValue) {
-		return debt + loanValue <= 10000;
-	}
 
 	public void addDebt(int loanValue) {
 		debt += loanValue * 1.1;
@@ -119,5 +107,56 @@ public class Dictator {
 
 	public int getMoney() {
 		return resource.get("money");
+	}
+
+	public void repayDebt(int loanRefund) {
+		debt -= loanRefund;
+	}
+
+	public void debtDissatisfaction() {
+		if(debt / 1000 < 0){
+			return;
+		}
+		factions.loseFulfillment(debt / 1000);
+	}
+
+	public boolean haveLost(){
+		return lost;
+	}
+
+	public boolean havePlayerLost(){
+		Data gameData = DataManagement.getData();
+		lost = factions.getAverageFulfillment() < gameData.getFulfillmentMin();
+		if(lost){
+			turnLost = gameData.getTurn();
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Dictator dictator = (Dictator) o;
+		return debt == dictator.debt &&
+				lost == dictator.lost &&
+				turnLost == dictator.turnLost &&
+				Objects.equals(name, dictator.name) &&
+				Objects.equals(resource, dictator.resource) &&
+				Objects.equals(factions, dictator.factions);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, resource, factions, debt, lost, turnLost);
+	}
+
+	public Integer getTurnLost() {
+		return turnLost;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

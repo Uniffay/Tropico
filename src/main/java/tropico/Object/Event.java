@@ -1,11 +1,12 @@
 package tropico.Object;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Event {
+public class Event implements Serializable {
 
-    private String label;
+    private final String label;
     private final ArrayList<Choice> choices;
     private final ArrayList<Season> seasons;
     private final Event next;

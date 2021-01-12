@@ -3,27 +3,31 @@ package tropico.Object;
 import com.google.gson.Gson;
 import tropico.Model.Utils;
 
+import java.io.IOException;
 import java.io.Reader;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class FactionsList {
+public class FactionsList implements Serializable {
+
+	static final long serialVersionUID = 185174138802860427L;
 	
 	private final ArrayList<Faction> factions= new ArrayList<>();
 	private static HashMap<String, String> FACTIONS_NAME;
 	
 	public FactionsList(String jsonPath) {
 		try {
+			initializeFactionName();
 			// create Gson instance
 			Gson gson = new Gson();
 
 			// create a reader
 			Reader reader = Files.newBufferedReader(Path.of(jsonPath));
-			Reader readerName = Files.newBufferedReader(Path.of("json/faction/name.json"));
-			FACTIONS_NAME = gson.fromJson(readerName, HashMap.class);
+
 			// convert JSON file to map
 			Map<?, ?>[] map = gson.fromJson(reader, Map[].class);
 
@@ -75,7 +79,6 @@ public class FactionsList {
 	}
 
 	public void changeFulfillment(Map<String, Integer> effect_fulfillment) {
-		boolean verify = false;
 		for(String effect: effect_fulfillment.keySet()) {
 			if(!changeFulfillmentFaction(effect, effect_fulfillment)){
 				throw new IllegalArgumentException(effect + " is not a faction");
@@ -126,5 +129,27 @@ public class FactionsList {
 
 	public int addFulfillment(String name, Integer number) {
 		return getFaction(name).addFulfillment(number);
+	}
+
+    public void loseFulfillment(int number) {
+		factions.forEach(faction -> faction.loseFulfillment(number));
+    }
+
+	public int getAverageFulfillment() {
+		int partisans = 0;
+		int sumFulfillment = 0;
+		int factionPartisan = 0;
+		for (Faction faction: factions){
+			factionPartisan = faction.getPartisan();
+			partisans += factionPartisan;
+			sumFulfillment += faction.getFulfillment() * factionPartisan;
+		}
+		return (partisans == 0) ? 0 : sumFulfillment / partisans;
+	}
+
+	public static void initializeFactionName() throws IOException {
+		Gson gson = new Gson();
+		Reader readerName = Files.newBufferedReader(Path.of("json/faction/name.json"));
+		FACTIONS_NAME = gson.fromJson(readerName, HashMap.class);
 	}
 }

@@ -2,11 +2,12 @@ package tropico.Object;
 
 import tropico.Model.Utils;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class Choice {
+public class Choice implements Serializable {
 
     private final String label;
     private final HashMap<String, Integer> effectFulfillment = new HashMap<>();

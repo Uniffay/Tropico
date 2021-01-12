@@ -1,6 +1,8 @@
 package tropico.Object;
 
-public class Faction {
+import java.io.Serializable;
+
+public class Faction implements Serializable {
 	
 	private final String name;
 	private final String englishName;
@@ -50,11 +52,12 @@ public class Faction {
 	}
 
 	public int addFulfillment(Integer number) {
-		fulfillment += Math.min(100, number);
+		fulfillment += number;
 		return ((number + 9) / 10) * 15 * partisan / 10;
 	}
 
 	public void loseFulfillment(Integer number) {
-		fulfillment -=Math.max(number, 0);
+		fulfillment -= number;
+		fulfillment = (short)Math.max(fulfillment, 0);
 	}
 }

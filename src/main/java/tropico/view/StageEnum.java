@@ -3,7 +3,8 @@ package tropico.view;
 public enum StageEnum {
 
     MENU("gameMenu.fxml"),
-    GAME("gameView.fxml");
+    GAME("gameView.fxml"),
+    END("gameScore.fxml");
 
     private final String name ;
 

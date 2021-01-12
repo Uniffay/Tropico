@@ -10,5 +10,6 @@ public class SoundManagement {
 
     public static void switchSoundOn(){
         SOUND_ON = !SOUND_ON;
+        MediaManagement.switchMute();
     }
 }

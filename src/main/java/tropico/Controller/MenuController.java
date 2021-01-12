@@ -8,27 +8,32 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import tropico.Model.*;
+import tropico.Object.Data;
+import tropico.Object.FactionsList;
 import tropico.view.StageEnum;
 import tropico.view.StageManagement;
 
 import java.io.IOException;
-import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MenuController {
 
@@ -95,7 +100,13 @@ public class MenuController {
     @FXML
     private Label errorEvent;
 
-    private MediaPlayer mediaPlayer;
+    @FXML
+    private AnchorPane playerMenu;
+
+    @FXML
+    private TextField player1;
+
+    private final ArrayList<TextField> players = new ArrayList<>();
 
     private final LinkedList<Node> menuList = new LinkedList<>();
 
@@ -106,6 +117,7 @@ public class MenuController {
         initializeTimer();
         initializeBlinking();
         initializeSettingManagement();
+        players.add(player1);
     }
 
     private void initializeSettingManagement() {
@@ -130,16 +142,11 @@ public class MenuController {
     }
 
     private void setMedia(String name) {
-        URL musicURL = getClass().getResource(name);
-        Media media = new Media(musicURL.toExternalForm());
-        mediaPlayer = new MediaPlayer(media);
+        MediaManagement.setMedia(name);
+        MediaPlayer mediaPlayer = MediaManagement.getMedia();
         mediaView.setMediaPlayer(mediaPlayer);
-        setAutoReplay(mediaPlayer);
+        MediaManagement.setAutoReplay(5.2);
         mediaPlayer.play();
-    }
-
-    private void setAutoReplay(MediaPlayer mediaPlayer) {
-        mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.seconds(5.2)));
     }
 
     @FXML
@@ -210,7 +217,6 @@ public class MenuController {
         String suffix = (SoundManagement.isSoundOn())? "On": "Off";
         imageSound.setImage(ImageManagement.createImage("sound" + suffix + ".png"));
         unicornSound.setImage(ImageManagement.createImage("unicorn" + suffix + ".png"));
-        mediaPlayer.setMute(!mediaPlayer.isMute());
     }
 
     @FXML
@@ -276,9 +282,25 @@ public class MenuController {
             errorEvent.setVisible(true);
             return;
         }
-        mediaPlayer.dispose();
-        setMedia("music.mp4");
+        mediaGameStart();
+        List<String> names = new ArrayList<>();
+        DataManagement.initializeData(initializeListName());
         StageManagement.setScene(StageEnum.GAME);
+    }
+
+    private List<String> initializeListName() {
+        List<String> names = new ArrayList<>();
+        int i = 0;
+        for (TextField t: players){
+            names.add((t.getText().length() > 0)? t.getText(): "Player" + (i + 1));
+            i++;
+        }
+        return names;
+    }
+
+    private void mediaGameStart(){
+        MediaManagement.dispose();
+        setMedia("music.mp4");
     }
 
     private void setErrorVisibleFalse() {
@@ -307,6 +329,56 @@ public class MenuController {
         }
         JSonPathManagement.setJsonEvent(JSonPathManagement.createPath(mode.getJsonName(), "event"));
         return 0;
+    }
+
+    @FXML
+    void load() throws IOException, ClassNotFoundException {
+        DataManagement.setData(Data.recuperation());
+        StageManagement.setScene(StageEnum.GAME);
+        mediaGameStart();
+        FactionsList.initializeFactionName();
+    }
+
+    @FXML
+    void addPlayer(){
+        if(players.size() > 8)
+            return;
+        TextField textField = new TextField();
+        players.add(textField);
+        textField.setPromptText("Player" + (players.size()));
+        textField.setAlignment(Pos.CENTER);
+        textField.setOnKeyPressed(this::verifyKey);
+        putTextField(textField);
+    }
+
+    private void putTextField(TextField t) {
+        AnchorPane.setTopAnchor(t, 97.0 + 30 * players.size());
+        AnchorPane.setLeftAnchor(t, 227d);
+        playerMenu.getChildren().add(t);
+    }
+
+    @FXML
+    void removePlayer(){
+        if(players.size() == 1){
+            return;
+        }
+        playerMenu.getChildren().remove(players.get(players.size() - 1));
+        players.remove(players.size() - 1);
+    }
+
+    @FXML
+    private void switchPlayerState(){
+        playerMenu.setVisible(!playerMenu.isVisible());
+        playMenu.setVisible(!playMenu.isVisible());
+        backArrow.setVisible(!backArrow.isVisible());
+    }
+
+    @FXML
+    void verifyKey(KeyEvent event){
+        TextField source = (TextField)event.getSource();
+        if(source.getText().length() > 20){
+            source.setText(source.getText().substring(0, 20));
+        }
     }
 }
 
