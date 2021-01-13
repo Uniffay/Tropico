@@ -1,6 +1,8 @@
 package tropico.Object;
 
 import com.google.gson.Gson;
+import tropico.Model.Difficulty;
+import tropico.Model.SettingManagement;
 import tropico.Model.Utils;
 import tropico.view.StageEnum;
 import tropico.view.StageManagement;
@@ -18,9 +20,10 @@ public class Data implements Serializable{
 	private int turn;
 	private Season season;
 	private int playerPlaying;
-	private final Map<Season, List<Event>> eventsBySeason;
+	private final Map<Season, Map<Integer, Event>> eventsBySeason;
 	private Event eventChosen;
-	private double difficulty;
+	private double difficultyRatio;
+	private Difficulty difficulty;
 	private int fulfillmentMin;
 	private boolean gameEnded;
 	
@@ -28,10 +31,11 @@ public class Data implements Serializable{
 	public Data(int numberOfPlayer, String[] names, String jsonParserResource, String jsonParserFactions, String jsonParserEvents) throws IOException {
 		this.turn = 0;
 		season = Season.SPRING;
+		difficulty = SettingManagement.getDifficultyFromMenuItem();
 		Map<String, Double> resource = extractInformationJsonSetting(jsonParserResource);
 		players = new DictatorManagement(numberOfPlayer, names, resource, jsonParserFactions);
-		eventsBySeason = EventManagement.getEvent(jsonParserEvents);
-		pickRandomEventFromSeason(Season.SPRING);
+		eventsBySeason = EventManagement.getEvent(jsonParserEvents, difficulty, players);
+		pickNextEvent(Season.SPRING);
 	}
 
 	private Map<String, Double> extractInformationJsonSetting(String jsonParserResource) {
@@ -39,7 +43,7 @@ public class Data implements Serializable{
 			Gson gson = new Gson();
 			Reader reader = Files.newBufferedReader(Path.of(jsonParserResource));
 			Map<String, Double> map = gson.fromJson(reader, Map.class);
-			difficulty = map.get("difficulty");
+			difficultyRatio = map.get("difficulty");
 			fulfillmentMin = map.get("fulfillmentMin").intValue();
 			return map;
 		} catch (IOException e) {
@@ -56,8 +60,8 @@ public class Data implements Serializable{
 		return fulfillmentMin;
 	}
 
-	public double getDifficulty() {
-		return difficulty;
+	public double getDifficultyRatio() {
+		return difficultyRatio;
 	}
 
 	public void endTurn() throws IOException {
@@ -79,7 +83,7 @@ public class Data implements Serializable{
 		else{
 			this.playerPlaying = 0;
 			turn ++;
-			pickRandomEventFromSeason(season);
+			pickNextEvent(season);
 			if(!isYearEnding()){
 				season = season.next();
 			}
@@ -89,11 +93,8 @@ public class Data implements Serializable{
 		}
 	}
 
-	public void pickRandomEventFromSeason(Season season){
-		Random r = new Random();
-		List<Event> e = eventsBySeason.get(season);
-		int x = r.nextInt(e.size());
-		eventChosen = e.get(x);
+	public void pickNextEvent(Season season){
+		eventChosen = eventsBySeason.get(season).get(players.get(playerPlaying).getEvent(season, turn));
 	}
 
 	public Dictator getPlayerPlaying(){
@@ -146,7 +147,7 @@ public class Data implements Serializable{
 		return gameData;
 	}
 
-	public boolean isSolo() {
-		return players.size() + eliminatedPlayer.size() == 1;
+	public boolean nonSolo() {
+		return players.size() + eliminatedPlayer.size() != 1;
 	}
 }

@@ -3,7 +3,7 @@ package tropico.Model;
 public class Utils {
 
     public static int modifiedByDifficulty(int resourceValue){
-        double difficulty = DataManagement.getData().getDifficulty();
+        double difficulty = DataManagement.getData().getDifficultyRatio();
         return (int)((resourceValue > 0)? resourceValue * (1/ difficulty): resourceValue * difficulty);
     }
 

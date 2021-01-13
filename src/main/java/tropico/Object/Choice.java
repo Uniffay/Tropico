@@ -10,8 +10,13 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class Choice implements Serializable {
-
+    /**
+     * label of the choice
+     */
     private final String label;
+    /**
+     * difficulty where the choice can be taken
+     */
     private final ArrayList<Difficulty> difficulty = new ArrayList<>();
     private final HashMap<String, Integer> effectFulfillment = new HashMap<>();
     private final HashMap<String, Integer> effectPartisan = new HashMap<>();
@@ -29,10 +34,7 @@ public class Choice implements Serializable {
     public String toString() {
         return toStringGeneral(effectFulfillment, "Satisfaction des ", suffix->"%") +
                 toStringGeneral(effectPartisan, "Partisan des ", suffix ->"%") +
-                toStringGeneral(effectResource, "", suffix->suffix.equals("money")? "$": "%") + "\n" +
-                "difficulties: " + difficulty + "\n" +
-                "nextForMe: " + nextForMe + "\n" +
-                "nextForMultiplayer: " + nextForMultiplayer + "\n";
+                toStringGeneral(effectResource, "", suffix->suffix.equals("money")? "$": "%") ;
     }
 
     private static String toStringGeneral(HashMap<String, Integer> effects, String prefix, Function<String, String> suffix){

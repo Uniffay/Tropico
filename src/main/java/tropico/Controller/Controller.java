@@ -356,12 +356,12 @@ public class Controller {
     public void initialize() {
         Data gameData = DataManagement.getData();
         setTextHeaderBar(gameData);
+        if(gameData.nonSolo())
+            showPlayerPlaying();
         initializeGraphics(gameData);
         initializeEvent(gameData);
         initializeFactionLabel(gameData);
         setSoundSetting();
-        if(!gameData.isSolo())
-            showPlayerPlaying();
         List<Node> needInFront = initializeFrontNodes();
         nodesToFront(needInFront);
     }
@@ -634,11 +634,10 @@ public class Controller {
     void nextEvent() throws IOException {
         Data gameData = DataManagement.getData();
         gameData.endTurn();
-        System.out.println(gameData.getEventChosen());
         if(gameData.isGameEnded()){
             return;
         }
-        if(!gameData.isSolo())
+        if(gameData.nonSolo())
             showPlayerPlaying();
         next.setVisible(false);
         if(gameData.isYearEnding()) {

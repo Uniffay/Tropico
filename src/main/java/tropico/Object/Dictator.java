@@ -4,9 +4,7 @@ import tropico.Model.DataManagement;
 import tropico.Model.Utils;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Dictator implements Serializable {
 
@@ -16,6 +14,7 @@ public class Dictator implements Serializable {
 	private int debt = 0;
 	private boolean lost = false;
 	private int turnLost = 0;
+	private HashMap<Season, List<Integer>> eventsId = new HashMap<>();
 	
 	public Dictator(String name, Map<String, Double> resource, String jsonPathFaction)  {
 		this.name = name;
@@ -26,6 +25,11 @@ public class Dictator implements Serializable {
 		}
 		this.resource.put("money", resource.get("money").intValue());
 		factions = new FactionsList(jsonPathFaction);
+		initializeEventsId();
+	}
+
+	private void initializeEventsId() {
+		Arrays.stream(Season.values()).forEach(season -> eventsId.put(season, new ArrayList<>()));
 	}
 
 	@Override
@@ -120,10 +124,6 @@ public class Dictator implements Serializable {
 		factions.loseFulfillment(debt / 1000);
 	}
 
-	public boolean haveLost(){
-		return lost;
-	}
-
 	public boolean havePlayerLost(){
 		Data gameData = DataManagement.getData();
 		lost = factions.getAverageFulfillment() < gameData.getFulfillmentMin();
@@ -158,5 +158,17 @@ public class Dictator implements Serializable {
 
 	public String getName() {
 		return name;
+	}
+
+	public void addEvent(Season season, int id) {
+		eventsId.get(season).add(id);
+	}
+
+	public int getEvent(Season season, int turn) {
+		List<Integer> eventsId = this.eventsId.get(season);
+		int turnEvent = turn % eventsId.size();
+		if(turnEvent == 0)
+			Collections.shuffle(eventsId);
+		return eventsId.get(turnEvent);
 	}
 }

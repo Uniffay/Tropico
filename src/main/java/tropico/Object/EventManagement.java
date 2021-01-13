@@ -2,6 +2,7 @@ package tropico.Object;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
+import tropico.Model.Difficulty;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -11,12 +12,11 @@ import java.util.*;
 
 public class EventManagement {
 
-    public static Map<Season , List<Event>> getEvent(String jsonPath) throws IOException {
-        Map<Season, List<Event>> events =  initialiseMapSeasonEvent();
+    public static Map<Season , Map<Integer, Event>> getEvent(String jsonPath, Difficulty difficulty, DictatorManagement players) throws IOException {
+        Map<Season, Map<Integer, Event>> events =  initialiseMapSeasonEvent();
         try {
             var eventTab = getEvenFromJson(jsonPath);
-            for (Season season : events.keySet())
-                events.get(season).addAll(getEventForSeason(season, eventTab));
+            setEventForSeason(events, eventTab, difficulty, players);
         } catch (IOException | JsonIOException ioException) {
             ioException.printStackTrace();
         }
@@ -29,22 +29,23 @@ public class EventManagement {
         return gson.fromJson(reader, Event[].class);
     }
 
-    private static Map<Season, List<Event>> initialiseMapSeasonEvent(){
-        Map<Season, List<Event>> events =  new HashMap<>();
-        events.put(Season.SPRING, new ArrayList<>());
-        events.put(Season.WINTER, new ArrayList<>());
-        events.put(Season.SUMMER, new ArrayList<>());
-        events.put(Season.AUTUMN, new ArrayList<>());
+    private static Map<Season, Map<Integer, Event>> initialiseMapSeasonEvent(){
+        Map<Season, Map<Integer, Event>> events =  new HashMap<>();
+        events.put(Season.SPRING, new HashMap<>());
+        events.put(Season.WINTER, new HashMap<>());
+        events.put(Season.SUMMER, new HashMap<>());
+        events.put(Season.AUTUMN, new HashMap<>());
         return events;
     }
 
-    private static List<Event> getEventForSeason(Season season, Event[] eventTab){
-        List<Event> events = new ArrayList<>();
+    private static void setEventForSeason(Map<Season, Map<Integer, Event>> eventBySeason,
+                                          Event[] eventTab, Difficulty difficulty, DictatorManagement players){
+        HashMap<Integer, Event> events = new HashMap<>();
         for (Event event : eventTab) {
-            if(event.getSeason().contains(season)){
-                events.add(event);
-            }
+            event.cleanChoice(difficulty);
+            event.getSeason().forEach(season -> eventBySeason.get(season).put(event.getId(), event));
+            //players.addForAllPlayer(event.getRandomSeason(), event.getId());
+            Arrays.stream(Season.values()).forEach(season -> players.addForAllPlayer(season, event.getId()));
         }
-        return events;
     }
 }

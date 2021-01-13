@@ -34,4 +34,8 @@ public class DictatorManagement implements Serializable {
 	public boolean isEmpty() {
 		return dictators.isEmpty();
 	}
+
+    public void addForAllPlayer(Season season, int id) {
+		dictators.forEach(dictator -> dictator.addEvent(season, id));
+    }
 }
