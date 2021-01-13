@@ -22,6 +22,7 @@
    <ImageView fx:id="background" fitHeight="750.0" fitWidth="1050.0" pickOnBounds="true">
       <Image url="@../Controller/backgroundWINTER.png" />
    </ImageView>
+   <ImageView fx:id="imageEvent" fitHeight="750.0" fitWidth="1050.0" layoutX="-2.0" layoutY="-3.0" pickOnBounds="true" />
    <ScrollPane fx:id="factionScrollPane" prefHeight="750.0" prefWidth="242.0" style="-fx-background-color: black; -fx-border-color: black;">
       <AnchorPane prefHeight="745.0" prefWidth="223.0" style="-fx-background-color: black;">
          <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="19.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
@@ -305,9 +306,9 @@
    </HBox>
    <AnchorPane fx:id="endYearMenu" layoutX="361.0" layoutY="158.0" prefHeight="462.0" prefWidth="526.0" style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
       <children>
-         <TabPane id="menu" prefHeight="406.0" prefWidth="525.0" style="-fx-background-color: black;" stylesheets="@app.css" tabClosingPolicy="UNAVAILABLE">
+         <TabPane id="menu" fx:id="tabPane" prefHeight="406.0" prefWidth="525.0" style="-fx-background-color: black;" stylesheets="@app.css" tabClosingPolicy="UNAVAILABLE">
            <tabs>
-             <Tab id="button" text="Rapport ">
+             <Tab id="button" fx:id="defaultTab" text="Rapport ">
                <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
@@ -644,7 +645,7 @@
    </HBox>
    <AnchorPane fx:id="settingMenu" layoutX="306.0" layoutY="92.0" prefHeight="541.0" prefWidth="538.0" style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
       <children>
-         <Label layoutX="211.0" layoutY="14.0" prefHeight="74.0" prefWidth="142.0" text="SETTING" textFill="WHITE">
+         <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="74.0" prefWidth="526.0" text="PARAMÈTRE" textFill="WHITE">
             <font>
                <Font name="Comic Sans MS Bold" size="26.0" />
             </font>
@@ -700,6 +701,7 @@
          </Label>
       </children>
    </AnchorPane>
+   <Rectangle fx:id="grayPlayerInfo" arcHeight="5.0" arcWidth="5.0" fill="#7f8387" height="750.0" opacity="0.72" stroke="BLACK" strokeType="INSIDE" visible="false" width="1050.0" />
    <AnchorPane fx:id="playerInfo" layoutX="416.0" layoutY="227.0" prefHeight="281.0" prefWidth="362.0" style="-fx-background-color: black;" visible="false">
       <children>
          <Label fx:id="player" alignment="CENTER" layoutX="70.0" layoutY="62.0" prefHeight="50.0" prefWidth="222.0" text="Label" textFill="WHITE">

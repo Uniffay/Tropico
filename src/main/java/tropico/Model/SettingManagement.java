@@ -29,7 +29,7 @@ public class SettingManagement {
             case "Moyen":
                 return Difficulty.MEDIUM;
             case "Difficile":
-                return Difficulty.DIFFICULT;
+                return Difficulty.HARD;
             default:
                 return Difficulty.PERSONALIZED;
         }

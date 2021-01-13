@@ -4,7 +4,7 @@ public enum Difficulty {
 
     EASY("setting", "faction"),
     MEDIUM("setting", "faction"),
-    DIFFICULT("setting", "faction"),
+    HARD("setting", "faction"),
     PERSONALIZED("", "");
 
     private final String jsonSetting;

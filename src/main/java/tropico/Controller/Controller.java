@@ -3,9 +3,7 @@ package tropico.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -297,6 +295,18 @@ public class Controller {
     @FXML
     private Label player;
 
+    @FXML
+    private TabPane tabPane;
+
+    @FXML
+    private Tab defaultTab;
+
+    @FXML
+    private ImageView imageEvent;
+
+    @FXML
+    private Rectangle grayPlayerInfo;
+
     private Runnable actionAccepted;
 
     private final HashMap<String,TextField> factionsTextField = new HashMap<>();
@@ -376,9 +386,10 @@ public class Controller {
                 endYearMenu,
                 graySetting,
                 setting,
+                grayPlayerInfo,
+                playerInfo,
                 settingMenu,
-                warningMenu,
-                playerInfo
+                warningMenu
         );
     }
 
@@ -392,6 +403,11 @@ public class Controller {
         initializeTrees(gameData);
         initializeFarm(gameData);
         initializePollution(gameData);
+        initializeImageEvent(gameData);
+    }
+
+    private void initializeImageEvent(Data gameData) {
+        imageEvent.setImage(ImageManagement.createImage(gameData.getEventChosen().getImage()));
     }
 
     private void initializeFarm(Data gameData) {
@@ -448,8 +464,8 @@ public class Controller {
 
     private void setTextHeaderBar(Data gameData){
         int turn = gameData.getTurn();
-        if (gameData.getPlayerPlaying().haveDebt())
-            debtShow.setVisible(true);
+        debtShow.setVisible(gameData.getPlayerPlaying().haveDebt());
+        debtValue.setText(String.valueOf(gameData.getPlayerPlaying().getDebt()));
         date.setText("24/" + getMonth(turn) + "/"+ (turn / 4 + 2020));
         season.setText(gameData.getSeason().getName());
         money.setText(String.valueOf(gameData.getPlayerPlaying().getMoney()));
@@ -476,6 +492,7 @@ public class Controller {
     }
 
     private void showPlayerPlaying(){
+        grayPlayerInfo.setVisible(true);
         playerInfo.setVisible(true);
         player.setText(DataManagement.getData().getPlayerPlaying().getName());
     }
@@ -575,8 +592,12 @@ public class Controller {
 
     private void choiceHandle(int choiceNumber){
         Data gameData = DataManagement.getData();
-        gameData.getPlayerPlaying().haveChosen(gameData.getEventChosen().getChoices().get(choiceNumber));
-        showEffect(gameData.getEventChosen().getChoices().get(choiceNumber));
+        Dictator playerPlaying = gameData.getPlayerPlaying();
+        Choice choice = gameData.getEventChosen().getChoices().get(choiceNumber);
+        if(playerPlaying.getMoney() < choice.getPrice())
+            return;
+        playerPlaying.haveChosen(choice);
+        showEffect(choice);
         debtMessage.setVisible(false);
     }
 
@@ -613,13 +634,13 @@ public class Controller {
     void nextEvent() throws IOException {
         Data gameData = DataManagement.getData();
         gameData.endTurn();
+        System.out.println(gameData.getEventChosen());
         if(gameData.isGameEnded()){
             return;
         }
         if(!gameData.isSolo())
             showPlayerPlaying();
         next.setVisible(false);
-        debtMessage.setVisible(false);
         if(gameData.isYearEnding()) {
             setTextHeaderBar(gameData);
             initializeFactionLabel(gameData);
@@ -627,7 +648,6 @@ public class Controller {
         }
         else
             showEvent();
-
     }
 
     private void showEvent() {
@@ -698,6 +718,7 @@ public class Controller {
     public void openEndYearMenu(){
         Data gameData = DataManagement.getData();
         endYearMenu.setVisible(true);
+        tabPane.getSelectionModel().select(defaultTab);
         initializeReport(gameData);
         initializeFoodMenu(gameData);
         initializeFactionMenu(gameData);
@@ -900,20 +921,36 @@ public class Controller {
     }
 
     @FXML
-    void validEndYearChoice(){
+    void validEndYearChoice() throws IOException {
         Data gameData = DataManagement.getData();
         Dictator playerPlaying = gameData.getPlayerPlaying();
+        if(!canBuyChangeMoney(playerPlaying))
+            return;
+        FactionAddManagement.validate(gameData);
+        FoodManagement.validate(gameData);
+        validateRefund(playerPlaying);
+        manageEndTurn(gameData);
+    }
+
+    private void manageEndTurn(Data gameData) throws IOException {
+        gameData.endTurn();
+        if(!gameData.isYearEnding()) {
+            endYearMenu.setVisible(false);
+            showEvent();
+        }
+        else
+            openEndYearMenu();
+        initialize();
+    }
+
+    private boolean canBuyChangeMoney(Dictator playerPlaying) {
         var totalPriceString = totalPrice.getText().substring(0, totalPrice.getText().length() - 1);
         int totalPriceValue = Integer.parseInt(totalPriceString);
         if(totalPriceValue > playerPlaying.getMoney()){
-            return;
+            return false;
         }
-        FactionAddManagement.validate(gameData);
-        FoodManagement.validate(gameData);
         playerPlaying.changeMoney(-totalPriceValue);
-        endYearMenu.setVisible(false);
-        validateRefund(playerPlaying);
-        showEvent();
+        return true;
     }
 
     private void validateRefund(Dictator playerPlaying) {
@@ -1032,5 +1069,6 @@ public class Controller {
     @FXML
     void playerFinish(){
         playerInfo.setVisible(false);
+        grayPlayerInfo.setVisible(false);
     }
 }

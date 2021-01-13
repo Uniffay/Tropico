@@ -7,6 +7,7 @@
       "AUTUMN",
       "SPRING"
     ],
+    "image": "noImage.png",
     "choices": [
       {
         "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
@@ -15,7 +16,14 @@
           "liberal": -15
         },
         "effectPartisan": {},
-        "effectResource": {}
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
@@ -24,7 +32,14 @@
           "liberal": -15
         },
         "effectPartisan": {},
-        "effectResource": {}
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Accepter sans condition",
@@ -34,7 +49,14 @@
           "nationalist": -20
         },
         "effectPartisan": {},
-        "effectResource": {}
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
@@ -45,7 +67,14 @@
         "effectPartisan": {},
         "effectResource": {
           "money": 200
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       }
     ]
   },
@@ -57,6 +86,7 @@
       "AUTUMN",
       "SPRING"
     ],
+    "image": "noImage.png",
     "choices": [
       {
         "label": "Utilisons-le pour améliorer le bien-être des citoyens !",
@@ -67,7 +97,14 @@
         "effectPartisan": {},
         "effectResource": {
           "industry": 10
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Exploitons-le au maximum pour moderniser le pays !",
@@ -79,7 +116,14 @@
         "effectPartisan": {},
         "effectResource": {
           "industry": 20
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
@@ -88,7 +132,14 @@
           "nationalist": -30
         },
         "effectPartisan": {},
-        "effectResource": {}
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       }
     ]
   },
@@ -99,6 +150,7 @@
       "SUMMER",
       "AUTUMN"
     ],
+    "image": "noImage.png",
     "choices": [
       {
         "label": "Se mettre à l’abri",
@@ -125,7 +177,14 @@
         "effectResource": {
           "industry": -20,
           "farming": -10
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       }
     ]
   },
@@ -134,6 +193,7 @@
     "seasons": [
       "WINTER"
     ],
+    "image": "noImage.png",
     "choices": [
       {
         "label": "Envoyer les secours pour chercher des rescapés.",
@@ -147,7 +207,14 @@
         "effectPartisan": {},
         "effectResource": {
           "money": -200
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Ne rien faire.",
@@ -171,7 +238,14 @@
         },
         "effectResource": {
           "money": -20
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       }
     ]
   },
@@ -184,6 +258,7 @@
       "AUTUMN",
       "SPRING"
     ],
+    "image": "noImage.png",
     "choices": [
       {
         "label": "Accepter.",
@@ -195,7 +270,14 @@
         "effectPartisan": {},
         "effectResource": {
           "money": -50
-        }
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       },
       {
         "label": "Refuser.",
@@ -203,8 +285,14 @@
           "militarist": -15
         },
         "effectPartisan": {},
-        "effectResource": {}
-
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
       }
     ]
   }

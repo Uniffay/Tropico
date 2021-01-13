@@ -79,8 +79,10 @@ public class Data implements Serializable{
 		else{
 			this.playerPlaying = 0;
 			turn ++;
-			season = season.next();
 			pickRandomEventFromSeason(season);
+			if(!isYearEnding()){
+				season = season.next();
+			}
 		}
 		if(isYearEnding()){
 			players.get(this.playerPlaying).addBonus();
@@ -111,7 +113,7 @@ public class Data implements Serializable{
 	}
 
 	public boolean isYearEnding() {
-		return turn % 4 == 3 && this.playerPlaying == players.size() - 1;
+		return turn % 5 == 4;
 	}
 
 	public String getStringScore() {

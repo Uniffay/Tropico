@@ -9,14 +9,14 @@ public class Event implements Serializable {
     private final String label;
     private final ArrayList<Choice> choices;
     private final ArrayList<Season> seasons;
-    private final Event next;
+    private final String image;
 
 
-    public Event(String label, Event next) {
+    public Event(String label, ArrayList<Event> nextForMe, ArrayList<Event> nextForMultiplayer, String image) {
         this.label = label;
+        this.image = image;
         this.choices = new ArrayList<>();
         this.seasons = new ArrayList<>();
-        this.next = next;
 
     }
 
@@ -24,14 +24,13 @@ public class Event implements Serializable {
     public String toString() {
         return "Event{" +
                 "label='" + label + '\'' +
-                ", season =" + seasons +
                 ", choices=" + choices +
-                ", next=" + next +
+                ", seasons=" + seasons +
                 '}';
     }
 
     public List<Season> getSeason() {
-        return new ArrayList<>(seasons);
+        return seasons;
     }
 
     public String getLabel() {
@@ -39,6 +38,10 @@ public class Event implements Serializable {
     }
 
     public List<Choice> getChoices() {
-        return new ArrayList<>(choices);
+        return choices;
+    }
+
+    public String getImage() {
+        return image;
     }
 }
