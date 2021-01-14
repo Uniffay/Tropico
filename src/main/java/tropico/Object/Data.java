@@ -115,9 +115,10 @@ public class Data implements Serializable{
 		if(manageLost())
 			return;
 		changePlayerPlaying();
-		if(isYearEnding()){
+		if(isYearEnding())
 			players.get(this.playerPlaying).addBonus();
-		}
+		else
+			pickNextEvent(season);
 	}
 
 	private void eliminatePlayer(Dictator playerPlaying) {
@@ -148,7 +149,6 @@ public class Data implements Serializable{
 		else{
 			this.playerPlaying = 0;
 			turn ++;
-			pickNextEvent(season);
 			if(!isYearEnding()){
 				season = season.next();
 			}

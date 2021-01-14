@@ -77,6 +77,7 @@ public class Dictator implements Serializable {
 	 * 		choice made by the player
 	 */
     public void haveChosen(Choice choice) {
+    	manageEventId(choice);
 		for (String effect: choice.getEffect_resource().keySet()){
 			try {
 				int resourceValue = Utils.modifiedByDifficulty(choice.getEffect_resource().get(effect));
@@ -86,8 +87,6 @@ public class Dictator implements Serializable {
 				}
 				resourceValue = (resource.get("farming") + resourceValue + resource.get("industry") > 100) ? 100 - (resource.get("farming") + resource.get("industry")): resourceValue;
 				resource.replace(effect, Math.max(resource.get(effect) + resourceValue, 0));
-				manageEventId(choice);
-
 			} catch (NullPointerException e){
 				throw new IllegalArgumentException(effect + " is not a resource");
 			}
@@ -106,7 +105,7 @@ public class Dictator implements Serializable {
 		choice.getNextForMe().forEach(
 				id -> eventsId.get(gameData.getEvent(id).getRandomSeason()).add(id));
 		choice.getNextForMultiplayer().forEach(id -> gameData.getPlayers().addForAllFilteredPlayer(
-				gameData.getEvent(id).getSeason(), id, DataManagement.getData().getTurn(),dictator -> !dictator.equals(this)));
+				gameData.getEvent(id).getSeason(), id, DataManagement.getData().getTurn(),dictator -> !(dictator.equals(this))));
 	}
 
 	/**
@@ -276,10 +275,17 @@ public class Dictator implements Serializable {
 	/**
 	 * add en event in the list at a random place
 	 * @param season
+	 * 		season of the event
 	 * @param id
+	 * 		id of the event
 	 */
 	public void addEvent(Season season, int id, int currentTurn) {
-		eventsId.get(season).add(Utils.getRandom(currentTurn),id);
+		ArrayList<Integer> eventsId = this.eventsId.get(season);
+		if(eventsId.size() == 0) {
+			eventsId.add(id);
+			return;
+		}
+		eventsId.add(Utils.getRandom(eventsId.size() - (currentTurn % (eventsId.size()))) + (currentTurn % eventsId.size()) ,id);
 	}
 
 	/**
@@ -292,9 +298,10 @@ public class Dictator implements Serializable {
 	 */
 	public int getEvent(Season season, int turn) {
 		List<Integer> eventsId = this.eventsId.get(season);
-		int turnEvent = turn % eventsId.size();
-		if(turnEvent == 0)
+		int turnEvent = (turn / 4) % eventsId.size();
+		if(turnEvent == 0) {
 			Collections.shuffle(eventsId);
+		}
 		return eventsId.get(turnEvent);
 	}
 }

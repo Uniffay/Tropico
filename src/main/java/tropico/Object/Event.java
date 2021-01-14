@@ -36,10 +36,16 @@ public class Event implements Serializable {
      */
     private final int id;
 
-    public Event(String label, String image, int id) {
+    /**
+     * true if the event is unlocked at the start false otherwise
+     */
+    private final boolean unlock;
+
+    public Event(String label, String image, int id, boolean unlock) {
         this.label = label;
         this.image = image;
         this.id = id;
+        this.unlock = unlock;
         this.choices = new ArrayList<>();
         this.seasons = new ArrayList<>();
 
@@ -108,5 +114,9 @@ public class Event implements Serializable {
     public Season getRandomSeason() {
         Random r = new Random();
         return seasons.get(r.nextInt(seasons.size()));
+    }
+
+    public boolean isUnlocked() {
+        return unlock;
     }
 }

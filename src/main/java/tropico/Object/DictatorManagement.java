@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * manage all the players
@@ -86,5 +87,13 @@ public class DictatorManagement implements Serializable {
 	 */
 	public void addForAllFilteredPlayer(List<Season> seasons, int turn, int id) {
 		addForAllFilteredPlayer(seasons, id, turn, dictator -> true);
+	}
+
+	/**
+	 * return stream of dictator
+	 * @return stream of dictator
+	 */
+	public Stream<Dictator> stream(){
+		return dictators.stream();
 	}
 }

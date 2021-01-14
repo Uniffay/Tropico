@@ -237,9 +237,9 @@
          <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="200.0" layoutY="3.0" onMouseClicked="#openLoanMenu" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../img/money.png" />
          </ImageView>
-         <Label fx:id="money" alignment="CENTER" layoutX="229.0" layoutY="3.0" onMouseClicked="#openLoanMenu" prefHeight="50.0" prefWidth="166.0" text="Money" textAlignment="CENTER" />
-         <Label fx:id="industry" alignment="CENTER" layoutX="466.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="Industry" textAlignment="CENTER" />
-         <Label fx:id="farming" alignment="CENTER" layoutX="646.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="Farming" textAlignment="CENTER" />
+         <Label fx:id="money" alignment="CENTER" layoutX="229.0" layoutY="3.0" onMouseClicked="#openLoanMenu" prefHeight="50.0" prefWidth="166.0" text="0" textAlignment="CENTER" />
+         <Label fx:id="industry" alignment="CENTER" layoutX="466.0" layoutY="1.0" prefHeight="50.0" prefWidth="134.0" text="0" textAlignment="CENTER" />
+         <Label fx:id="farming" alignment="CENTER" layoutX="646.0" layoutY="1.0" prefHeight="50.0" prefWidth="160.0" text="0" textAlignment="CENTER" />
          <HBox fx:id="debtShow" layoutX="255.0" layoutY="4.0" prefHeight="18.0" prefWidth="128.0" visible="false">
             <children>
                <Label prefHeight="18.0" prefWidth="24.0" text="Dette:" textFill="#ff0202">
@@ -247,7 +247,7 @@
                      <Font size="8.0" />
                   </font>
                </Label>
-               <Label fx:id="debtValue" prefHeight="18.0" prefWidth="94.0" text="Label" textFill="RED">
+               <Label fx:id="debtValue" prefHeight="18.0" prefWidth="94.0" text="0" textFill="RED">
                   <opaqueInsets>
                      <Insets />
                   </opaqueInsets>

@@ -47,9 +47,8 @@ public class EventManagement {
         for (Event event : eventTab) {
             event.cleanChoice(difficulty);
             events.put(event.getId(), event);
-            players.addForAllFilteredPlayer(event.getSeason(), 0, event.getId());
-            Arrays.stream(Season.values()).forEach(season -> players.addForAllFilteredPlayer(
-                    new ArrayList<>(Collections.singleton(season)), 0,event.getId()));
+            if(event.isUnlocked())
+                players.addForAllFilteredPlayer(event.getSeason(), 0, event.getId());
         }
         return events;
     }

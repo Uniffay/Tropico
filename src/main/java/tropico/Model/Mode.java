@@ -6,9 +6,9 @@ package tropico.Model;
  */
 public enum Mode {
     SANDBOX("Event"),
-    IUT("Event"),
-    SEAOFTHIEVES("Event"),
-    MARIO("Event"),
+    IUT("IUT"),
+    SEAOFTHIEVES("SeaOfThieves"),
+    MARIO("Mario"),
     PERSONALIZED("");
 
     /**

@@ -372,9 +372,9 @@ public class Controller {
     public void initialize() {
         Data gameData = DataManagement.getData();
         setTextHeaderBar(gameData);
+        initializeGraphics(gameData);
         if(gameData.nonSolo())
             showPlayerPlaying();
-        initializeGraphics(gameData);
         initializeEvent(gameData);
         initializeFactionLabel(gameData);
         setSoundSetting();

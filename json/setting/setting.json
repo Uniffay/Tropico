@@ -1,7 +1,7 @@
 {
-  "farming": 15,
-  "industry": 15,
-  "money": 200,
-  "difficulty": 1,
+  "farming": 30,
+  "industry": 10,
+  "money": 350,
+  "difficulty": 1.5,
   "fulfillmentMin": 30
 }

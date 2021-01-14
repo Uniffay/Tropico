@@ -6,9 +6,9 @@ package tropico.Model;
  */
 public enum Difficulty {
 
-    EASY("setting", "faction"),
-    MEDIUM("setting", "faction"),
-    HARD("setting", "faction"),
+    EASY("easy", "easy"),
+    MEDIUM("medium", "medium"),
+    HARD("hard", "difficult"),
     PERSONALIZED("", "");
 
     /**
