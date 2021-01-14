@@ -8,13 +8,34 @@ import java.util.*;
 
 public class Dictator implements Serializable {
 
+	/**
+	 * name of the player
+	 */
 	private final String name;
+	/**
+	 * resources of the player
+	 */
 	private final HashMap<String, Integer> resource = new HashMap<>();
+	/**
+	 * Factions of the player
+	 */
 	private final FactionsList factions;
+	/**
+	 * debt of the player
+	 */
 	private int debt = 0;
+	/**
+	 * true if the player lost false otherwise
+	 */
 	private boolean lost = false;
+	/**
+	 * turn the player lost
+	 */
 	private int turnLost = 0;
-	private HashMap<Season, List<Integer>> eventsId = new HashMap<>();
+	/**
+	 * map of the event Id by season (season as key and list of id as value)
+	 */
+	private final HashMap<Season, ArrayList<Integer>> eventsId = new HashMap<>();
 	
 	public Dictator(String name, Map<String, Double> resource, String jsonPathFaction)  {
 		this.name = name;
@@ -37,10 +58,20 @@ public class Dictator implements Serializable {
 		return name + ":\n" + resource + factions;
 	}
 
+	/**
+	 * get a FactionList instance that contains the factions of the players
+	 * @return
+	 * 		an instance of FactionList
+	 */
 	public FactionsList getFactions(){
 		return factions;
 	}
 
+	/**
+	 * add effect to the corresponding resource of the event chosen by the player
+	 * @param choice
+	 * 		choice made by the player
+	 */
     public void haveChosen(Choice choice) {
 		for (String effect: choice.getEffect_resource().keySet()){
 			try {
@@ -51,6 +82,8 @@ public class Dictator implements Serializable {
 				}
 				resourceValue = (resource.get("farming") + resourceValue + resource.get("industry") > 100) ? 100 - (resource.get("farming") + resource.get("industry")): resourceValue;
 				resource.replace(effect, Math.max(resource.get(effect) + resourceValue, 0));
+				manageEventId(choice);
+
 			} catch (NullPointerException e){
 				throw new IllegalArgumentException(effect + " is not a resource");
 			}
@@ -59,47 +92,99 @@ public class Dictator implements Serializable {
 		factions.changePartisan(choice.getEffect_partisan());
     }
 
+	/**
+	 * add eventId of the unlocked event for the player
+	 * @param choice
+	 * 		choice made by the player
+	 */
+	private void manageEventId(Choice choice) {
+		Data gameData = DataManagement.getData();
+		choice.getNextForMe().forEach(
+				id -> eventsId.get(gameData.getEvent(id).getRandomSeason()).add(id));
+		choice.getNextForMultiplayer().forEach(id -> gameData.getPlayers().addForAllFilteredPlayer(
+				gameData.getEvent(id).getSeason(), id, DataManagement.getData().getTurn(),dictator -> !dictator.equals(this)));
+	}
+
+	/**
+	 * get the resources of the player
+	 * @return map with String (name of the resource) as key and number of resource as the value
+	 */
 	public Map<String, Integer> getResource() {
 		return new HashMap<>(resource);
 	}
 
-
+	/**
+	 * add debt to the player that is equals to loanValue + 10 % of it
+	 * @param loanValue
+	 * 		value added to the debt
+	 */
 	public void addDebt(int loanValue) {
 		debt += loanValue * 1.1;
 	}
 
+	/**
+	 * add money to the player when he is taking loan
+	 * @param loanValue
+	 * 		value of the loan
+	 */
 	public void addMoney(int loanValue){
 		resource.replace("money", resource.get("money") + loanValue);
 	}
 
+	/**
+	 * add interest to debt at the end of the year (10 % of the debt value
+	 */
 	public void addInterest() {
 		debt += debt * 0.1;
 	}
 
+	/**
+	 * test if player have debt
+	 * @return true if debt is superior to 0 false otherwise
+	 */
 	public boolean haveDebt() {
 		return debt > 0;
 	}
 
+	/**
+	 * get debt of the player
+	 * @return debt of the player
+	 */
 	public int getDebt() {
 		return debt;
 	}
 
+	/**
+	 * add money earn by the industry at the end of the year (10 * industry percentage)
+	 */
 	public void addBonus() {
 		int money = resource.get("money");
 		resource.replace("money", money + resource.get("industry") * 10);
 	}
 
-	public void managePartisan(int food) {
-		if(food < 0){
+	/**
+	 * manage partisan in function of the foodMissing value by giving birth or killing them
+	 * @param foodMissing
+	 * 		food missing at the end of the year (can be negative if there is extra food)
+	 */
+	public void managePartisan(int foodMissing) {
+		if(foodMissing < 0){
 			factions.birth();
 			return;
 		}
-		while (food > 0){
+		while (foodMissing > 0){
 			factions.killARandomPartisan();
-			food -= 4;
+			foodMissing -= 4;
 		}
 	}
 
+	/**
+	 * manage bribe by adding fulfillment to the faction given and removing some fulfillment to the loyalist
+	 * @param name
+	 * 		name of the faction
+	 * @param number
+	 * 		number of fulfillment added
+	 */
 	public void bribeFulfillment(String name, Integer number) {
 		int loyalistDissatisfaction = factions.addFulfillment(name, number);
 		factions.getFaction("loyalist").loseFulfillment(loyalistDissatisfaction);
@@ -109,14 +194,26 @@ public class Dictator implements Serializable {
 		resource.replace("money", resource.get("money") + money);
 	}
 
+	/**
+	 * get the money of the player
+	 * @return money of the player
+	 */
 	public int getMoney() {
 		return resource.get("money");
 	}
 
+	/**
+	 * player payed some or all his debt
+	 * @param loanRefund
+	 * 		value the player payed to repay his debt
+	 */
 	public void repayDebt(int loanRefund) {
 		debt -= loanRefund;
 	}
 
+	/**
+	 * remove 1% of fulfillment for all faction per 1000 $ of debt the player have
+	 */
 	public void debtDissatisfaction() {
 		if(debt / 1000 < 0){
 			return;
@@ -124,6 +221,10 @@ public class Dictator implements Serializable {
 		factions.loseFulfillment(debt / 1000);
 	}
 
+	/**
+	 * test if player lost
+	 * @return true if player lost false otherwise
+	 */
 	public boolean havePlayerLost(){
 		Data gameData = DataManagement.getData();
 		lost = factions.getAverageFulfillment() < gameData.getFulfillmentMin();
@@ -152,18 +253,39 @@ public class Dictator implements Serializable {
 		return Objects.hash(name, resource, factions, debt, lost, turnLost);
 	}
 
+	/**
+	 * get turn when the dictator lost (0 if he didn't lose)
+	 * @return turn when the dictator lost
+	 */
 	public Integer getTurnLost() {
 		return turnLost;
 	}
 
+	/**
+	 * get name of the dictator
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
 
-	public void addEvent(Season season, int id) {
-		eventsId.get(season).add(id);
+	/**
+	 * add en event in the list at a random place
+	 * @param season
+	 * @param id
+	 */
+	public void addEvent(Season season, int id, int currentTurn) {
+		eventsId.get(season).add(Utils.getRandom(currentTurn),id);
 	}
 
+	/**
+	 * get the event that match the season and turn
+	 * @param season
+	 * 		season of the event
+	 * @param turn
+	 * 		turn of the event
+	 * @return event that match the season and turn
+	 */
 	public int getEvent(Season season, int turn) {
 		List<Integer> eventsId = this.eventsId.get(season);
 		int turnEvent = turn % eventsId.size();

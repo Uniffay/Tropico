@@ -35,14 +35,25 @@ public class MediaManagement {
         MEDIA_SAVE.setMute(MEDIA_MUTED);
     }
 
+    /**
+     * 
+     */
     public static void dispose() {
         MEDIA_SAVE.dispose();
     }
 
+    /**
+     * play the media
+     */
     public static void play() {
         MEDIA_SAVE.play();
     }
 
+    /**
+     * add auto replay to the media by restarting it at time
+     * @param time
+     *      time of the video when video replay
+     */
     public static void setAutoReplay(double time) {
         MEDIA_SAVE.setOnEndOfMedia(() -> MEDIA_SAVE.seek(Duration.seconds(time)));
     }
