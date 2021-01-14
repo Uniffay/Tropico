@@ -307,10 +307,19 @@ public class Controller {
     @FXML
     private Rectangle grayPlayerInfo;
 
+    /**
+     * action made when player accept warning menu
+     */
     private Runnable actionAccepted;
 
+    /**
+     * hashMap of name faction -> text field
+     */
     private final HashMap<String,TextField> factionsTextField = new HashMap<>();
 
+    /**
+     * false if the faction Text Field hasn't been initialized
+     */
     private boolean haveInitiateFactionsTextField = false;
 
     private void initializeFactionsTextField() {
@@ -341,7 +350,7 @@ public class Controller {
 
     private String foodBoughtString = "0";
 
-    public List<Label> getFulfillmentFactionList(){
+    private List<Label> getFulfillmentFactionList(){
         return List.of(
                 nationalistHappiness,
                 capitalistHappiness,
@@ -353,6 +362,9 @@ public class Controller {
         );
     }
 
+    /**
+     * initialize graphics
+     */
     public void initialize() {
         Data gameData = DataManagement.getData();
         setTextHeaderBar(gameData);
@@ -440,7 +452,7 @@ public class Controller {
     private void initializePollutionElement(String name, int pollutionLevel) {
         ImageView image = ImageManagement.getOthers(name, anchorPane, 3).get(pollutionLevel % 3);
         image.setVisible(true);
-        ImageManagement.setShow(name, image);
+        ImageManagement.putShow(name, image);
     }
 
     private void initializeIndustry(Data gameData) {
@@ -570,21 +582,33 @@ public class Controller {
         );
     }
 
+    /**
+     * manage choice 1 modification
+     */
     @FXML
     void choice1Handle() {
         choiceHandle(0);
     }
 
+    /**
+     * manage choice 2 modification
+     */
     @FXML
     void choice2Handle() {
         choiceHandle(1);
     }
 
+    /**
+     * manage choice 3 modification
+     */
     @FXML
     void choice3Handle() {
         choiceHandle(2);
     }
 
+    /**
+     * manage choice 4 modification
+     */
     @FXML
     void choice4Handle() {
         choiceHandle(3);
@@ -607,6 +631,9 @@ public class Controller {
         background.setImage(image);
     }
 
+    /**
+     * remove faction bar
+     */
     @FXML
     void removeFactionBar() {
         eventPane.setLayoutX(275);
@@ -630,8 +657,11 @@ public class Controller {
         effect.setLayoutY(Math.max(y, 21));
     }
 
+    /**
+     * manage the end of the turn
+     */
     @FXML
-    void nextEvent() throws IOException {
+    void nextEvent() {
         Data gameData = DataManagement.getData();
         gameData.endTurn();
         if(gameData.isGameEnded()){
@@ -655,6 +685,9 @@ public class Controller {
         initialize();
     }
 
+    /**
+     * remove event bar
+     */
     @FXML
     void removeEventBar() {
         eventPane.setVisible(false);
@@ -663,6 +696,9 @@ public class Controller {
 
     }
 
+    /**
+     * show faction bar
+     */
     @FXML
     public void addFactionBar() {
         eventPane.setLayoutX(361);
@@ -673,6 +709,9 @@ public class Controller {
         arrowAddFaction.setVisible(false);
     }
 
+    /**
+     * show event window
+     */
     @FXML
     void addEventBar() {
         eventPane.setVisible(true);
@@ -680,40 +719,71 @@ public class Controller {
         buttonEvent.setVisible(false);
     }
 
+    /**
+     * open the loan menu when clicking in the money bar
+     */
     @FXML
     void openLoanMenu(){
         loanMenu.setVisible(!loanMenu.isVisible());
 
     }
 
+    /**
+     * add 10 to the loan value when the user click on the "-" button
+     */
     @FXML
     void addLoan(){
         loan.setText(String.valueOf(Math.min(Integer.parseInt(loan.getText()) + 500, 10000)));
     }
 
+    /**
+     * remove 10 to the loan value when the user click on the "-" button
+     */
     @FXML
     void removeLoan(){
         loan.setText(String.valueOf(Math.max(Integer.parseInt(loan.getText()) - 500,0)));
     }
 
+    /**
+     * add debt and money to player when the player valid by clicking in the button
+     */
     @FXML
     void validLoan() {
         Data gameData = DataManagement.getData();
+        manageAddDebt(gameData);
+        manageTextMoney(gameData);
+        manageTextCostEvent(gameData);
+        setTextHeaderBar(gameData);
+        loanMenu.setVisible(false);
+    }
+
+    private void manageTextCostEvent(Data gameData) {
+        for (var money: initializeMoneyManagement()){
+            if(Integer.parseInt(money.getText().substring(0, money.getText().length() - 1)) < gameData.getPlayerPlaying().getMoney())
+                money.setTextFill(Color.GREEN);
+        }
+    }
+
+    private void manageTextMoney(Data gameData) {
+        int totalPriceValue = Integer.parseInt(totalPrice.getText().substring(0, totalPrice.getText().length() - 1));
+        totalPrice.setTextFill((gameData.getPlayerPlaying().getMoney() > totalPriceValue) ? Color.GREEN : Color.RED);
+        RefundManagement.update(gameData);
+        refundLeft.setText(RefundManagement.getLoanSave() - RefundManagement.getLoanRefund() + "$");
+        money.setText(String.valueOf(gameData.getPlayerPlaying().getMoney()));
+        loan.setText("0");
+    }
+
+    private void manageAddDebt(Data gameData) {
         int loanValue = Integer.parseInt(loan.getText());
         Dictator playerPlaying = gameData.getPlayerPlaying();
         playerPlaying.addDebt(loanValue);
         playerPlaying.addMoney(loanValue);
-        debtValue.setText(String.valueOf(gameData.getPlayerPlaying().getDebt()));
-        int totalPriceValue = Integer.parseInt(totalPrice.getText().substring(0, totalPrice.getText().length() - 1));
-        totalPrice.setTextFill((playerPlaying.getMoney() > totalPriceValue) ? Color.GREEN : Color.RED);
-        RefundManagement.update(gameData);
-        refundLeft.setText(RefundManagement.getLoanSave() - RefundManagement.getLoanRefund() + "$");
-        setTextHeaderBar(gameData);
-        money.setText(String.valueOf(gameData.getPlayerPlaying().getMoney()));
-        loan.setText("0");
-        loanMenu.setVisible(false);
+        debtValue.setText(String.valueOf(playerPlaying.getDebt()));
     }
 
+    /**
+     * Open the end year menu
+     */
     public void openEndYearMenu(){
         Data gameData = DataManagement.getData();
         endYearMenu.setVisible(true);
@@ -770,6 +840,9 @@ public class Controller {
         });
     }
 
+    /**
+     * refresh the value food bought by what was written by the user
+     */
     @FXML
     void enterFoodBought(){
         modifyFoodBoughtInput();
@@ -804,6 +877,9 @@ public class Controller {
         totalPriceFood.setText("0$");
     }
 
+    /**
+     * add 1 to the value food bough
+     */
     @FXML
     void addFood(){
         manageModifyFoodBought(1);
@@ -815,11 +891,19 @@ public class Controller {
         setTotalPrice(totalPriceAdded);
     }
 
+    /**
+     * remove 1 to the value food bough
+     */
     @FXML
     void removeFood(){
         manageModifyFoodBought(-1);
     }
 
+    /**
+     * verify that the key the user typed verify the condition and modify the text otherwise
+     * @param event
+     *      event of the user (key)
+     */
     @FXML
     void verifyKeyTypedFood(KeyEvent event){
         if(notNumeric(event.getCharacter())){
@@ -835,7 +919,7 @@ public class Controller {
         foodBoughtString = foodBought.getText();
     }
 
-    public static boolean notNumeric(String strNum) {
+    private static boolean notNumeric(String strNum) {
         if (strNum == null) {
             return true;
         }
@@ -862,6 +946,11 @@ public class Controller {
         }
     }
 
+    /**
+     * refresh the value of corresponding text field by what was written by the user
+     * @param event
+     *          event of the user (enter)
+     */
     @FXML
     void enterFaction(ActionEvent event){
         var source = (TextField)event.getSource();
@@ -869,6 +958,11 @@ public class Controller {
         modifyAndRefreshTextField(name, (Integer.parseInt(source.getText()) - FactionAddManagement.get(name)) );
     }
 
+    /**
+     * remove 10 to the value of the corresponding text field
+     * @param event
+     *          event of the user (mouse click)
+     */
     @FXML
     void addFaction(MouseEvent event){
         ImageView source = (ImageView)event.getSource();
@@ -876,7 +970,7 @@ public class Controller {
         modifyAndRefreshTextField(name, 10);
     }
 
-    void modifyAndRefreshTextField(String name, int number){
+    private void modifyAndRefreshTextField(String name, int number){
         if(DataManagement.getData().getPlayerPlaying().getFactions().getFaction(name).getFulfillment() == 0){
             return;
         }
@@ -912,6 +1006,11 @@ public class Controller {
         textField.setText(String.valueOf(FactionAddManagement.get(name)));
     }
 
+    /**
+     * remove 10 to the value of the corresponding text field
+     * @param event
+     *          event of the user (mouse click)
+     */
     @FXML
     void removeFaction(MouseEvent event){
         ImageView cc = (ImageView)event.getSource();
@@ -919,8 +1018,11 @@ public class Controller {
         modifyAndRefreshTextField(name, -10);
     }
 
+    /**
+     * Manage choice of the end year menu when the user validate it and have enough money
+     */
     @FXML
-    void validEndYearChoice() throws IOException {
+    void validEndYearChoice(){
         Data gameData = DataManagement.getData();
         Dictator playerPlaying = gameData.getPlayerPlaying();
         if(!canBuyChangeMoney(playerPlaying))
@@ -931,7 +1033,7 @@ public class Controller {
         manageEndTurn(gameData);
     }
 
-    private void manageEndTurn(Data gameData) throws IOException {
+    private void manageEndTurn(Data gameData) {
         gameData.endTurn();
         if(!gameData.isYearEnding()) {
             endYearMenu.setVisible(false);
@@ -960,6 +1062,11 @@ public class Controller {
         debtValue.setText(String.valueOf(playerPlaying.getDebt()));
     }
 
+    /**
+     * verify that the key the user typed verify the condition and modify the text otherwise
+     * @param event
+     *      event of the user (key)
+     */
     @FXML
     void verifyKeyTypedFaction(KeyEvent event){
         TextField source = (TextField)(event.getSource());
@@ -974,16 +1081,25 @@ public class Controller {
         }
     }
 
+    /**
+     * modify refund value when the user click on the "+" button
+     */
     @FXML
     void addRefund(){
         modifyAndRefreshRefund(10);
     }
 
+    /**
+     * modify refund value when the user click on the "-" button
+     */
     @FXML
     void removeRefund(){
         modifyAndRefreshRefund(-10);
     }
 
+    /**
+     * save the result entered in the refund text field when the user tap on enter
+     */
     @FXML
     void enterRefund(){
         modifyAndRefreshRefund(Integer.parseInt(refund.getText()) - RefundManagement.getLoanRefund());
@@ -996,6 +1112,11 @@ public class Controller {
         setTotalPrice(modified);
     }
 
+    /**
+     * verify that the key the user typed verify the condition and modify the text otherwise
+     * @param event
+     *      event of the user (key)
+     */
     @FXML
     void verifyKeyTypedRefund(KeyEvent event){
         TextField source = (TextField)(event.getSource());
@@ -1010,18 +1131,27 @@ public class Controller {
         }
     }
 
+    /**
+     * Open the setting
+     */
     @FXML
     void openSetting(){
         settingMenu.setVisible(!settingMenu.isVisible());
         graySetting.setVisible(!graySetting.isVisible());
     }
 
+    /**
+     * Resume the game when the player click on "Continuer" (in the setting)
+     */
     @FXML
     void continuePlaying(){
         settingMenu.setVisible(false);
         graySetting.setVisible(false);
     }
 
+    /**
+     * Save the game when the player click on "Sauvegarder" (in the setting)
+     */
     @FXML
     void saveGame(){
         warningMenu.setVisible(true);
@@ -1036,6 +1166,9 @@ public class Controller {
         };
     }
 
+    /**
+     * Go back to the menu when the player click on "Retour au menu" (in the setting)
+     */
     @FXML
     void backToMenu(){
         warningMenu.setVisible(true);
@@ -1049,22 +1182,34 @@ public class Controller {
         };
     }
 
+    /**
+     * switch sound off the media to On or Off when the player click on the speaker (in the setting)
+     */
     @FXML
     void switchSound(){
         SoundManagement.switchSoundOn();
         setSoundSetting();
     }
 
+    /**
+     * when player click "NON" in the warning menu
+     */
     @FXML
     void denied(){
         warningMenu.setVisible(false);
     }
 
+    /**
+     * when player click on "OUI" in the warning menu
+     */
     @FXML
     void accepted(){
         actionAccepted.run();
     }
 
+    /**
+     * when player click on OK in the window that inform him which player turn it is.
+     */
     @FXML
     void playerFinish(){
         playerInfo.setVisible(false);

@@ -7,8 +7,14 @@ import java.util.HashMap;
 import java.util.function.Predicate;
 
 public class FactionAddManagement {
+    /**
+     * stock faction changes fulfillment from bribe
+     */
     private static final HashMap<String, Integer> FACTIONS_SAVE = new HashMap<>();
 
+    /**
+     * initialize field
+     */
     public static void initializeFactions(){
         FACTIONS_SAVE.put("capitalist", 0);
         FACTIONS_SAVE.put("ecologist", 0);
@@ -19,6 +25,14 @@ public class FactionAddManagement {
         FACTIONS_SAVE.put("communist", 0);
     }
 
+    /**
+     * add fulfillment to the field that stock the change for the faction name given
+     * @param name
+     *      name of the faction
+     * @param number
+     *      number added
+     * @return number modified (can be different of number if max or min is reached)
+     */
     public static int addFactionFulfillment(String name, int number){
         Data gameData = DataManagement.getData();
         // we take actual faction fulfillment
@@ -38,10 +52,21 @@ public class FactionAddManagement {
         return newFulfillment - oldFulfillment;
     }
 
+    /**
+     * get changes fulfillment of a faction
+     * @param name
+     *      faction name
+     * @return changes fulfillment
+     */
     public static int get(String name) {
         return FACTIONS_SAVE.get(name);
     }
 
+    /**
+     * modify fulfillment of faction by the changes stocked in the field of this class
+     * @param gameData
+     *      data of the game
+     */
     public static void validate(Data gameData) {
         Dictator playerPlaying = gameData.getPlayerPlaying();
         Predicate<String> predicate = faction -> FACTIONS_SAVE.get(faction) > 0;

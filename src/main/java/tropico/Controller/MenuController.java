@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MenuController {
 
@@ -106,12 +105,24 @@ public class MenuController {
     @FXML
     private TextField player1;
 
+    /**
+     * save name and number of player
+     */
     private final ArrayList<TextField> players = new ArrayList<>();
 
+    /**
+     * stock menu that already appeared or is being used
+     */
     private final LinkedList<Node> menuList = new LinkedList<>();
 
+    /**
+     * time line used to show the title and blinking start game not directly
+     */
     private Timeline timeline;
 
+    /**
+     * initialize menu of the game
+     */
     public void initialize() {
         setMedia("menu.mp4");
         initializeTimer();
@@ -150,7 +161,7 @@ public class MenuController {
     }
 
     @FXML
-    public void openMenu() {
+    private void openMenu() {
         if (menuList.isEmpty()) {
             timeline.stop();
             title.setVisible(true);
@@ -162,7 +173,7 @@ public class MenuController {
     }
 
     @FXML
-    public void previousMenu(){
+    private void previousMenu(){
         menuList.getLast().setVisible(false);
         menuList.pollLast();
         if(menuList.isEmpty()){
@@ -175,32 +186,32 @@ public class MenuController {
     }
 
     @FXML
-    void enteredOption(MouseEvent event) {
+    private void enteredOption(MouseEvent event) {
         ((Label)event.getSource()).setBackground(new Background(new BackgroundFill(Color.PURPLE, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     @FXML
-    void exitedOption(MouseEvent event) {
+    private void exitedOption(MouseEvent event) {
         ((Label)event.getSource()).setBackground(new Background(new BackgroundFill(Color.HOTPINK, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     @FXML
-    void leave() {
+    private void leave() {
         Platform.exit();
     }
 
     @FXML
-    void openPlayMenu(){
+    private void openPlayMenu(){
         openMenu(playMenu);
     }
 
     @FXML
-    void openOptionMenu(){
+    private void openOptionMenu(){
         openMenu(optionMenu);
     }
 
     @FXML
-    void openCredits(){
+    private void openCredits(){
         openMenu(creditsMenu);
     }
 
@@ -212,7 +223,7 @@ public class MenuController {
     }
 
     @FXML
-    void muteSounds(){
+    private void muteSounds(){
         SoundManagement.switchSoundOn();
         String suffix = (SoundManagement.isSoundOn())? "On": "Off";
         imageSound.setImage(ImageManagement.createImage("sound" + suffix + ".png"));
@@ -220,7 +231,7 @@ public class MenuController {
     }
 
     @FXML
-    void basicDifficulty(ActionEvent event){
+    private void basicDifficulty(ActionEvent event){
         setVisibleAdvancedDifficultySetting(false);
         manageMenuDifficulty((MenuItem)event.getSource());
     }
@@ -249,25 +260,25 @@ public class MenuController {
     }
 
     @FXML
-    void basicMode(ActionEvent event){
+    private void basicMode(ActionEvent event){
         setVisibleAdvancedModeSetting(false);
         manageMenuMode((MenuItem)event.getSource());
     }
 
     @FXML
-    void personalizedDifficulty(ActionEvent event){
+    private void personalizedDifficulty(ActionEvent event){
         setVisibleAdvancedDifficultySetting(true);
         manageMenuDifficulty((MenuItem)event.getSource());
     }
 
     @FXML
-    void personalizedMode(ActionEvent event){
+    private void personalizedMode(ActionEvent event){
         setVisibleAdvancedModeSetting(true);
         manageMenuMode((MenuItem)event.getSource());
     }
 
     @FXML
-    void startGame() throws IOException {
+    private void startGame() throws IOException {
         setErrorVisibleFalse();
         int errorNumber = setPathForSetting();
         if(errorNumber == 1){
@@ -332,7 +343,7 @@ public class MenuController {
     }
 
     @FXML
-    void load() throws IOException, ClassNotFoundException {
+    private void load() throws IOException, ClassNotFoundException {
         DataManagement.setData(Data.recuperation());
         StageManagement.setScene(StageEnum.GAME);
         mediaGameStart();
@@ -340,7 +351,7 @@ public class MenuController {
     }
 
     @FXML
-    void addPlayer(){
+    private void addPlayer(){
         if(players.size() > 8)
             return;
         TextField textField = new TextField();
@@ -358,7 +369,7 @@ public class MenuController {
     }
 
     @FXML
-    void removePlayer(){
+    private void removePlayer(){
         if(players.size() == 1){
             return;
         }
@@ -374,7 +385,7 @@ public class MenuController {
     }
 
     @FXML
-    void verifyKey(KeyEvent event){
+    private void verifyKey(KeyEvent event){
         TextField source = (TextField)event.getSource();
         if(source.getText().length() > 20){
             source.setText(source.getText().substring(0, 20));

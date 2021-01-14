@@ -12,15 +12,25 @@ import java.util.*;
 
 public class EventManagement {
 
-    public static Map<Season , Map<Integer, Event>> getEvent(String jsonPath, Difficulty difficulty, DictatorManagement players) throws IOException {
-        Map<Season, Map<Integer, Event>> events =  initialiseMapSeasonEvent();
+    /**
+     *      Instantiate all the event and put them in a map
+     * @param jsonPath
+     *      path to the json file that contains the event
+     * @param difficulty
+     *      difficulty of the game
+     * @param players
+     *      all players of the game
+     * @return a map with id event as key and event as value
+     */
+    public static Map<Integer, Event> instantiateEventMap(String jsonPath, Difficulty difficulty, DictatorManagement players) {
         try {
             var eventTab = getEvenFromJson(jsonPath);
-            setEventForSeason(events, eventTab, difficulty, players);
+            return setEventForSeason(eventTab, difficulty, players);
         } catch (IOException | JsonIOException ioException) {
             ioException.printStackTrace();
         }
-        return events;
+        return null;
+
     }
 
     private static Event[] getEvenFromJson(String jsonPath) throws IOException {
@@ -29,23 +39,15 @@ public class EventManagement {
         return gson.fromJson(reader, Event[].class);
     }
 
-    private static Map<Season, Map<Integer, Event>> initialiseMapSeasonEvent(){
-        Map<Season, Map<Integer, Event>> events =  new HashMap<>();
-        events.put(Season.SPRING, new HashMap<>());
-        events.put(Season.WINTER, new HashMap<>());
-        events.put(Season.SUMMER, new HashMap<>());
-        events.put(Season.AUTUMN, new HashMap<>());
-        return events;
-    }
-
-    private static void setEventForSeason(Map<Season, Map<Integer, Event>> eventBySeason,
-                                          Event[] eventTab, Difficulty difficulty, DictatorManagement players){
+    private static HashMap<Integer, Event> setEventForSeason(Event[] eventTab, Difficulty difficulty, DictatorManagement players){
         HashMap<Integer, Event> events = new HashMap<>();
         for (Event event : eventTab) {
             event.cleanChoice(difficulty);
-            event.getSeason().forEach(season -> eventBySeason.get(season).put(event.getId(), event));
-            //players.addForAllPlayer(event.getRandomSeason(), event.getId());
-            Arrays.stream(Season.values()).forEach(season -> players.addForAllPlayer(season, event.getId()));
+            events.put(event.getId(), event);
+            players.addForAllFilteredPlayer(event.getSeason(), 0, event.getId());
+            Arrays.stream(Season.values()).forEach(season -> players.addForAllFilteredPlayer(
+                    new ArrayList<>(Collections.singleton(season)), 0,event.getId()));
         }
+        return events;
     }
 }

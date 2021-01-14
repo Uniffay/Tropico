@@ -26,6 +26,9 @@ public class ScoreController {
     @FXML
     private Text scoreText;
 
+    /**
+     * initialize score menu
+     */
     public void initialize(){
         initializeMedia();
     }
@@ -39,7 +42,7 @@ public class ScoreController {
     }
 
     @FXML
-    void endVideo(){
+    private void endVideo(){
         MediaManagement.dispose();
         MediaManagement.setMedia("lost.mp4");
         MediaManagement.play();
@@ -48,13 +51,13 @@ public class ScoreController {
     }
 
     @FXML
-    void showScore(){
+    private void showScore(){
         score.setVisible(true);
         scoreText.setText(DataManagement.getData().getStringScore());
     }
 
     @FXML
-    void backToMenu() throws IOException {
+    private void backToMenu() throws IOException {
         StageManagement.setScene(StageEnum.MENU);
     }
 }
