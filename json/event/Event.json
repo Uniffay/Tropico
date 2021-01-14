@@ -593,6 +593,7 @@
   },
   {
     "id": 10,
+    "unlock": true,
     "label": "On vous attaque !",
     "seasons": [
       "SPRING",
@@ -659,6 +660,7 @@
   },
   {
     "id": 11,
+    "unlock": false,
     "label": "Un ami est en guerre et vous appelle à l'aide",
     "seasons": [
       "SPRING",
@@ -709,6 +711,7 @@
   },
   {
     "id": 12,
+    "unlock": false,
     "label": "Vous avez gagné la guerre !",
     "seasons": [
       "SPRING",
@@ -755,6 +758,7 @@
   },
   {
     "id": 13,
+    "unlock": false,
     "label": "Votre demande de paix n'a pas été acceptée.",
     "seasons": [
       "SPRING",
