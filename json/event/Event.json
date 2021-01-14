@@ -562,5 +562,203 @@
         ]
       }
     ]
+  },
+  {
+    "id": 10,
+    "label": "On vous attaque !",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Appeler à l'aide un ami.",
+        "effectFulfillment": {
+          "militarist": 15,
+          "religious": -15,
+          "capitalist": 15,
+          "nationalist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [12],
+        "nextForMultiplayer": [11],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "S'en occuper seul.",
+        "effectFulfillment": {
+          "militarist": 15,
+          "communist": 15,
+          "religious": -15,
+          "ecologist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [12],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Tenter de faire la paix.",
+        "effectFulfillment": {
+          "militarist": -15,
+          "religious": 15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [13],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "label": "Un ami est en guerre et vous appelle à l'aide",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "L'aider.",
+        "effectFulfillment": {
+          "militarist": 15,
+          "religious": -15,
+          "capitalist": 15,
+          "nationalist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [12],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas l'aider.",
+        "effectFulfillment": {
+          "militarist": -30,
+          "religious": 15,
+          "ecologist": 15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "label": "Vous avez gagné la guerre !",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Super !",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "money": 100
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "label": "Votre demande de paix n'a pas été acceptée.",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "C'EST LA GUERRE",
+        "effectFulfillment": {},
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
   }
 ]
