@@ -12,6 +12,10 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * manage all the faction of a player
+ * @author Cléis & Quentin
+ */
 public class FactionsList implements Serializable {
 
 	static final long serialVersionUID = 185174138802860427L;
@@ -206,7 +210,7 @@ public class FactionsList implements Serializable {
 	public int getAverageFulfillment() {
 		int partisans = 0;
 		int sumFulfillment = 0;
-		int factionPartisan = 0;
+		int factionPartisan;
 		for (Faction faction: factions){
 			factionPartisan = faction.getPartisan();
 			partisans += factionPartisan;

@@ -9,7 +9,10 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-
+/**
+ * static methods for managing all event in the game
+ * @author Cléis & Quentin
+ */
 public class EventManagement {
 
     /**

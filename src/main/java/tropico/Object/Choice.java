@@ -9,6 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * represents choice that can be chosen in event
+ * @author Cléis & Quentin
+ */
 public class Choice implements Serializable {
     /**
      * label of the choice

@@ -29,6 +29,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * control the action the user made during the game
+ * @author Quentin & Cléis
+ */
 public class Controller {
 
     @FXML
@@ -1035,6 +1039,8 @@ public class Controller {
 
     private void manageEndTurn(Data gameData) {
         gameData.endTurn();
+        if(gameData.isGameEnded())
+            return;
         if(!gameData.isYearEnding()) {
             endYearMenu.setVisible(false);
             showEvent();

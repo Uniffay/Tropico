@@ -2,6 +2,10 @@ package tropico.Model;
 
 import tropico.Object.Data;
 
+/**
+ * manage the food importation at the end of the year
+ * @author Cléis & Quentin
+ */
 public class FoodManagement {
     /**
      * stock value of possessed food

@@ -1,5 +1,9 @@
 package tropico.Model;
 
+/**
+ * represent the difficulty of the game and their respective json file
+ * @author Quentin & Cléis
+ */
 public enum Difficulty {
 
     EASY("setting", "faction"),

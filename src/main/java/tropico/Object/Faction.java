@@ -2,6 +2,10 @@ package tropico.Object;
 
 import java.io.Serializable;
 
+/**
+ * represents the faction of the game
+ * @author Cléis & Quentin
+ */
 public class Faction implements Serializable {
 
 	/**

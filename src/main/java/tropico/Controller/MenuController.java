@@ -33,7 +33,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
+/**
+ * control the action the user made in the menu
+ * @author Quentin & Cléis
+ */
 public class MenuController {
 
     @FXML

@@ -7,11 +7,21 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.Objects;
 
+/**
+ * manage the media used in the app
+ * @author Cléis & Quentin
+ */
 public class MediaManagement {
-
+    /**
+     * media currently saved
+     */
     private static MediaPlayer MEDIA_SAVE;
-    private static boolean MEDIA_MUTED = false;
 
+    /**
+     * set the current media player
+     * @param name
+     *      name of the media
+     */
     public static void setMedia(String name) {
         if(Objects.nonNull(MEDIA_SAVE)){
             MEDIA_SAVE.dispose();
@@ -22,21 +32,23 @@ public class MediaManagement {
         MEDIA_SAVE.setMute(!SoundManagement.isSoundOn());
     }
 
+    /**
+     * get the current media player
+     * @return the current media player
+     */
     public static MediaPlayer getMedia() {
         return MEDIA_SAVE;
     }
 
-    private static void switchMediaMuted(){
-        MEDIA_MUTED = !MEDIA_MUTED;
-    }
-
-    public static void switchMute() {
-        switchMediaMuted();
-        MEDIA_SAVE.setMute(MEDIA_MUTED);
+    /**
+     * set sound of the media to off or on
+     */
+    public static void setMute(boolean mute) {
+        MEDIA_SAVE.setMute(mute);
     }
 
     /**
-     * 
+     * dispose of the media
      */
     public static void dispose() {
         MEDIA_SAVE.dispose();

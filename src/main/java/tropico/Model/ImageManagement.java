@@ -8,6 +8,10 @@ import tropico.Object.Season;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * manage the image used during the game
+ * @author Cléis & Quentin
+ */
 public class ImageManagement {
 
     /**

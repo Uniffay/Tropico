@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
+/**
+ * manage all the players
+ * @author Cléis & Quentin
+ */
 public class DictatorManagement implements Serializable {
 
 	/**

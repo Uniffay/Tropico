@@ -6,6 +6,10 @@ import tropico.Object.Dictator;
 import java.util.HashMap;
 import java.util.function.Predicate;
 
+/**
+ * manage the faction fulfillment modification for the bribe at the end of the year
+ * @author Quentin & Cléis
+ */
 public class FactionAddManagement {
     /**
      * stock faction changes fulfillment from bribe

@@ -5,6 +5,10 @@ import tropico.Object.Data;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * save data
+ * @author Quentin & Cléis
+ */
 public class DataManagement {
 
     /**

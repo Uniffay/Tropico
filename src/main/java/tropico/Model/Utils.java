@@ -3,6 +3,10 @@ package tropico.Model;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * some static function needed
+ * @author Cléis & Quentin
+ */
 public class Utils {
 
     /**

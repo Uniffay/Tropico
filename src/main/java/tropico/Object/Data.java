@@ -13,6 +13,10 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.*;
 
+/**
+ * data of the game
+ * @author Cléis & Quentin
+ */
 public class Data implements Serializable{
 	/**
 	 * list of players playing

@@ -12,6 +12,10 @@ import tropico.view.StageManagement;
 
 import java.io.IOException;
 
+/**
+ * control the action the user made in the score menu
+ * @author Quentin & Cléis
+ */
 public class ScoreController {
 
     @FXML

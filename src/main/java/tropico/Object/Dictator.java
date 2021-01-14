@@ -6,6 +6,10 @@ import tropico.Model.Utils;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * represent player of the game
+ * @author Quentin & Cléis
+ */
 public class Dictator implements Serializable {
 
 	/**

@@ -2,6 +2,10 @@ package tropico.Object;
 
 import java.io.Serializable;
 
+/**
+ * represents all the season with their name
+ * @author Cléis & Quentin
+ */
 public enum Season implements Serializable {
 
     SUMMER("Été"),
@@ -9,16 +13,27 @@ public enum Season implements Serializable {
     AUTUMN("Automne"),
     SPRING("Printemps");
 
+    /**
+     * name of the season
+     */
     private final String name;
 
     Season(String name){
         this.name = name;
     }
 
+    /**
+     * get name of the season
+     * @return name of the season
+     */
     public String getName(){
         return name;
     }
 
+    /**
+     * get next season
+     * @return next season
+     */
     public Season next() {
         switch (this){
             case SUMMER:
@@ -32,6 +47,10 @@ public enum Season implements Serializable {
         }
     }
 
+    /**
+     * get previous season
+     * @return previous season
+     */
     public Season previous() {
         switch(this){
             case SUMMER:

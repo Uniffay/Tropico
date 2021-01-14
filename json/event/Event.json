@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "unlock": true,
     "label": "L’Organisation des Caraïbes-Unis souhaite que vous accueillez des réfugiés climatiques\nsuite aux récentes inondations dans la région",
     "seasons": [
       "WINTER",
@@ -81,6 +82,7 @@
   },
   {
     "id": 1,
+    "unlock": true,
     "label": "Vous avez découvert un gisement d’or ! Que faire ?",
     "seasons": [
       "WINTER",
@@ -146,6 +148,7 @@
   },
   {
     "id": 2,
+    "unlock": true,
     "label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
     "seasons": [
       "SUMMER",
@@ -191,6 +194,7 @@
   },
   {
     "id": 3,
+    "unlock": true,
     "label": "Une avalanche s'est produite sur les nouvelles pistes de ski !",
     "seasons": [
       "WINTER"
@@ -253,6 +257,7 @@
   },
   {
     "id": 4,
+    "unlock": true,
     "label": "L'armée est faible, et le peuple est paresseux. Nous devrions reinstaurer le service militaire.",
     "seasons": [
       "WINTER",
@@ -300,6 +305,7 @@
   },
   {
     "id": 5,
+    "unlock": true,
     "label": "La mère Michel a perdu son chat !",
     "seasons": [
       "WINTER",
@@ -377,6 +383,7 @@
   },
   {
     "id": 6,
+    "unlock": false,
     "label": "Le chat de la mère Michel a été retrouvé !",
     "seasons": [
       "WINTER",
@@ -388,8 +395,26 @@
     "choices": [
       {
         "label": "Super cool !",
-        "effectFulfillment": {},
-        "effectPartisan": {},
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
         "effectResource": {},
         "nextForMe": [],
         "nextForMultiplayer": [],
@@ -403,6 +428,7 @@
   },
   {
     "id": 7,
+    "unlock": true,
     "label": "Un surfeur s'est fait attaqué par un requin au large de l'île !",
     "seasons": [
       "SUMMER"
@@ -462,6 +488,7 @@
   },
   {
     "id": 8,
+    "unlock": true,
     "label": "C'est Halloween ! Des enfants viennent frapper à votre porte pour des bonbons !",
     "seasons": [
       "AUTUMN"
@@ -488,7 +515,7 @@
         ]
       },
       {
-        "label": "Leur donner une petite partie, il en a d'autres quand même.",
+        "label": "Leur donner une petite partie, il y en a d'autres quand même.",
         "effectFulfillment": {
           "militarist": -15
         },
@@ -521,6 +548,7 @@
   },
   {
     "id": 9,
+    "unlock": true,
     "label": "Votre conseiller le plus proche à le rhume des foins",
     "seasons": [
       "SPRING"
