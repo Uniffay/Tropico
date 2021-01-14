@@ -1,7 +1,6 @@
 [
   {
     "id": 0,
-    "unlock" : true,
     "label": "L’Organisation des Caraïbes-Unis souhaite que vous accueillez des réfugiés climatiques\nsuite aux récentes inondations dans la région",
     "seasons": [
       "WINTER",
@@ -82,7 +81,6 @@
   },
   {
     "id": 1,
-    "unlock" : true,
     "label": "Vous avez découvert un gisement d’or ! Que faire ?",
     "seasons": [
       "WINTER",
@@ -146,10 +144,8 @@
       }
     ]
   },
-
   {
     "id": 2,
-    "unlock" : true,
     "label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
     "seasons": [
       "SUMMER",
@@ -195,7 +191,6 @@
   },
   {
     "id": 3,
-    "unlock" : true,
     "label": "Une avalanche s'est produite sur les nouvelles pistes de ski !",
     "seasons": [
       "WINTER"
@@ -256,10 +251,8 @@
       }
     ]
   },
-
   {
     "id": 4,
-    "unlock" : true,
     "label": "L'armée est faible, et le peuple est paresseux. Nous devrions reinstaurer le service militaire.",
     "seasons": [
       "WINTER",
@@ -290,6 +283,271 @@
       },
       {
         "label": "Refuser.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "label": "La mère Michel a perdu son chat !",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Financer une expédition pour le retrouver.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [6],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire, c'est pas vraiment important.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "label": "Le chat de la mère Michel a été retrouvé !",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Super cool !",
+        "effectFulfillment": {},
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "label": "Un surfeur s'est fait attaqué par un requin au large de l'île !",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Envoyer Jason Statham régler le problème (comme dans 'en eaux troubles').",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Envoyer Chuck Norris, il est bien plus fort.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Le laisser se faire manger une jambe, ça lui apprendra.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "label": "C'est Halloween ! Des enfants viennent frapper à votre porte pour des bonbons !",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Leur donner toutes vos réserves (ils sont bien déguisés quand même).",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Leur donner une petite partie, il en a d'autres quand même.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Fermer la porte, pas le temps pour ses conneries.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "label": "Votre conseiller le plus proche à le rhume des foins",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Appeler le medecin et organiser une visite médicale.",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "En embaucher un autre, pas besoin de faiblards dans mon équipe.",
         "effectFulfillment": {
           "militarist": -15
         },
