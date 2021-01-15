@@ -162,6 +162,9 @@ public class Data implements Serializable{
 	 */
 	public void pickNextEvent(Season season){
 		eventChosen = eventsById.get(players.get(playerPlaying).getEvent(season, turn));
+		if(!eventsById.get(eventChosen.getId()).isUnlocked()){
+			players.get(playerPlaying).delEvent(season, turn);
+		}
 	}
 
 	/**
@@ -242,8 +245,7 @@ public class Data implements Serializable{
 		try( InputStream back = Files.newInputStream(path);
 			 ObjectInputStream in = new ObjectInputStream(back)){
 			gameData = (Data) in.readObject();
-		}catch(NoSuchFileException e) {
-			e.printStackTrace();
+		}catch(NoSuchFileException ignored) {
 		}
 		return gameData;
 	}

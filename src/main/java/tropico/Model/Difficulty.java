@@ -8,7 +8,7 @@ public enum Difficulty {
 
     EASY("easy", "easy"),
     MEDIUM("medium", "medium"),
-    HARD("hard", "difficult"),
+    HARD("hard", "hard"),
     PERSONALIZED("", "");
 
     /**

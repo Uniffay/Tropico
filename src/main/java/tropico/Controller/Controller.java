@@ -427,9 +427,14 @@ public class Controller {
     }
 
     private void initializeFarm(Data gameData) {
-        List<ImageView> farming = ImageManagement.getFarm(anchorPane, 5);
-        setListVisible(farming, false, farming.size()); // remove all farm from screen in case an industry need to be removed
-        setListVisible(farming, true, gameData.getPlayerPlaying().getResource().get("farming") / 20);
+        List<ImageView> farmingList = ImageManagement.getFarm(anchorPane, 5);
+        setListVisible(farmingList, false, farmingList.size()); // remove all farm from screen in case one need to be remove
+        int farming = gameData.getPlayerPlaying().getResource().get("farming");
+        setListVisible(farmingList, true,  farming / 20);
+        ImageManagement.getOthers("farmer" + gameData.getSeason().previous(), anchorPane, 1).get(0).setVisible(false);
+        if(gameData.getPlayerPlaying().getFarm() >= 20){
+            ImageManagement.getOthers("farmer" + gameData.getSeason(), anchorPane, 1).get(0).setVisible(true);
+        }
     }
 
     private void initializePollution(Data gameData) {
@@ -1182,6 +1187,7 @@ public class Controller {
         actionAccepted = () -> {
             try {
                 StageManagement.setScene(StageEnum.MENU);
+                ImageManagement.clear();
             } catch (IOException e) {
                 e.printStackTrace();
             }

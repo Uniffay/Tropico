@@ -33,6 +33,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+
 /**
  * control the action the user made in the menu
  * @author Quentin & Cléis
@@ -347,7 +349,10 @@ public class MenuController {
 
     @FXML
     private void load() throws IOException, ClassNotFoundException {
-        DataManagement.setData(Data.recuperation());
+        Data gameData = Data.recuperation();
+        if(Objects.isNull(gameData))
+            return;
+        DataManagement.setData(gameData);
         StageManagement.setScene(StageEnum.GAME);
         mediaGameStart();
         FactionsList.initializeFactionName();

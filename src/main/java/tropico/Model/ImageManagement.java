@@ -148,4 +148,14 @@ public class ImageManagement {
         return corns;
 
     }
+
+    /**
+     * clear all the hashmap of the class
+     */
+    public static void clear() {
+        TREE_SAVE.clear();
+        OTHER_SAVE.clear();
+        OTHER_SHOW.clear();
+
+    }
 }

@@ -205,6 +205,10 @@ public class Dictator implements Serializable {
 		return resource.get("money");
 	}
 
+	public int getFarm(){
+		return resource.get("farming");
+	}
+
 	/**
 	 * player payed some or all his debt
 	 * @param loanRefund
@@ -303,5 +307,11 @@ public class Dictator implements Serializable {
 			Collections.shuffle(eventsId);
 		}
 		return eventsId.get(turnEvent);
+	}
+
+	public void delEvent(Season season, int turn) {
+		List<Integer> eventsId = this.eventsId.get(season);
+		int turnEvent = (turn / 4) % eventsId.size();
+		eventsId.remove(turnEvent);
 	}
 }
