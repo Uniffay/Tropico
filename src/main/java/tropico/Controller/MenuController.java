@@ -110,6 +110,12 @@ public class MenuController {
     @FXML
     private TextField player1;
 
+    @FXML
+    private HBox musicBox;
+
+    @FXML
+    private TextField music;
+
     /**
      * save name and number of player
      */
@@ -229,8 +235,8 @@ public class MenuController {
 
     @FXML
     private void muteSounds(){
-        SoundManagement.switchSoundOn();
-        String suffix = (SoundManagement.isSoundOn())? "On": "Off";
+        SoundManagement.switchSound();
+        String suffix = (SoundManagement.isSoundOff())? "Off": "On";
         imageSound.setImage(ImageManagement.createImage("sound" + suffix + ".png"));
         unicornSound.setImage(ImageManagement.createImage("unicorn" + suffix + ".png"));
     }
@@ -262,6 +268,7 @@ public class MenuController {
 
     private void setVisibleAdvancedModeSetting(boolean bool){
         eventBox.setVisible(bool);
+        musicBox.setVisible(bool);
     }
 
     @FXML
@@ -299,7 +306,6 @@ public class MenuController {
             return;
         }
         mediaGameStart();
-        List<String> names = new ArrayList<>();
         DataManagement.initializeData(initializeListName());
         StageManagement.setScene(StageEnum.GAME);
     }
@@ -316,7 +322,15 @@ public class MenuController {
 
     private void mediaGameStart(){
         MediaManagement.dispose();
-        setMedia("music.mp4");
+        setMediaFromMode(SettingManagement.getModeFromMenuItem());
+    }
+
+    private void setMediaFromMode(Mode modeFromMenuItem) {
+        if(modeFromMenuItem != Mode.PERSONALIZED){
+            setMedia(modeFromMenuItem.getMusic());
+            return;
+        }
+        setMedia(music.getText());
     }
 
     private void setErrorVisibleFalse() {

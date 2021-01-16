@@ -7,23 +7,23 @@ package tropico.Model;
 public class SoundManagement {
 
     /**
-     * true if the sound is on and false otherwise
+     * true if the sound is off and false otherwise
      */
-    private static boolean SOUND_ON = true;
+    private static boolean SOUND_OFF = false;
 
     /**
      * test if the sound is on
      * @return true if the sound is on and false otherwise
      */
-    public static boolean isSoundOn(){
-        return SOUND_ON;
+    public static boolean isSoundOff(){
+        return SOUND_OFF;
     }
 
     /**
      * switch the sound value and set mute of the media
      */
-    public static void switchSoundOn(){
-        SOUND_ON = !SOUND_ON;
-        MediaManagement.setMute(SOUND_ON);
+    public static void switchSound(){
+        SOUND_OFF = !SOUND_OFF;
+        MediaManagement.setMute(SOUND_OFF);
     }
 }

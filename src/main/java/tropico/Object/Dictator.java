@@ -12,6 +12,8 @@ import java.util.*;
  */
 public class Dictator implements Serializable {
 
+	static final long serialVersionUID = 5053442805910312355L;
+
 	/**
 	 * name of the player
 	 */

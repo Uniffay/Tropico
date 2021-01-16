@@ -5,19 +5,26 @@ package tropico.Model;
  * @author Cléis & Quentin
  */
 public enum Mode {
-    SANDBOX("Event"),
-    IUT("IUT"),
-    SEAOFTHIEVES("SeaOfThieves"),
-    MARIO("Mario"),
-    PERSONALIZED("");
+    SANDBOX("Event", "music.mp4"),
+    IUT("IUT", "music.mp4"),
+    SEAOFTHIEVES("SeaOfThieves", "SeaOfThieves.mp4"),
+    MARIO("Mario", "Mario.mp4"),
+    PERSONALIZED("", "");
 
     /**
      * json name of the mode (scenario or sandbox)
      */
     private final String jsonName;
 
-    Mode(String jsonName){
+    /**
+     * mp4 name of the music
+     */
+    private final String musicName;
+
+
+    Mode(String jsonName, String musicName){
         this.jsonName = jsonName;
+        this.musicName = musicName;
     }
 
     /**
@@ -26,5 +33,9 @@ public enum Mode {
      */
     public String getJsonName() {
         return jsonName;
+    }
+
+    public String getMusic() {
+        return musicName;
     }
 }

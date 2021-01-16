@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class FactionsList implements Serializable {
 
-	static final long serialVersionUID = 185174138802860427L;
+	static final long serialVersionUID = -1988109764979679938L;
 
 	/**
 	 * list of all the factions

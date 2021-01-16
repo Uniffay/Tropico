@@ -18,6 +18,8 @@ public enum Season implements Serializable {
      */
     private final String name;
 
+    static final long serialVersionUID = 1020554481031012518L;
+
     Season(String name){
         this.name = name;
     }

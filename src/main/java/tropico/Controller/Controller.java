@@ -383,7 +383,7 @@ public class Controller {
     }
 
     private void setSoundSetting() {
-        String suffix = (SoundManagement.isSoundOn())? "On2.png":"Off2.png";
+        String suffix = (SoundManagement.isSoundOff())? "Off2.png":"On2.png";
         soundImage.setImage(ImageManagement.createImage("sound" + suffix));
         unicornImage.setImage(ImageManagement.createImage("unicorn" + suffix.replace("2", "")));
     }
@@ -767,8 +767,10 @@ public class Controller {
     }
 
     private void manageTextCostEvent(Data gameData) {
-        for (var money: initializeMoneyManagement()){
-            if(Integer.parseInt(money.getText().substring(0, money.getText().length() - 1)) < gameData.getPlayerPlaying().getMoney())
+        List<Label> moneys = initializeMoneyManagement();
+        for(int i = 0; i < gameData.getEventChosen().getChoices().size(); i++) {
+            Label money = moneys.get(i);
+            if (Integer.parseInt(money.getText().substring(0, money.getText().length() - 1)) < gameData.getPlayerPlaying().getMoney())
                 money.setTextFill(Color.GREEN);
         }
     }
@@ -1199,7 +1201,7 @@ public class Controller {
      */
     @FXML
     void switchSound(){
-        SoundManagement.switchSoundOn();
+        SoundManagement.switchSound();
         setSoundSetting();
     }
 

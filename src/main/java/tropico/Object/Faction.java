@@ -8,6 +8,9 @@ import java.io.Serializable;
  */
 public class Faction implements Serializable {
 
+
+	static final long serialVersionUID = -4408968700478673909L;
+
 	/**
 	 * english name of the faction
 	 */

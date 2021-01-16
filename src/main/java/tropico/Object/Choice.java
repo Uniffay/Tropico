@@ -14,6 +14,8 @@ import java.util.function.Function;
  * @author Cléis & Quentin
  */
 public class Choice implements Serializable {
+
+    static final long serialVersionUID = -3545253718519798788L;
     /**
      * label of the choice
      */

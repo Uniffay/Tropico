@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>tropico</OriginalElement>
+  <nodes>
+    <node x="2073.5169871794874" y="2722.0">tropico.Object.Faction</node>
+    <node x="2092.1169871794873" y="3146.0">tropico.Object.FactionsList</node>
+    <node x="1864.5411252893393" y="1581.0">tropico.Object.Data</node>
+    <node x="1432.016987179487" y="4640.5">tropico.Model.FactionAddManagement</node>
+    <node x="2501.1169871794873" y="3732.0">tropico.Object.Dictator</node>
+    <node x="3312.4411252893397" y="0.0">tropico.Model.Difficulty</node>
+    <node x="1868.5169871794872" y="2441.0">tropico.Model.RefundManagement</node>
+    <node x="2461.6615727579992" y="2833.0">tropico.Model.Utils</node>
+    <node x="298.55715093036497" y="934.0">tropico.view.StageEnum</node>
+    <node x="123.35416666666652" y="4662.5">tropico.Model.SoundManagement</node>
+    <node x="2934.716987179487" y="846.0">tropico.Object.Event</node>
+    <node x="2644.2003205128203" y="4596.0">tropico.Object.DictatorManagement</node>
+    <node x="882.1404189118452" y="1779.5">tropico.Model.JSonPathManagement</node>
+    <node x="616.3791666666666" y="868.5">tropico.Model.ImageManagement</node>
+    <node x="1423.0874346481467" y="4918.0">tropico.Controller.Controller</node>
+    <node x="3294.9411252893397" y="1347.5">tropico.Object.EventManagement</node>
+    <node x="374.7541666666666" y="1336.0">tropico.view.StageManagement</node>
+    <node x="312.3541666666665" y="1901.0">tropico.view.App</node>
+    <node x="3975.6911252893397" y="912.0">tropico.Model.Mode</node>
+    <node x="1932.9411252893392" y="423.0">tropico.Object.Season</node>
+    <node x="1598.516987179487" y="2397.0">tropico.Model.FoodManagement</node>
+    <node x="3833.9411252893397" y="1292.0">tropico.Model.SettingManagement</node>
+    <node x="27.979166666666515" y="6931.0">tropico.Model.MediaManagement</node>
+    <node x="1191.016987179487" y="2474.0">tropico.Model.DataManagement</node>
+    <node x="312.3541666666665" y="2507.5">tropico.view.Main</node>
+    <node x="952.9624346481467" y="9291.0">tropico.Controller.MenuController</node>
+    <node x="3071.651515585445" y="346.0">tropico.Object.Choice</node>
+    <node x="47.084528405957826" y="9863.0">tropico.Controller.ScoreController</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.037619314991577765" x="2084.0" y="5333.0" />
+  <SelectedNodes>
+    <node>tropico.view.Main</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

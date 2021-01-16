@@ -256,6 +256,28 @@
                   </children>
                </VBox>
             </HBox>
+            <HBox fx:id="musicBox" alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="802.0" visible="false">
+               <children>
+                  <Label text="Nom de la music (dans le réperatoire model):" textFill="#b912a9">
+                     <font>
+                        <Font name="Monospaced Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="music" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="266.0" promptText="exemple: MyLittlePoney.mp4 (avec extension)">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label fx:id="errorEvent1" alignment="CENTER" prefHeight="18.0" prefWidth="268.0" text="Lien Invalide !" textFill="RED" visible="false" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" onMouseClicked="#switchPlayerState" prefHeight="88.0" prefWidth="270.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="Gerer Les Joueurs" textFill="#bf09bf">

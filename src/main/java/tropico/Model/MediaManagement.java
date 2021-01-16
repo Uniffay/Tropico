@@ -29,7 +29,7 @@ public class MediaManagement {
         URL musicURL = MediaManagement.class.getResource(name);
         Media media = new Media(musicURL.toExternalForm());
         MEDIA_SAVE = new MediaPlayer(media);
-        MEDIA_SAVE.setMute(!SoundManagement.isSoundOn());
+        MEDIA_SAVE.setMute(SoundManagement.isSoundOff());
     }
 
     /**

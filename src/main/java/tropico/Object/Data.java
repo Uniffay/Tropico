@@ -18,6 +18,9 @@ import java.util.*;
  * @author Cléis & Quentin
  */
 public class Data implements Serializable{
+
+
+	static final long serialVersionUID = -3642157984925908374L;
 	/**
 	 * list of players playing
 	 */
@@ -220,7 +223,7 @@ public class Data implements Serializable{
 	}
 
 	/**
-	 * save the game in a file named save
+	 * save the game in a file named sauvegarde
 	 * @throws IOException if an I/O error occurs
 	 */
 	public void save() throws IOException {

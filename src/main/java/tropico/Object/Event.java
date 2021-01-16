@@ -12,6 +12,9 @@ import java.util.Random;
  */
 public class Event implements Serializable {
 
+
+    static final long serialVersionUID = 3758959799614771532L;
+
     /**
      * label of the event
      */

@@ -15,6 +15,8 @@ import java.util.stream.Stream;
  */
 public class DictatorManagement implements Serializable {
 
+
+	static final long serialVersionUID = 1174138802860427L;
 	/**
 	 * list of dictator
 	 */
