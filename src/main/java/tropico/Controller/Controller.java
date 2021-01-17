@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import tropico.Model.*;
 import tropico.Object.Choice;
@@ -25,9 +26,11 @@ import tropico.view.StageManagement;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.Callable;
 
 /**
  * control the action the user made during the game
@@ -297,6 +300,9 @@ public class Controller {
     private AnchorPane playerInfo;
 
     @FXML
+    private Label okPlayerInfo;
+
+    @FXML
     private Label player;
 
     @FXML
@@ -310,6 +316,27 @@ public class Controller {
 
     @FXML
     private Rectangle grayPlayerInfo;
+
+    @FXML
+    private AnchorPane tutorial;
+
+    @FXML
+    private Text tutorialText;
+
+    @FXML
+    private Polygon arrow;
+
+    @FXML
+    private Rectangle grayTutorial;
+
+    @FXML
+    private Tab foodTab;
+
+    @FXML
+    private Tab factionTab;
+
+    @FXML
+    private Tab detteTab;
 
     /**
      * action made when player accept warning menu
@@ -325,6 +352,20 @@ public class Controller {
      * false if the faction Text Field hasn't been initialized
      */
     private boolean haveInitiateFactionsTextField = false;
+
+    /**
+     * to run next step (all the step are recorded here in order of apparition)
+     */
+    private final ArrayList<Runnable> tutorialOrder = new ArrayList<>();
+
+    /**
+     * verification to go next step in the tutorial
+     */
+    private final ArrayList<Callable<Boolean>> tutorialVerification = new ArrayList<>();
+    /**
+     * current step in the tutorial
+     */
+    private int stepTutorial = 0;
 
     private void initializeFactionsTextField() {
         initializeHashMapTextField();
@@ -371,6 +412,8 @@ public class Controller {
      */
     public void initialize() {
         Data gameData = DataManagement.getData();
+        if(gameData.isGameTutorial())
+            startTutorial();
         setTextHeaderBar(gameData);
         initializeGraphics(gameData);
         if(gameData.nonSolo())
@@ -380,6 +423,47 @@ public class Controller {
         setSoundSetting();
         List<Node> needInFront = initializeFrontNodes();
         nodesToFront(needInFront);
+    }
+
+    private void startTutorial() {
+        initializeTutorialOrder();
+        initializeTutorialVerification();
+        first();
+    }
+
+    private void initializeTutorialVerification() {
+        tutorialVerification.add(()-> true);
+        tutorialVerification.add(()-> !playerInfo.isVisible());
+        tutorialVerification.add(()-> true);
+        tutorialVerification.add(()-> true);
+        tutorialVerification.add(()-> loanMenu.isVisible());
+        tutorialVerification.add(()-> DataManagement.getData().getPlayerPlaying().getDebt() >= 1000);
+        tutorialVerification.add(()-> resultEventPane.isVisible());
+        tutorialVerification.add(()-> true);
+        tutorialVerification.add(()-> true);
+        tutorialVerification.add(()-> foodTab.isSelected());
+        tutorialVerification.add(()-> factionTab.isSelected());
+        tutorialVerification.add(()-> detteTab.isSelected());
+        tutorialVerification.add(()-> true);
+        tutorialVerification.add(()-> true);
+    }
+
+    private void initializeTutorialOrder() {
+        tutorialOrder.add(this::first);
+        tutorialOrder.add(this::second);
+        tutorialOrder.add(this::third);
+        tutorialOrder.add(this::fourth);
+        tutorialOrder.add(this::fifth);
+        tutorialOrder.add(this::sixth);
+        tutorialOrder.add(this::seventh);
+        tutorialOrder.add(this::eighth);
+        tutorialOrder.add(this::ninth);
+        tutorialOrder.add(this::tenth);
+        tutorialOrder.add(this::eleventh);
+        tutorialOrder.add(this::twelfth);
+        tutorialOrder.add(this::thirteenth);
+        tutorialOrder.add(this::fourteenth);
+        tutorialOrder.add(this::fifteenth);
     }
 
     private void setSoundSetting() {
@@ -401,11 +485,14 @@ public class Controller {
                 loanMenu,
                 endYearMenu,
                 graySetting,
-                setting,
+                grayTutorial,
                 grayPlayerInfo,
                 playerInfo,
+                tutorial,
+                arrow,
                 settingMenu,
-                warningMenu
+                warningMenu,
+                setting
         );
     }
 
@@ -1228,5 +1315,124 @@ public class Controller {
     void playerFinish(){
         playerInfo.setVisible(false);
         grayPlayerInfo.setVisible(false);
+    }
+
+    @FXML
+    private void next() throws Exception {
+        if(tutorialVerification.get(stepTutorial).call()){
+            stepTutorial++;
+            tutorialOrder.get(stepTutorial).run();
+        }
+    }
+
+    private void first(){
+        tutorialText.setText("Voila, la game a commencé ! Maintenant voyons les bases à connaître !");
+        tutorial.setLayoutX(715);
+        tutorial.setLayoutY(148);
+        tutorial.setVisible(true);
+        grayTutorial.setVisible(true);
+        arrow.setLayoutX(718);
+        arrow.setLayoutY(279);
+        okPlayerInfo.setDisable(true);
+
+    }
+
+    private void second(){
+        tutorialText.setText("Au début du tour, nous voyons quel joueur joue lorsque la game est en multijoueur !" +
+                            " Le joueur qui va jouer à juste a appuyer sur \"OK\", Allez-y !");
+        arrow.setVisible(true);
+        okPlayerInfo.setDisable(false);
+    }
+
+    private void third(){
+        tutorialText.setText("Les informations sur vos factions sont toutes affichées à gauche !");
+        arrow.setLayoutX(282);
+        factionScrollPane.toFront();
+    }
+
+    private void fourth(){
+        tutorialText.setText("Les informations sur vos ressources sont toutes affichées en haut !");
+        arrow.setLayoutX(677);
+        arrow.setLayoutY(47);
+        header.toFront();
+        arrow.setRotate(90);
+    }
+
+    private void fifth(){
+        tutorialText.setText("Vous pouvez faire un prêt à la banque s'il vous manque de l'argent, il suffit de cliquez" +
+                            " sur votre argent ! Vous pouvez le faire :).");
+        arrow.setLayoutX(563);
+        loanMenu.toFront();
+    }
+
+    private void sixth(){
+        tutorialText.setText("Le plus et le moins permette de choisir la somme que vous voulez, et vous pouvez valider via le" +
+                            " bouton bleu. Attention, vous serez ensuite endetté de la somme + 10% et cela augmentera" +
+                            " chaque année de 10%. De plus, chaque tour, vos factions perdront 1% de satisfaction par" +
+                            " tranche de 1000$ emprunter ! (emprunter 1000$ ou plus)");
+        tutorialText.setFont(Font.font(16));
+        arrow.setLayoutY(93);
+    }
+
+    private void seventh(){
+        tutorialText.setText("Pendant le tour de chaque joueur, le joueur aura un évènement et plusieurs choix" +
+                            " disponible. Ces choix ont un coût affiché à droite du choix et" +
+                            " ont des effets différents qui influent sur tes factions ainsi que" +
+                            " sur tes futurs évènement ainsi que ceux des autres joueurs. Faîtes un choix !");
+        grayTutorial.setVisible(false);
+        arrow.setRotate(180);
+        arrow.setLayoutX(364);
+        arrow.setLayoutY(334);
+        tutorial.setLayoutX(50);
+        tutorial.setLayoutY(450);
+        tutorial.toFront();
+        next.setDisable(true);
+    }
+
+    private void eighth(){
+        tutorialText.setText("Les effets sont ensuite affichés ici. \nQuand vous appuyerez sur suivant les effets seront" +
+                            " effectifs et changeront les données affichées. \nCela lancera aussi le tour du joueur suivant.");
+    }
+
+    private void ninth(){
+        tutorialText.setText("Chaque tour est représenté par une saison. \nVous commencez au printemps et après l'évènement" +
+                            " d'hiver, le menu de fin d'année s'ouvre avec le rapport de fin d'année !");
+    }
+
+    private void tenth(){
+        openEndYearMenu();
+        tutorialText.setText("Ce rapport montre ce que vous avez obtenu en fin d'année comme ressource.\n" +
+                            " Vous pouvez ensuite allez dans le marché alimentaire et cliquez sur \"OK\"");
+    }
+
+    private void eleventh(){
+        tutorialText.setText("Ce menu vous informe de la nourriture qu'il vous manque.\nInformation: 1% d'agriculture donne 40" +
+                            " nourritures et chaque partisan a besoin de 4 nourritures.\nS'il en manque, des partisans" +
+                            " seront tués mais si votre agriculture seul est excédentaire alors des partisans naîtrons." +
+                            "\nAllez dans le menu \"Soudoyer Faction\".");
+    }
+
+    private void twelfth(){
+        tutorialText.setText("Dans ce menu, vous pourrez soudoyer une faction afin de gagner de la satisfaction par " +
+                            " tranche de 10 sachant que le coût sera du nombre de partisan * 15 * le nombre de tranche" +
+                            " de 10% ajoutées. Un faction a 0% ne pourra pas être soudoyer ! Allez dans le menu Dettes.");
+    }
+
+    private void thirteenth(){
+        tutorialText.setText("Ce dernier menu permet de rembourser vos dettes.\nQuand vous avez finie de choisir, vous" +
+                            " pouvez choisir de valider tant que votre somme d'argent est supérieur au prix total.");
+    }
+
+    private void fourteenth(){
+        tutorialText.setText("Ce tuto est fini, vous pouvez maintenant lancer votre propre partie !");
+    }
+
+    private void fifteenth() {
+        ImageManagement.clear();
+        try {
+            StageManagement.setScene(StageEnum.MENU);
+        }catch (IOException ignored){
+
+        }
     }
 }

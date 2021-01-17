@@ -14,6 +14,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tropico.Controller.MenuController">
    <children>
@@ -31,6 +32,11 @@
                </font>
             </Label>
             <Label alignment="CENTER" onMouseClicked="#load" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="CHARGER SAUVEGARDE" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="37.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" onMouseClicked="#openTutorial" onMouseEntered="#enteredOption" onMouseExited="#exitedOption" prefHeight="80.0" prefWidth="499.0" style="-fx-background-color: hotpink;" text="DIDACTICIEL" textFill="WHITE">
                <font>
                   <Font name="Monospaced Regular" size="37.0" />
                </font>
@@ -144,7 +150,7 @@
             </ImageView>
          </children>
       </VBox>
-      <VBox fx:id="playMenu" layoutX="52.0" layoutY="53.0" prefHeight="646.0" prefWidth="893.0" visible="false">
+      <VBox fx:id="playMenu" layoutX="52.0" layoutY="53.0" prefHeight="666.0" prefWidth="894.0" visible="false">
          <children>
             <Label alignment="CENTER" prefHeight="99.0" prefWidth="896.0" text="PLAY" textFill="#b912a9" underline="true">
                <font>
@@ -166,7 +172,7 @@
                   </Label>
                   <MenuButton id="button" fx:id="difficulty" alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="109.0" style="-fx-background: white;" stylesheets="@app.css" text="Facile">
                     <items>
-                      <MenuItem disable="true" mnemonicParsing="false" onAction="#basicDifficulty" text="Facile" />
+                      <MenuItem fx:id="easy" disable="true" mnemonicParsing="false" onAction="#basicDifficulty" text="Facile" />
                       <MenuItem mnemonicParsing="false" onAction="#basicDifficulty" text="Moyen" />
                         <MenuItem mnemonicParsing="false" onAction="#basicDifficulty" text="Difficile" />
                         <MenuItem mnemonicParsing="false" onAction="#personalizedDifficulty" text="Personnalisé" />
@@ -228,7 +234,7 @@
                </Label>
                <MenuButton id="button" fx:id="mode" alignment="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="134.0" style="-fx-background: white;" stylesheets="@app.css" text="Bac à Sable">
                   <items>
-                     <MenuItem disable="true" mnemonicParsing="false" onAction="#basicMode" text="Bac à Sable" />
+                     <MenuItem fx:id="sandBox" disable="true" mnemonicParsing="false" onAction="#basicMode" text="Bac à Sable" />
                      <MenuItem mnemonicParsing="false" onAction="#basicMode" text="Sea of Thieves" />
                      <MenuItem mnemonicParsing="false" onAction="#basicMode" text="Mario" />
                      <MenuItem mnemonicParsing="false" onAction="#basicMode" text="IUT" />
@@ -278,9 +284,9 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="87.0" prefWidth="894.0">
                <children>
-                  <Label alignment="CENTER" onMouseClicked="#switchPlayerState" prefHeight="88.0" prefWidth="270.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="Gerer Les Joueurs" textFill="#bf09bf">
+                  <Label fx:id="managePlayerButton" alignment="CENTER" onMouseClicked="#switchPlayerState" prefHeight="88.0" prefWidth="270.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="Gerer Les Joueurs" textFill="#bf09bf">
                      <font>
                         <Font name="Monospaced Bold" size="22.0" />
                      </font>
@@ -291,7 +297,7 @@
                         <Insets right="100.0" />
                      </HBox.margin>
                   </Label>
-                  <Label alignment="CENTER" onMouseClicked="#startGame" prefHeight="88.0" prefWidth="190.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="CONFIRMER" textFill="#bf09bf">
+                  <Label fx:id="confirmButton" alignment="CENTER" onMouseClicked="#startGame" prefHeight="88.0" prefWidth="190.0" style="-fx-background-color: hotpink; -fx-background-radius: 20;" text="CONFIRMER" textFill="#bf09bf">
                      <font>
                         <Font name="Monospaced Bold" size="22.0" />
                      </font>
@@ -301,7 +307,7 @@
                   </Label>
                </children>
                <VBox.margin>
-                  <Insets top="100.0" />
+                  <Insets top="70.0" />
                </VBox.margin>
             </HBox>
          </children>
@@ -324,7 +330,7 @@
                   <Font name="Comic Sans MS Bold" size="32.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="89.0" layoutY="443.0" onMouseClicked="#switchPlayerState" prefHeight="54.0" prefWidth="154.0" style="-fx-background-color: hotpink; -fx-border-color: purple;" text="CONFIRMER" textFill="#bf09bf">
+            <Label fx:id="confirmButtonPlayer" alignment="CENTER" layoutX="89.0" layoutY="443.0" onMouseClicked="#switchPlayerState" prefHeight="54.0" prefWidth="154.0" style="-fx-background-color: hotpink; -fx-border-color: purple;" text="CONFIRMER" textFill="#bf09bf">
                <font>
                   <Font name="Monospaced Bold" size="22.0" />
                </font>
@@ -334,5 +340,40 @@
             </Label>
          </children>
       </AnchorPane>
+      <ImageView fx:id="exitButton" fitHeight="47.0" fitWidth="54.0" layoutX="1004.0" layoutY="703.0" onMouseClicked="#openExitMenu" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Model/setting.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="exitMenu" layoutX="339.0" layoutY="193.0" prefHeight="310.0" prefWidth="324.0" style="-fx-background-color: hotpink;" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="58.0" prefWidth="330.0" text="VOULEZ VOUS QUITTER LE DIDACTITIEL?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="46.0" layoutY="220.0" onMouseClicked="#yesLeave" prefHeight="58.0" prefWidth="88.0" style="-fx-background-color: GREEN;" text="OUI" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="22.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="180.0" layoutY="220.0" onMouseClicked="#noLeave" prefHeight="58.0" prefWidth="88.0" style="-fx-background-color: RED;" text="NON" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="tutorial" layoutX="682.0" layoutY="258.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="266.0" prefWidth="330.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <Text fx:id="tutorialText" fill="WHITE" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="334.40000000000003">
+               <font>
+                  <Font name="Comic Sans MS" size="22.0" />
+               </font></Text>
+            <Label alignment="CENTER" layoutX="269.0" layoutY="216.0" onMouseClicked="#next" prefHeight="36.0" prefWidth="38.0" style="-fx-border-color: white;" text="OK" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <Polygon fx:id="arrow1" fill="RED" layoutX="611.0" layoutY="237.0" points="19.20001220703125, -32.800018310546875, 19.20001220703125, 28.0, -25.800048828125, -2.800018310546875" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <Polygon fx:id="arrow2" fill="RED" layoutX="699.0" layoutY="561.0" points="19.20001220703125, -23.399993896484375, 19.20001220703125, 14.79998779296875, -25.800048828125, -2.800018310546875" stroke="BLACK" strokeType="INSIDE" visible="false" />
    </children>
 </AnchorPane>

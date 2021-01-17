@@ -792,5 +792,42 @@
         ]
       }
     ]
-  }
-]
+  },
+  {
+      "id": 14,
+      "unlock": false,
+      "label": "Macdo veut ouvrir un restaurant chez vous, que faire?",
+      "seasons": [
+        "SPRING",
+        "SUMMER",
+        "AUTUMN",
+        "WINTER"
+      ],
+      "image": "noImage.png",
+      "choices": [
+        {
+          "label": "Oui",
+          "effectFulfillment": {
+            "capitalist": 10,
+            "communist": 10,
+            "liberal": 10,
+            "religious": 10,
+            "militarist": 10,
+            "ecologist": 10,
+            "nationalist": 10,
+            "loyalist": 10
+          },
+          "effectPartisan": {
+          },
+          "effectResource": {},
+          "nextForMe": [],
+          "nextForMultiplayer": [],
+          "difficulty": [
+            "EASY",
+            "MEDIUM",
+            "HARD"
+          ]
+        }
+      ]
+    }
+  ]

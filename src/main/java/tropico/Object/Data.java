@@ -61,7 +61,10 @@ public class Data implements Serializable{
 	 * true if the game ended false otherwise
 	 */
 	private boolean gameEnded;
-	
+	/**
+	 * true if the game was started by tutorial
+	 */
+	 private boolean gameTutorial;
 	
 	public Data(int numberOfPlayer, String[] names, String jsonParserResource, String jsonParserFactions, String jsonParserEvents) {
 		this.turn = 0;
@@ -277,5 +280,13 @@ public class Data implements Serializable{
 	 */
 	public DictatorManagement getPlayers() {
 		return players;
+	}
+
+    public void setGameTutorial(boolean b) {
+		gameTutorial = b;
+    }
+
+	public boolean isGameTutorial() {
+		return gameTutorial;
 	}
 }

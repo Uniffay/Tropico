@@ -17,11 +17,11 @@ public class ImageManagement {
     /**
      * map containing the tree of all season
      */
-    private static final Map<Season, ArrayList<ImageView>> TREE_SAVE = new HashMap<>();
+    private static final Map<Season, List<ImageView>> TREE_SAVE = new HashMap<>();
     /**
      * map containing all the other image
      */
-    private static final Map<String, ArrayList<ImageView>> OTHER_SAVE = new HashMap<>();
+    private static final Map<String, List<ImageView>> OTHER_SAVE = new HashMap<>();
     /**
      * map saving the element visible
      */
@@ -57,8 +57,8 @@ public class ImageManagement {
         return get(OTHER_SAVE, name, pane, number, name);
     }
 
-    private static <E> List<ImageView> get(Map<E, ArrayList<ImageView>> map, E name, AnchorPane pane, int number, String fileName){
-        ArrayList<ImageView> images = map.get(name);
+    private static <E> List<ImageView> get(Map<E, List<ImageView>> map, E name, AnchorPane pane, int number, String fileName){
+        List<ImageView> images = map.get(name);
         if(Objects.nonNull(images)){
             return images;
         }
@@ -145,6 +145,7 @@ public class ImageManagement {
             ImageView corn = createImage("corn.png", anchorPane, 300 + i * 60, 450);
             corns.add(corn);
         }
+        OTHER_SAVE.put("corn", corns);
         return corns;
 
     }

@@ -1,0 +1,833 @@
+[
+  {
+    "id": 0,
+    "unlock": true,
+    "label": "L’Organisation des Caraïbes-Unis souhaite que vous accueillez des réfugiés climatiques\nsuite aux récentes inondations dans la région",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
+        "effectFulfillment": {
+          "religious": -15,
+          "liberal": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Décliner au motif qu’ils ne sont pas de même culte que vous",
+        "effectFulfillment": {
+          "religious": 15,
+          "liberal": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Accepter sans condition",
+        "effectFulfillment": {
+          "religious": 10,
+          "liberal": 10,
+          "nationalist": -20
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Accepter sous conditions d’aide financière de la part de l’OCU",
+        "effectFulfillment": {
+          "nationalist": -20,
+          "capitalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": 200
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "unlock": true,
+    "label": "Vous avez découvert un gisement d’or ! Que faire ?",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Utilisons-le pour améliorer le bien-être des citoyens !",
+        "effectFulfillment": {
+          "communist": 10,
+          "capitalist": -30
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": 10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Exploitons-le au maximum pour moderniser le pays !",
+        "effectFulfillment": {
+          "communist": 5,
+          "ecologist": -20,
+          "capitalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": 20
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Vendons les terrains à l’Empire du Dragon et renflouons nos comptes secrets.",
+        "effectFulfillment": {
+          "loyalist": 15,
+          "nationalist": -30
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "unlock": true,
+    "label": "Un ouragan va frapper l’île! Sauvons El Presidente!",
+    "seasons": [
+      "SUMMER",
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Se mettre à l’abri",
+        "effectFulfillment": {
+          "capitalist": -20,
+          "communist": -20,
+          "liberal": -10,
+          "religious": -20,
+          "militarist": -20,
+          "ecologist": -20,
+          "nationalist": -20,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {
+          "industry": -20,
+          "farming": -10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "unlock": true,
+    "label": "Une avalanche s'est produite sur les nouvelles pistes de ski !",
+    "seasons": [
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Envoyer les secours pour chercher des rescapés.",
+        "effectFulfillment": {
+          "communist": 10,
+          "religious": 20,
+          "militarist": 10,
+          "ecologist": 20,
+          "nationalist": 20
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -200
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire.",
+        "effectFulfillment": {
+          "capitalist": -20,
+          "communist": -20,
+          "religious": -20,
+          "militarist": -20,
+          "ecologist": -20,
+          "nationalist": -20
+        },
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {
+          "money": -20
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "unlock": true,
+    "label": "L'armée est faible, et le peuple est paresseux. Nous devrions reinstaurer le service militaire.",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Accepter.",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Refuser.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "unlock": true,
+    "label": "La mère Michel a perdu son chat !",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Financer une expédition pour le retrouver.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [6],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire, c'est pas vraiment important.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "unlock": false,
+    "label": "Le chat de la mère Michel a été retrouvé !",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Super cool !",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "unlock": true,
+    "label": "Un surfeur s'est fait attaqué par un requin au large de l'île !",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Envoyer Jason Statham régler le problème (comme dans 'en eaux troubles').",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Envoyer Chuck Norris, il est bien plus fort.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Le laisser se faire manger une jambe, ça lui apprendra.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "unlock": true,
+    "label": "C'est Halloween ! Des enfants viennent frapper à votre porte pour des bonbons !",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Leur donner toutes vos réserves (ils sont bien déguisés quand même).",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Leur donner une petite partie, il y en a d'autres quand même.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Fermer la porte, pas le temps pour ses conneries.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "unlock": true,
+    "label": "Votre conseiller le plus proche à le rhume des foins",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Appeler le medecin et organiser une visite médicale.",
+        "effectFulfillment": {
+          "communist": 10,
+          "militarist": 20,
+          "religious": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "En embaucher un autre, pas besoin de faiblards dans mon équipe.",
+        "effectFulfillment": {
+          "militarist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "unlock": true,
+    "label": "On vous attaque !",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Appeler à l'aide un ami.",
+        "effectFulfillment": {
+          "militarist": 15,
+          "religious": -15,
+          "capitalist": 15,
+          "nationalist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [12],
+        "nextForMultiplayer": [11],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "S'en occuper seul.",
+        "effectFulfillment": {
+          "militarist": 15,
+          "communist": 15,
+          "religious": -15,
+          "ecologist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [12],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Tenter de faire la paix.",
+        "effectFulfillment": {
+          "militarist": -15,
+          "religious": 15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [13],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "unlock": false,
+    "label": "Un ami est en guerre et vous appelle à l'aide",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "L'aider.",
+        "effectFulfillment": {
+          "militarist": 15,
+          "religious": -15,
+          "capitalist": 15,
+          "nationalist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [12],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas l'aider.",
+        "effectFulfillment": {
+          "militarist": -30,
+          "religious": 15,
+          "ecologist": 15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "unlock": false,
+    "label": "Vous avez gagné la guerre !",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Super !",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "money": 100
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "unlock": false,
+    "label": "Votre demande de paix n'a pas été acceptée.",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "C'EST LA GUERRE",
+        "effectFulfillment": {},
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {
+          "money": -50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+      "id": 14,
+      "unlock": false,
+      "label": "Macdo veut ouvrir un restaurant chez vous, que faire?",
+      "seasons": [
+        "SPRING",
+        "SUMMER",
+        "AUTUMN",
+        "WINTER"
+      ],
+      "image": "noImage.png",
+      "choices": [
+        {
+          "label": "Oui",
+          "effectFulfillment": {
+            "capitalist": 10,
+            "communist": 10,
+            "liberal": 10,
+            "religious": 10,
+            "militarist": 10,
+            "ecologist": 10,
+            "nationalist": 10,
+            "loyalist": 10
+          },
+          "effectPartisan": {
+          },
+          "effectResource": {},
+          "nextForMe": [],
+          "nextForMultiplayer": [],
+          "difficulty": [
+            "EASY",
+            "MEDIUM",
+            "HARD"
+          ]
+        }
+      ]
+    }
+  ]

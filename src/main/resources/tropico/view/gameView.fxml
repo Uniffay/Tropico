@@ -326,7 +326,7 @@
                      </AnchorPane>
                </content>
              </Tab>
-             <Tab id="button" text="Marché alimentaire">
+             <Tab id="button" fx:id="foodTab" text="Marché alimentaire">
                <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
@@ -410,7 +410,7 @@
                      </AnchorPane>
                </content>
              </Tab>
-               <Tab id="button" text="Soudoyer Faction">
+               <Tab id="button" fx:id="factionTab" text="Soudoyer Faction">
                   <content>
                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
@@ -585,7 +585,7 @@
                      </AnchorPane>
                   </content>
                </Tab>
-               <Tab id="button" text="Dettes">
+               <Tab id="button" fx:id="detteTab" text="Dettes">
                   <content>
                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
@@ -702,6 +702,7 @@
       </children>
    </AnchorPane>
    <Rectangle fx:id="grayPlayerInfo" arcHeight="5.0" arcWidth="5.0" fill="#7f8387" height="750.0" opacity="0.72" stroke="BLACK" strokeType="INSIDE" visible="false" width="1050.0" />
+   <Rectangle fx:id="grayTutorial" arcHeight="5.0" arcWidth="5.0" fill="#7f8387" height="750.0" opacity="0.72" stroke="BLACK" strokeType="INSIDE" visible="false" width="1050.0" />
    <AnchorPane fx:id="playerInfo" layoutX="416.0" layoutY="227.0" prefHeight="281.0" prefWidth="362.0" style="-fx-background-color: black;" visible="false">
       <children>
          <Label fx:id="player" alignment="CENTER" layoutX="70.0" layoutY="62.0" prefHeight="50.0" prefWidth="222.0" text="Label" textFill="WHITE">
@@ -709,11 +710,26 @@
                <Font name="Comic Sans MS" size="26.0" />
             </font>
          </Label>
-         <Label layoutX="292.0" layoutY="216.0" onMouseClicked="#playerFinish" style="-fx-border-color: white;" text="OK" textFill="WHITE">
+         <Label fx:id="okPlayerInfo" layoutX="292.0" layoutY="216.0" onMouseClicked="#playerFinish" style="-fx-border-color: white;" text="OK" textFill="WHITE">
             <font>
                <Font name="Comic Sans MS" size="20.0" />
             </font>
          </Label>
       </children>
    </AnchorPane>
+   <AnchorPane fx:id="tutorial" layoutX="50.0" layoutY="450.0" prefHeight="292.0" prefWidth="0.0" style="-fx-background-color: black; -fx-border-color: gray;" visible="false">
+      <children>
+         <Text fx:id="tutorialText" fill="WHITE" layoutX="3.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="319.5999755859375">
+            <font>
+               <Font name="Comic Sans MS" size="20.0" />
+            </font>
+         </Text>
+         <Label alignment="CENTER" layoutX="248.0" layoutY="241.0" onMouseClicked="#next" prefHeight="42.0" prefWidth="64.0" style="-fx-border-color: white;" text="OK" textFill="WHITE">
+            <font>
+               <Font name="Comic Sans MS" size="18.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <Polygon fx:id="arrow" fill="DODGERBLUE" layoutX="364.0" layoutY="334.0" points="-37.0, 37.399993896484375, -3.39996337890625, 60.600006103515625, -3.39996337890625, 8.600006103515625" rotate="180.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
 </AnchorPane>
