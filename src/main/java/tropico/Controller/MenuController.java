@@ -27,13 +27,15 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import tropico.Model.*;
 import tropico.Object.Data;
-import tropico.Object.Event;
 import tropico.Object.FactionsList;
 import tropico.view.StageEnum;
 import tropico.view.StageManagement;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
 /**

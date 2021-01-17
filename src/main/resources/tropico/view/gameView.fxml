@@ -731,5 +731,5 @@
          </Label>
       </children>
    </AnchorPane>
-   <Polygon fx:id="arrow" fill="DODGERBLUE" layoutX="364.0" layoutY="334.0" points="-37.0, 37.399993896484375, -3.39996337890625, 60.600006103515625, -3.39996337890625, 8.600006103515625" rotate="180.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+   <Polygon fx:id="arrow" fill="DODGERBLUE" layoutX="364.0" layoutY="334.0" points="-37.0, 37.399993896484375, -3.39996337890625, 60.600006103515625, -3.39996337890625, 8.600006103515625" stroke="BLACK" strokeType="INSIDE" visible="false" />
 </AnchorPane>
