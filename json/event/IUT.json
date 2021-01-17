@@ -24,7 +24,9 @@
         "loyalist": 10
       },
       "effectPartisan": {},
-      "effectResource": {},
+      "effectResource": {
+        "industry": 20
+      },
       "nextForMe": [1],
       "nextForMultiplayer": [],
       "difficulty": [
@@ -36,11 +38,19 @@
     {
       "label": "Demandez de l'aide à un camarade.",
       "effectFulfillment": {
-        "religious": 15,
-        "liberal": -15
+        "capitalist": 5,
+        "communist": 5,
+        "liberal": 5,
+        "religious": 5,
+        "militarist": 5,
+        "ecologist": 5,
+        "nationalist": 5,
+        "loyalist": 5
       },
       "effectPartisan": {},
-      "effectResource": {},
+      "effectResource": {
+        "industry": 10
+      },
       "nextForMe": [1],
       "nextForMultiplayer": [2],
       "difficulty": [
@@ -52,9 +62,6 @@
     {
       "label": "Faire le strict nécessaire.",
       "effectFulfillment": {
-        "religious": 10,
-        "liberal": 10,
-        "nationalist": -20
       },
       "effectPartisan": {},
       "effectResource": {},
@@ -69,11 +76,19 @@
     {
       "label": "Ne rien faire, ça vaut pas le coup.",
       "effectFulfillment": {
-        "nationalist": -20,
-        "capitalist": 10
+        "capitalist": -5,
+        "communist": -5,
+        "liberal": -5,
+        "religious": -5,
+        "militarist": -5,
+        "ecologist": -5,
+        "nationalist": -5,
+        "loyalist": -5
       },
       "effectPartisan": {},
-      "effectResource": {},
+      "effectResource": {
+        "industry": -10
+      },
       "nextForMe": [1],
       "nextForMultiplayer": [],
       "difficulty": [
@@ -135,7 +150,7 @@
   },
   {
     "id": 2,
-    "unlock": true,
+    "unlock": false,
     "label": "On vous demande de l'aide pour le projet de MPA.",
     "seasons": [
       "WINTER",
@@ -148,11 +163,19 @@
       {
         "label": "Try-hard le projet en groupe.",
         "effectFulfillment": {
-          "religious": -15,
-          "liberal": -15
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
         },
         "effectPartisan": {},
-        "effectResource": {},
+        "effectResource": {
+          "industry": 10
+        },
         "nextForMe": [1],
         "nextForMultiplayer": [],
         "difficulty": [
@@ -164,11 +187,19 @@
       {
         "label": "Ne rien faire, ça vaut pas le coup.",
         "effectFulfillment": {
-          "nationalist": -20,
-          "capitalist": 10
+          "capitalist": -5,
+          "communist": -5,
+          "liberal": -5,
+          "religious": -5,
+          "militarist": -5,
+          "ecologist": -5,
+          "nationalist": -5,
+          "loyalist": -5
         },
         "effectPartisan": {},
-        "effectResource": {},
+        "effectResource": {
+          "industry": -10
+        },
         "nextForMe": [1],
         "nextForMultiplayer": [],
         "difficulty": [
@@ -178,5 +209,247 @@
         ]
       }
     ]
+  },
+  {
+    "id": 3,
+    "unlock": true,
+    "label": "Quentin BOULET, ce charmant élève, s'apprête à poser une centième question au sujet de son projet Java.",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Intercepter sa demande (Non, Quentin ;) ).",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -5,
+          "nationalist": -5,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Lui répondre, il est sympa au fond.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": 10,
+          "nationalist": 10,
+          "loyalist": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": 10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ça fait beaucoup là, qu'il utilise son imagination.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -10,
+          "nationalist": -10,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": -10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "unlock": true,
+    "label": "Un débat est lancé dans la classe: 'Abella Danger, mieux en Brune ou Blonde ?.\n (Regarder le pseudo Discord de Quentin pour un indice)",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "En Brune.",
+        "effectFulfillment": {
+          "capitalist": -100,
+          "communist": -100,
+          "liberal": -100,
+          "religious": -100,
+          "militarist": -100,
+          "ecologist": -100,
+          "nationalist": -100,
+          "loyalist": -100
+        },
+        "effectPartisan": {
+          "capitalist": -100,
+          "communist": -100,
+          "liberal": -100,
+          "religious": -100,
+          "militarist": -100,
+          "ecologist": -100,
+          "nationalist": -100,
+          "loyalist": -100
+        },
+        "effectResource": {
+          "industry": -100,
+          "farming": -100
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "En Blonde.",
+        "effectFulfillment": {
+          "capitalist": 100,
+          "communist": 100,
+          "liberal": 100,
+          "religious": 100,
+          "militarist": 100,
+          "ecologist": 100,
+          "nationalist": 100,
+          "loyalist": 100
+        },
+        "effectPartisan": {
+          "capitalist": 100,
+          "communist": 100,
+          "liberal": 100,
+          "religious": 100,
+          "militarist": 100,
+          "ecologist": 100,
+          "nationalist": 100,
+          "loyalist": 100
+        },
+        "effectResource": {
+          "industry": 50,
+          "farming": 50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "unlock": true,
+    "label": "Vous avez cours à distance.",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Utiliser Discord, c'est la base.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Zoom c'est pas mal quand même.",
+        "effectFulfillment": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectPartisan": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Communiquer que par mails, les cours c'est surcotés.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
   }
+
 ]
