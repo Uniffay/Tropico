@@ -14,8 +14,14 @@
     {
       "label": "Try-hard le projet de toute ses forces.",
       "effectFulfillment": {
-        "religious": -15,
-        "liberal": -15
+        "capitalist": 10,
+        "communist": 10,
+        "liberal": 10,
+        "religious": 10,
+        "militarist": 10,
+        "ecologist": 10,
+        "nationalist": 10,
+        "loyalist": 10
       },
       "effectPartisan": {},
       "effectResource": {},
