@@ -450,6 +450,65 @@
         ]
       }
     ]
+  },
+  {
+    "id": 6,
+    "unlock": true,
+    "label": "Vous avez envoyé plusieurs mail à la secrétaire mais elle ne répond pas.",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "En renvoyer un, on sait jamais.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "industry": -20,
+          "farming": -20
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Qu'elle aille se faire f****e, je vais me débrouiller tout seul.",
+        "effectFulfillment": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectPartisan": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
   }
 
 ]

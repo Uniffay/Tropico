@@ -27,7 +27,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abe72990-25fe-4894-b599-2d36006b3213" name="Default Changelist" comment="" />
+    <list default="true" id="abe72990-25fe-4894-b599-2d36006b3213" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/event/Event.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/event/Event.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/event/IUT.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/event/IUT.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tropico/Model/avalanche.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tropico/Model/avalanche.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tropico/Model/gisementor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tropico/Model/gisementor.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,9 +76,6 @@
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="tropico.view" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Quentin\Documents\Projet\Tropico\tropico\Tropico\json\faction" />
       <recent name="C:\Users\Quentin\Documents\Projet\Tropico\tropico\Tropico\json\setting" />
@@ -85,6 +88,9 @@
       <recent name="C:\Users\Quentin\Documents\Projet\Tropico\tropico\Tropico\src\main\resources\tropico\view" />
       <recent name="C:\Users\Quentin\Documents\Projet\Tropico\tropico\Tropico\src\main\resources\tropico\Controller" />
       <recent name="C:\Users\Quentin\Documents\Projet\Tropico\tropico\Tropico\src\main\resources\tropico.Controller.img" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="tropico.view" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -158,68 +164,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="905" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610794121822">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="905" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1610794121822" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1610992170573">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1610992170573" />
-    <state x="499" y="203" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1610882705536">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="499" y="203" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1610882705536" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1610882722383">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1610882722383" />
-    <state width="1493" height="200" key="GridCell.Tab.0.bottom" timestamp="1610993834592">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="200" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610993834592" />
-    <state width="1493" height="200" key="GridCell.Tab.0.center" timestamp="1610993834592">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="200" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610993834592" />
-    <state width="1493" height="200" key="GridCell.Tab.0.left" timestamp="1610993834592">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="200" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610993834592" />
-    <state width="1493" height="200" key="GridCell.Tab.0.right" timestamp="1610993834592">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="200" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610993834592" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1610913096616">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610913096616" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1610913096616">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1610913096616" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1610913096616">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1610913096616" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1610913096616">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1610913096616" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1610882728786">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610882728786" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1610809495431">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1610809495431" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610986671897">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610986671897" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

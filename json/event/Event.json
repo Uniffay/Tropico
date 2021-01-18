@@ -51,9 +51,7 @@
           "nationalist": -20
         },
         "effectPartisan": {},
-        "effectResource": {
-          "money": 
-        },
+        "effectResource": {},
         "nextForMe": [],
         "nextForMultiplayer": [],
         "difficulty": [
@@ -156,7 +154,7 @@
       "SUMMER",
       "AUTUMN"
     ],
-    "image": "noImage.png",
+    "image": "ouragan.png",
     "choices": [
       {
         "label": "Se mettre à l’abri",
@@ -805,7 +803,7 @@
         "AUTUMN",
         "WINTER"
       ],
-      "image": "noImage.png",
+      "image": "mcdo.png",
       "choices": [
         {
           "label": "Oui",
