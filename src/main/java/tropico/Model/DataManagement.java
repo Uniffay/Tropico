@@ -28,9 +28,8 @@ public class DataManagement {
      * initialize data of the game
      * @param names
      *      list of names of the players
-     * @throws IOException if an I/O error occurs
      */
-    public static void initializeData(List<String> names) throws IOException {
+    public static void initializeData(List<String> names) {
         GAME_DATA = new Data(
                 names.size(),
                 names.toArray(new String[0]),
