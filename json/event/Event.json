@@ -9,7 +9,7 @@
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "naufrages.png",
     "choices": [
       {
         "label": "Décliner poliment au motif que vous n’avez pas les infrastructures pour eux",
@@ -51,7 +51,9 @@
           "nationalist": -20
         },
         "effectPartisan": {},
-        "effectResource": {},
+        "effectResource": {
+          "money": 
+        },
         "nextForMe": [],
         "nextForMultiplayer": [],
         "difficulty": [
@@ -90,7 +92,7 @@
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "gisementor.png",
     "choices": [
       {
         "label": "Utilisons-le pour améliorer le bien-être des citoyens !",
@@ -199,7 +201,7 @@
     "seasons": [
       "WINTER"
     ],
-    "image": "noImage.png",
+    "image": "avalanche.png",
     "choices": [
       {
         "label": "Envoyer les secours pour chercher des rescapés.",
@@ -313,7 +315,7 @@
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "chatperdu.png",
     "choices": [
       {
         "label": "Financer une expédition pour le retrouver.",
@@ -391,7 +393,7 @@
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "chatretrouve.png",
     "choices": [
       {
         "label": "Super cool !",
