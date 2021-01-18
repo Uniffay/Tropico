@@ -2,8 +2,6 @@ package tropico.view;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import tropico.Model.DataManagement;
-import tropico.Object.Data;
 
 import java.io.IOException;
 
@@ -13,7 +11,7 @@ import java.io.IOException;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         try {
             StageManagement.setStage(stage);
             StageManagement.setScene(StageEnum.MENU);

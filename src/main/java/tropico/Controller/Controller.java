@@ -1,5 +1,7 @@
 package tropico.Controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -16,11 +18,9 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import tropico.Model.*;
-import tropico.Object.Choice;
-import tropico.Object.Data;
-import tropico.Object.Dictator;
-import tropico.Object.Faction;
+import tropico.Object.*;
 import tropico.view.StageEnum;
 import tropico.view.StageManagement;
 
@@ -367,6 +367,11 @@ public class Controller {
      */
     private int stepTutorial = 0;
 
+    /**
+     * time line used to manage snow falling
+     */
+    private Timeline timeline;
+
     private void initializeFactionsTextField() {
         initializeHashMapTextField();
         initializeTextFieldToZero();
@@ -411,6 +416,7 @@ public class Controller {
      * initialize graphics
      */
     public void initialize() {
+        initializeTimer();
         Data gameData = DataManagement.getData();
         if(gameData.isGameTutorial())
             startTutorial();
@@ -474,6 +480,7 @@ public class Controller {
 
     private List<Node> initializeFrontNodes() {
         return List.of(
+                imageEvent,
                 eventPane,
                 resultEventPane,
                 factionScrollPane,
@@ -507,6 +514,20 @@ public class Controller {
         initializeFarm(gameData);
         initializePollution(gameData);
         initializeImageEvent(gameData);
+        if(gameData.getSeason().equals(Season.WINTER)){
+            initializeSnow(true);
+            timeline.play();
+            return;
+        }
+        if(gameData.getSeason().equals(Season.WINTER.next())) {
+            initializeSnow(false);
+            timeline.stop();
+        }
+    }
+
+    private void initializeSnow(boolean bool) {
+        List<Snow> snowList = ImageManagement.getSnow(anchorPane);
+        snowList.forEach(snow -> snow.getImageView().setVisible(bool));
     }
 
     private void initializeImageEvent(Data gameData) {
@@ -1434,5 +1455,14 @@ public class Controller {
         }catch (IOException ignored){
 
         }
+    }
+
+    private void initializeTimer() {
+        timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0.01), e -> {
+                    ImageManagement.manageSnow();
+                })
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
     }
 }
