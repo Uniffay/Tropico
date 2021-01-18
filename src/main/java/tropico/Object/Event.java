@@ -37,7 +37,7 @@ public class Event implements Serializable {
     /**
      * id of the event
      */
-    private final int id;
+    private int id;
 
     /**
      * true if the event is unlocked at the start false otherwise
@@ -121,5 +121,9 @@ public class Event implements Serializable {
 
     public boolean isUnlocked() {
         return unlock;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

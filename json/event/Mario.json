@@ -385,14 +385,14 @@
       {
         "label": "S'excuser !",
         "effectFulfillment": {
-          "communist": -100,
-          "ecologist": -100,
-          "nationalist": -100,
-          "loyalist": -100,
-          "capitalist": -100,
-          "liberal": -100,
-          "militarist": -100,
-          "religious": -100
+          "communist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000,
+          "capitalist": -10000,
+          "liberal": -10000,
+          "militarist": -10000,
+          "religious": -10000
         },
         "effectPartisan": {},
         "effectResource": {},
@@ -431,14 +431,14 @@
   {
     "id": 8,
     "unlock": false,
-    "label": "Vous avez  été HUMILIE par vos adversaire !",
+    "label": "Vous avez été HUMILIE par vos adversaire !",
     "seasons": [
       "SUMMER"
     ],
     "image": "noImage.png",
     "choices": [
       {
-        "label": "ENTRAINEZ VOUS MIEUX LA PROCHAINE FOIS :D !",
+        "label": "ENTRAINEZ VOUS MIEUX POUR LA PROCHAINE FOIS :D !",
         "effectFulfillment": {
           "communist": -20,
           "ecologist": -20,
@@ -815,7 +815,7 @@
   {
     "id": 16,
     "unlock": false,
-    "label": "Une blonde n'a pas été accostée, voulez vous tentez votre chance? !",
+    "label": "Une blonde n'a pas été accostée, voulez vous tentez votre chance?",
     "seasons": [
       "SPRING"
     ],
@@ -832,6 +832,51 @@
         "effectResource": {
         },
         "nextForMe": [14],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Non je préfère les brunes!",
+        "effectFulfillment": {
+          "communist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000,
+          "capitalist": -10000,
+          "liberal": -10000,
+          "militarist": -10000,
+          "religious": -10000
+        },
+        "effectPartisan": {},
+        "effectResource": {
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Non !",
+        "effectFulfillment": {
+          "communist": -25,
+          "ecologist": -25,
+          "nationalist": -25,
+          "loyalist": -25,
+          "capitalist": -25,
+          "liberal": -25,
+          "militarist": -25,
+          "religious": -25
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
         "nextForMultiplayer": [],
         "difficulty": [
           "EASY",

@@ -1,7 +1,9 @@
 package tropico.Object;
 
 import com.google.gson.Gson;
+import javafx.beans.binding.SetBinding;
 import tropico.Model.Difficulty;
+import tropico.Model.Mode;
 import tropico.Model.SettingManagement;
 import tropico.Model.Utils;
 import tropico.view.StageEnum;
@@ -72,7 +74,11 @@ public class Data implements Serializable{
 		Difficulty difficulty = SettingManagement.getDifficultyFromMenuItem();
 		Map<String, Double> resource = extractInformationJsonSetting(jsonParserResource);
 		players = new DictatorManagement(numberOfPlayer, names, resource, jsonParserFactions);
-		eventsById = EventManagement.instantiateEventMap(jsonParserEvents, difficulty, players);
+		if(SettingManagement.getModeFromMenuItem() == Mode.SANDBOX) {
+			eventsById = EventManagement.instantiateAllEvent(difficulty, players);
+		}
+		else
+			eventsById = EventManagement.instantiateEventMap(jsonParserEvents, difficulty, players);
 		pickNextEvent(Season.SPRING);
 	}
 

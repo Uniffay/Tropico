@@ -297,14 +297,14 @@
       {
         "label": "En Brune.",
         "effectFulfillment": {
-          "capitalist": -100,
-          "communist": -100,
-          "liberal": -100,
-          "religious": -100,
-          "militarist": -100,
-          "ecologist": -100,
-          "nationalist": -100,
-          "loyalist": -100
+          "capitalist": -10000,
+          "communist": -10000,
+          "liberal": -10000,
+          "religious": -10000,
+          "militarist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000
         },
         "effectPartisan": {
           "capitalist": -100,
