@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import tropico.Model.DataManagement;
+import tropico.Model.ImageManagement;
 import tropico.Model.MediaManagement;
 import tropico.view.StageEnum;
 import tropico.view.StageManagement;
@@ -63,5 +64,6 @@ public class ScoreController {
     @FXML
     private void backToMenu() throws IOException {
         StageManagement.setScene(StageEnum.MENU);
+        ImageManagement.clear();
     }
 }
