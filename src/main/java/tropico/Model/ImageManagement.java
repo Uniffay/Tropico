@@ -23,6 +23,10 @@ public class ImageManagement {
      */
     private static final Map<String, List<ImageView>> OTHER_SAVE = new HashMap<>();
     /**
+     * List of snow
+     */
+    private static final List<Snow> SNOW_LIST = new ArrayList<>();
+    /**
      * map saving the element visible
      */
     private static final Map<String, ImageView> OTHER_SHOW = new HashMap<>();
@@ -157,6 +161,39 @@ public class ImageManagement {
         TREE_SAVE.clear();
         OTHER_SAVE.clear();
         OTHER_SHOW.clear();
+        SNOW_LIST.clear();
 
+    }
+
+    /**
+     * get list of snow for winter
+     * @param anchorPane Anchor Pane Where snow will be put
+     * @return list of image of snow
+     */
+    public static List<Snow> getSnow(AnchorPane anchorPane) {
+        if(SNOW_LIST.size() != 0)
+            return SNOW_LIST;
+        Random r = new Random();
+        int x;
+        for (int i = 0; i < 14; i++){
+            for(int j = 0; j < 15; j++) {
+                x = r.nextInt(40);
+                ImageView snow = createImage("snow.png", anchorPane, (i % 2) * 50 + j * 100, i * 50);
+                snow.setFitWidth(x);
+                snow.setFitHeight(x);
+                SNOW_LIST.add(new Snow(snow));
+            }
+        }
+        return SNOW_LIST;
+    }
+
+    /**
+     * manage Snow Falling
+     */
+    public static void manageSnow(){
+        if(SNOW_LIST.size() == 0)
+            return;
+        SNOW_LIST.forEach(snow -> AnchorPane.setTopAnchor(snow.getImageView(),
+                (snow.getImageView().getLayoutY() + snow.getSpeed() > 750)? 0: snow.getImageView().getLayoutY() + snow.getSpeed()));
     }
 }
