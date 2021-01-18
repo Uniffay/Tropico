@@ -123,7 +123,7 @@
   {
     "id": 2,
     "unlock": false,
-    "label": "Peach est enceinte de votre enfant !",
+    "label": "Après avoir rejoint Peach, Bowser et Mario, Peach est tombé enceinte de votre enfant !",
     "seasons": [
       "SUMMER",
       "SPRING",
@@ -185,7 +185,7 @@
   {
     "id": 3,
     "unlock": true,
-    "label": "Toad a besoin d'aide pour déneigner devant sa maison champignon.",
+    "label": "Toad a besoin d'aide pour déneigner le sol devant sa maison champignon.",
     "seasons": [
       "WINTER"
     ],
@@ -232,7 +232,7 @@
   {
     "id": 4,
     "unlock": true,
-    "label": "Une compétition de volley ball a été organisée à la plage.",
+    "label": "Une compétition de volley ball a été organisée à la plage avec comme prix la main de Boosette.",
     "seasons": [
       "SUMMER"
     ],
@@ -279,7 +279,7 @@
   {
     "id": 5,
     "unlock": false,
-    "label": "Vous arrivez en demi-final mais vos adversaires semblent trop fort.",
+    "label": "Vous arrivez en demi-final pour la compétition de Volley Ball mais Donkey Kong est dans l'équipe adverse !.",
     "seasons": [
       "SUMMER"
     ],
@@ -344,14 +344,14 @@
   {
     "id": 6,
     "unlock": false,
-    "label": "Vos adversaires vous ont laisser la victoire mais leur jeu d'acteur était trop bon et personne ne s'en ait rendu compte.",
+    "label": "Vos adversaires vous ont laisser la victoire pour le match de Volley mais leur jeu d'acteur était trop bon et personne ne s'en ait rendu compte.",
     "seasons": [
       "SUMMER"
     ],
     "image": "noImage.png",
     "choices": [
       {
-        "label": "YOUPI !",
+        "label": "GO POUR LA FINALE !",
         "effectFulfillment": {
           "communist": 10,
           "ecologist": 10,
@@ -363,7 +363,7 @@
         },
         "effectPartisan": {},
         "effectResource": {},
-        "nextForMe": [],
+        "nextForMe": [22],
         "nextForMultiplayer": [],
         "difficulty": [
           "EASY",
@@ -376,7 +376,7 @@
   {
     "id": 7,
     "unlock": false,
-    "label": "Vous avez perdu et votre tentative de triche a été vue par la Terre entière !",
+    "label": "Vous avez perdu votre match de Volley Ball et votre tentative de triche a été vue par la Terre entière !",
     "seasons": [
       "SUMMER"
     ],
@@ -431,7 +431,7 @@
   {
     "id": 8,
     "unlock": false,
-    "label": "Vous avez été HUMILIE par vos adversaire !",
+    "label": "Vous avez été HUMILIE par vos adversaire lors de la demi-finale de Volley Ball !",
     "seasons": [
       "SUMMER"
     ],
@@ -569,7 +569,7 @@
   {
     "id": 11,
     "unlock": false,
-    "label": "C'était en faite une attaque surprise, vous n'êtes pas préparer et mourrez ...",
+    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, vous n'êtes pas préparer et mourrez ...",
     "seasons": [
       "SPRING",
       "WINTER",
@@ -605,7 +605,7 @@
   {
     "id": 12,
     "unlock": false,
-    "label": "C'était en faite une attaque surprise, mais vous étiez préparer et les détruisez ...",
+    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, mais vous étiez préparer et les détruisez facilement...",
     "seasons": [
       "SPRING",
       "WINTER",
@@ -680,7 +680,7 @@
   {
     "id": 13,
     "unlock": false,
-    "label": "Bowser a réussit à s'en sortir mais vous avez gagnez !",
+    "label": "Bowser a réussit à s'en sortir mais vous avez réussis à vous venger de cette attaque surprise !",
     "seasons": [
       "SPRING",
       "WINTER",
@@ -727,7 +727,7 @@
   {
     "id": 14,
     "unlock": false,
-    "label": "C'était en faites Bowser avec la couronne de Peach !",
+    "label": "La blonde que vous avez accosté n'était nul autre que Bowser avec la couronne de Peach !",
     "seasons": [
       "SPRING"
     ],
@@ -780,7 +780,7 @@
   {
     "id": 15,
     "unlock": false,
-    "label": "Vous vous êtes mariés et avez eu plein de petites bowsettes (qui vous coûtent une fortune)!",
+    "label": "Vous vous êtes mariés et avez eu plein d'enfants avec Bowsette <3 (qui vous coûtent une fortune)!",
     "seasons": [
       "SPRING"
     ],
@@ -1066,6 +1066,46 @@
           "industry": 25,
           "farming": 25
         },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "unlock": false,
+    "label": "Vos adversaires de la finale de Volley Ball sont tombés malade, vous avez donc gagner la main de Boosette",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Se marier.",
+        "effectFulfillment": {
+          "communist": 25,
+          "ecologist": 25,
+          "nationalist": 25,
+          "loyalist": 25,
+          "capitalist": 25,
+          "liberal": 25,
+          "militarist": 25
+        },
+        "effectPartisan": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10,
+          "capitalist": 10,
+          "liberal": 10,
+          "militarist": 10
+        },
+        "effectResource": {},
         "nextForMe": [],
         "nextForMultiplayer": [],
         "difficulty": [
