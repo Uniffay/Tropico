@@ -448,14 +448,14 @@
   {
     "id": 6,
     "unlock": true,
-    "label": "Vous avez envoyé plusieurs mail à la secrétaire mais elle ne répond pas.",
+    "label": "Vous avez envoyé plusieurs mails à la secrétaire mais elle ne répond pas.",
     "seasons": [
       "WINTER",
       "SUMMER",
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "mail.png",
     "choices": [
       {
         "label": "En renvoyer un, on sait jamais.",
