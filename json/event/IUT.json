@@ -109,7 +109,7 @@
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "dictatorcrying.png",
     "choices": [
       {
         "label": "Ah, je me fait bien en**** quand même.",
@@ -289,7 +289,7 @@
       "AUTUMN",
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "abella.png",
     "choices": [
       {
         "label": "En Brune.",
@@ -368,7 +368,7 @@
     "seasons": [
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "distanciek.png",
     "choices": [
       {
         "label": "Utiliser Discord, c'est la base.",
@@ -648,7 +648,7 @@
       "AUTUMN",
       "WINTER"
     ],
-    "image": "noImage.png",
+    "image": "pcbad.png",
     "choices": [
       {
         "label": "Abandonner",
