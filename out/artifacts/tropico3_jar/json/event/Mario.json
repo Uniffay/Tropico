@@ -1,1 +1,1119 @@
-[]
+[{
+  "id": 0,
+  "unlock": true,
+  "label": "Bowser a capturé Peach, que faire ?",
+  "seasons": [
+    "SUMMER",
+    "SPRING",
+    "WINTER",
+    "AUTUMN"
+  ],
+  "image": "noImage.png",
+  "choices": [
+    {
+      "label": "Aider Mario à vaincre ce malfrat.",
+      "effectFulfillment": {
+        "capitalist": 10,
+        "liberal": 10,
+        "religious": 10,
+        "militarist": 10,
+        "ecologist": -10,
+        "nationalist": -10,
+        "loyalist": -10
+      },
+      "effectPartisan": {
+        "capitalist": -10,
+        "communist": -10,
+        "liberal": -10,
+        "religious": -10,
+        "militarist": -10,
+        "ecologist": -10,
+        "nationalist": -10,
+        "loyalist": -10
+      },
+      "effectResource": {
+        "industry": 20,
+        "farming": -10
+      },
+      "nextForMe": [1],
+      "nextForMultiplayer": [],
+      "difficulty": [
+        "EASY",
+        "MEDIUM",
+        "HARD"
+      ]
+    },
+    {
+      "label": "Ne rien faire.",
+      "effectFulfillment": {
+        "capitalist": -10,
+        "religious": -10,
+        "militarist": -30,
+        "ecologist": 10,
+        "nationalist": 10
+      },
+      "effectPartisan": {
+      },
+      "effectResource": {
+      },
+      "nextForMe": [3],
+      "nextForMultiplayer": [],
+      "difficulty": [
+        "EASY",
+        "MEDIUM",
+        "HARD"
+      ]
+    }
+  ]
+},
+  {
+    "id": 1,
+    "unlock": false,
+    "label": "Vous arrivez au château de Bowser et voyez Peach nue avec Bowser :scream:.  ",
+    "seasons": [
+      "SUMMER",
+      "SPRING",
+      "WINTER",
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Vous et Mario les rejoignez.",
+        "effectFulfillment": {
+          "capitalist": 20,
+          "communist": 20,
+          "liberal": 10,
+          "religious": 20,
+          "militarist": 20,
+          "ecologist": 20,
+          "nationalist": 20,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [2],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Vous laissez Mario y allez tout seul.",
+        "effectFulfillment": {
+          "loyalist": -20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "unlock": false,
+    "label": "Après avoir rejoint Peach, Bowser et Mario, Peach est tombé enceinte de votre enfant !",
+    "seasons": [
+      "SUMMER",
+      "SPRING",
+      "WINTER",
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Avoir la garde complète des enfants !",
+        "effectFulfillment": {
+          "liberal": -10,
+          "religious": -40,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "industry": 10,
+          "farming": 10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Laissez Peach s'occuper des enfants, après tout c'est son devoir en tant que femme !",
+        "effectFulfillment": {
+          "liberal": -20,
+          "religious": 20,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "unlock": true,
+    "label": "Toad a besoin d'aide pour déneigner le sol devant sa maison champignon.",
+    "seasons": [
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "L'aider.",
+        "effectFulfillment": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": -20,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas l'aider.",
+        "effectFulfillment": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": 20,
+          "loyalist": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "unlock": true,
+    "label": "Une compétition de volley ball a été organisée à la plage avec comme prix la main de Boosette.",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Y participer",
+        "effectFulfillment": {
+          "communist": -10,
+          "capitalist": 20,
+          "liberal": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [5],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas y participer.",
+        "effectFulfillment": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": 20,
+          "loyalist": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "unlock": false,
+    "label": "Vous arrivez en demi-final pour la compétition de Volley Ball mais Donkey Kong est dans l'équipe adverse !.",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Essayer d'acheter la victoire.",
+        "effectFulfillment": {
+          "communist": 10,
+          "capitalist": 10,
+          "loyalist": -30
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -500
+        },
+        "nextForMe": [6],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Essayer de Tricher.",
+        "effectFulfillment": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [7],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Jouer normalement.",
+        "effectFulfillment": {
+          "communist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [8],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "unlock": false,
+    "label": "Vos adversaires vous ont laisser la victoire pour le match de Volley mais leur jeu d'acteur était trop bon et personne ne s'en ait rendu compte.",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "GO POUR LA FINALE !",
+        "effectFulfillment": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10,
+          "capitalist": 10,
+          "liberal": 10,
+          "militarist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [22],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "unlock": false,
+    "label": "Vous avez perdu votre match de Volley Ball et votre tentative de triche a été vue par la Terre entière !",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "S'excuser !",
+        "effectFulfillment": {
+          "communist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000,
+          "capitalist": -10000,
+          "liberal": -10000,
+          "militarist": -10000,
+          "religious": -10000
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Faire la sourde oreille ! #MPA #TR**",
+        "effectFulfillment": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10,
+          "capitalist": -10,
+          "liberal": -10,
+          "militarist": -10,
+          "religious": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "unlock": false,
+    "label": "Vous avez été HUMILIE par vos adversaire lors de la demi-finale de Volley Ball !",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "ENTRAINEZ VOUS MIEUX POUR LA PROCHAINE FOIS :D !",
+        "effectFulfillment": {
+          "communist": -20,
+          "ecologist": -20,
+          "nationalist": -20,
+          "loyalist": -20,
+          "capitalist": -20,
+          "liberal": -20,
+          "militarist": -20,
+          "religious": -20
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "unlock": true,
+    "label": "Les troupes de Bowser sont devant votre château et dise que c'est pour demander des bonbons!",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Ne pas s'en préoccuper !",
+        "effectFulfillment": {
+          "nationalist": -10,
+          "loyalist": -10,
+          "capitalist": 20
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [11],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Les surveiller !",
+        "effectFulfillment": {
+          "nationalist": 10,
+          "loyalist": 10,
+          "capitalist": 10,
+          "liberal": -20
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [12],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas les laissez faire !",
+        "effectFulfillment": {
+          "militarist": 30,
+          "liberal": -20,
+          "capitalist": -20
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "unlock": true,
+    "label": "Vous voyez une jolie blonde devant le château de bowser !",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "L'accoster !",
+        "effectFulfillment": {
+          "religious": 10,
+          "capitalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [14],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas tenter sa chance!",
+        "effectFulfillment": {
+          "loyalist": -15
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [16],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "unlock": false,
+    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, vous n'êtes pas préparer et mourrez ...",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Vous êtes mort!",
+        "effectFulfillment": {
+          "communist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000,
+          "capitalist": -10000,
+          "liberal": -10000,
+          "militarist": -10000,
+          "religious": -10000
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "unlock": false,
+    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, mais vous étiez préparer et les détruisez facilement...",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Se vengez.",
+        "effectFulfillment": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 100,
+          "capitalist": 20,
+          "liberal": 10,
+          "militarist": 100,
+          "religious": 10
+        },
+        "effectPartisan": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10,
+          "capitalist": -10,
+          "liberal": -10,
+          "militarist": -10,
+          "religious": -10
+        },
+        "effectResource": {
+          "money": -250,
+          "industry": 20,
+          "farming": 20
+        },
+        "nextForMe": [13],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas continuez ce massacre.",
+        "effectFulfillment": {
+          "communist": 10,
+          "ecologist": 20,
+          "nationalist": 10,
+          "loyalist": 100,
+          "capitalist": -20,
+          "liberal": -10,
+          "militarist": -20,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": 100,
+          "industry": 10,
+          "farming": 10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "unlock": false,
+    "label": "Bowser a réussit à s'en sortir mais vous avez réussis à vous venger de cette attaque surprise !",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "BIEN JOUE!",
+        "effectFulfillment": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10,
+          "capitalist": 10,
+          "liberal": 10,
+          "militarist": 20,
+          "religious": 10
+        },
+        "effectPartisan": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10,
+          "capitalist": -10,
+          "liberal": -10,
+          "militarist": -10,
+          "religious": -10
+        },
+        "effectResource": {
+          "money": 500
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "unlock": false,
+    "label": "La blonde que vous avez accosté n'était nul autre que Bowser avec la couronne de Peach !",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Ce n'est pas un problème :smirk: !",
+        "effectFulfillment": {
+          "religious": -10,
+          "communist": 10,
+          "nationalist": 10,
+          "loyalist": 20,
+          "capitalist": 10,
+          "liberal": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [15],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "FUIR!",
+        "effectFulfillment": {
+          "communist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10,
+          "capitalist": -10,
+          "liberal": -10,
+          "militarist": -10,
+          "religious": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "unlock": false,
+    "label": "Vous vous êtes mariés et avez eu plein d'enfants avec Bowsette <3 (qui vous coûtent une fortune)!",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "WOW!",
+        "effectFulfillment": {},
+        "effectPartisan": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10,
+          "capitalist": 10,
+          "liberal": 10,
+          "militarist": 10,
+          "religious": 10
+        },
+        "effectResource": {
+          "money": -500
+        },
+        "nextForMe": [15],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "unlock": false,
+    "label": "Une blonde n'a pas été accostée, voulez vous tentez votre chance?",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "OUI!",
+        "effectFulfillment": {
+          "loyalist": 10,
+          "liberal": 10,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+        },
+        "nextForMe": [14],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Non je préfère les brunes!",
+        "effectFulfillment": {
+          "communist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000,
+          "capitalist": -10000,
+          "liberal": -10000,
+          "militarist": -10000,
+          "religious": -10000
+        },
+        "effectPartisan": {},
+        "effectResource": {
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Non !",
+        "effectFulfillment": {
+          "communist": -25,
+          "ecologist": -25,
+          "nationalist": -25,
+          "loyalist": -25,
+          "capitalist": -25,
+          "liberal": -25,
+          "militarist": -25,
+          "religious": -25
+        },
+        "effectPartisan": {},
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "unlock": true,
+    "label": " PLEIN DE LUMA VOUS RENDENT VISITE !",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "FAIRE LA FÊTE!",
+        "effectFulfillment": {
+          "militarist": 10,
+          "capitalist": 10,
+          "communist": 10,
+          "loyalist": 10,
+          "liberal": 10,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -100,
+          "industry": 25,
+          "farming": 25
+        },
+        "nextForMe": [18, 20, 21],
+        "nextForMultiplayer": [19],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "unlock": false,
+    "label": "C'EST LA FÊTEEEEEE!",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "CONTINUER!",
+        "effectFulfillment": {
+          "militarist": 10,
+          "capitalist": 10,
+          "communist": 10,
+          "loyalist": 10,
+          "liberal": 10,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -100,
+          "industry": 25,
+          "farming": 25
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "unlock": false,
+    "label": "Quelqu'un fait la fête avec des LUMAS!",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "LES REJOINDRES :D!",
+        "effectFulfillment": {
+          "militarist": 10,
+          "capitalist": 10,
+          "communist": 10,
+          "loyalist": 10,
+          "liberal": 10,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -100,
+          "industry": 25,
+          "farming": 25
+        },
+        "nextForMe": [20, 21],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "unlock": false,
+    "label": "LUMA LUMA LUMA LUMA!",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "TELLEMENT DE LUMA!",
+        "effectFulfillment": {
+          "militarist": 10,
+          "capitalist": 10,
+          "communist": 10,
+          "loyalist": 10,
+          "liberal": 10,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -100,
+          "industry": 25,
+          "farming": 25
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "unlock": false,
+    "label": "LUUUUUUUUUUUUUUUUUU!",
+    "seasons": [
+      "SPRING",
+      "WINTER",
+      "AUTUMN",
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!",
+        "effectFulfillment": {
+          "militarist": 10,
+          "capitalist": 10,
+          "communist": 10,
+          "loyalist": 10,
+          "liberal": 10,
+          "religious": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "money": -100,
+          "industry": 25,
+          "farming": 25
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "unlock": false,
+    "label": "Vos adversaires de la finale de Volley Ball sont tombés malade, vous avez donc gagner la main de Boosette",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Se marier.",
+        "effectFulfillment": {
+          "communist": 25,
+          "ecologist": 25,
+          "nationalist": 25,
+          "loyalist": 25,
+          "capitalist": 25,
+          "liberal": 25,
+          "militarist": 25
+        },
+        "effectPartisan": {
+          "communist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10,
+          "capitalist": 10,
+          "liberal": 10,
+          "militarist": 10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  }
+]

@@ -14,11 +14,19 @@
     {
       "label": "Try-hard le projet de toute ses forces.",
       "effectFulfillment": {
-        "religious": -15,
-        "liberal": -15
+        "capitalist": 10,
+        "communist": 10,
+        "liberal": 10,
+        "religious": 10,
+        "militarist": 10,
+        "ecologist": 10,
+        "nationalist": 10,
+        "loyalist": 10
       },
       "effectPartisan": {},
-      "effectResource": {},
+      "effectResource": {
+        "industry": 20
+      },
       "nextForMe": [1],
       "nextForMultiplayer": [],
       "difficulty": [
@@ -30,11 +38,19 @@
     {
       "label": "Demandez de l'aide à un camarade.",
       "effectFulfillment": {
-        "religious": 15,
-        "liberal": -15
+        "capitalist": 5,
+        "communist": 5,
+        "liberal": 5,
+        "religious": 5,
+        "militarist": 5,
+        "ecologist": 5,
+        "nationalist": 5,
+        "loyalist": 5
       },
       "effectPartisan": {},
-      "effectResource": {},
+      "effectResource": {
+        "industry": 10
+      },
       "nextForMe": [1],
       "nextForMultiplayer": [2],
       "difficulty": [
@@ -46,9 +62,6 @@
     {
       "label": "Faire le strict nécessaire.",
       "effectFulfillment": {
-        "religious": 10,
-        "liberal": 10,
-        "nationalist": -20
       },
       "effectPartisan": {},
       "effectResource": {},
@@ -63,11 +76,19 @@
     {
       "label": "Ne rien faire, ça vaut pas le coup.",
       "effectFulfillment": {
-        "nationalist": -20,
-        "capitalist": 10
+        "capitalist": -5,
+        "communist": -5,
+        "liberal": -5,
+        "religious": -5,
+        "militarist": -5,
+        "ecologist": -5,
+        "nationalist": -5,
+        "loyalist": -5
       },
       "effectPartisan": {},
-      "effectResource": {},
+      "effectResource": {
+        "industry": -10
+      },
       "nextForMe": [1],
       "nextForMultiplayer": [],
       "difficulty": [
@@ -129,7 +150,7 @@
   },
   {
     "id": 2,
-    "unlock": true,
+    "unlock": false,
     "label": "On vous demande de l'aide pour le projet de MPA.",
     "seasons": [
       "WINTER",
@@ -142,11 +163,19 @@
       {
         "label": "Try-hard le projet en groupe.",
         "effectFulfillment": {
-          "religious": -15,
-          "liberal": -15
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
         },
         "effectPartisan": {},
-        "effectResource": {},
+        "effectResource": {
+          "industry": 10
+        },
         "nextForMe": [1],
         "nextForMultiplayer": [],
         "difficulty": [
@@ -158,12 +187,797 @@
       {
         "label": "Ne rien faire, ça vaut pas le coup.",
         "effectFulfillment": {
-          "nationalist": -20,
-          "capitalist": 10
+          "capitalist": -5,
+          "communist": -5,
+          "liberal": -5,
+          "religious": -5,
+          "militarist": -5,
+          "ecologist": -5,
+          "nationalist": -5,
+          "loyalist": -5
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": -10
+        },
+        "nextForMe": [1],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "unlock": true,
+    "label": "Quentin BOULET, ce charmant élève, s'apprête à poser une centième question au sujet de son projet Java.",
+    "seasons": [
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Intercepter sa demande (Non, Quentin ;) ).",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -5,
+          "nationalist": -5,
+          "loyalist": 10
         },
         "effectPartisan": {},
         "effectResource": {},
-        "nextForMe": [1],
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Lui répondre, il est sympa au fond.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": 10,
+          "nationalist": 10,
+          "loyalist": -10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": 10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ça fait beaucoup là, qu'il utilise son imagination.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -10,
+          "nationalist": -10,
+          "loyalist": 10
+        },
+        "effectPartisan": {},
+        "effectResource": {
+          "industry": -10
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "unlock": true,
+    "label": "Un débat est lancé dans la classe: 'Abella Danger, mieux en Brune ou Blonde ?.\n (Regarder le pseudo Discord de Quentin pour un indice)",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "En Brune.",
+        "effectFulfillment": {
+          "capitalist": -10000,
+          "communist": -10000,
+          "liberal": -10000,
+          "religious": -10000,
+          "militarist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000
+        },
+        "effectPartisan": {
+          "capitalist": -100,
+          "communist": -100,
+          "liberal": -100,
+          "religious": -100,
+          "militarist": -100,
+          "ecologist": -100,
+          "nationalist": -100,
+          "loyalist": -100
+        },
+        "effectResource": {
+          "industry": -100,
+          "farming": -100
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "En Blonde.",
+        "effectFulfillment": {
+          "capitalist": 100,
+          "communist": 100,
+          "liberal": 100,
+          "religious": 100,
+          "militarist": 100,
+          "ecologist": 100,
+          "nationalist": 100,
+          "loyalist": 100
+        },
+        "effectPartisan": {
+          "capitalist": 100,
+          "communist": 100,
+          "liberal": 100,
+          "religious": 100,
+          "militarist": 100,
+          "ecologist": 100,
+          "nationalist": 100,
+          "loyalist": 100
+        },
+        "effectResource": {
+          "industry": 50,
+          "farming": 50
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "unlock": true,
+    "label": "Vous avez cours à distance.",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Utiliser Discord, c'est la base.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Zoom c'est pas mal quand même.",
+        "effectFulfillment": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectPartisan": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Communiquer que par mails, les cours c'est surcotés.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "unlock": true,
+    "label": "Vous avez envoyé plusieurs mail à la secrétaire mais elle ne répond pas.",
+    "seasons": [
+      "WINTER",
+      "SUMMER",
+      "AUTUMN",
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "En renvoyer un, on sait jamais.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+          "capitalist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectResource": {
+          "industry": -20,
+          "farming": -20
+        },
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Qu'elle aille se faire f****e, je vais me débrouiller tout seul.",
+        "effectFulfillment": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectPartisan": {
+          "capitalist": 5,
+          "nationalist": 5,
+          "loyalist": 5
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "unlock": true,
+    "label": "Votre professeur est en retard d'une heure (vous avez l'habitude à force).",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Partir",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [8],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Rester",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [9],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "unlock": false,
+    "label": "Vous avez eu 12 de moyenne général - 10 dû à vos absences quand le professeur était en retard d'1h30, DOMMAGE :D..",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Fallait rester :'(",
+        "effectFulfillment": {
+          "capitalist": -10000,
+          "communist": -10000,
+          "liberal": -10000,
+          "religious": -10000,
+          "militarist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "unlock": false,
+    "label": "Vous êtes resté tout le temps lorsque les professeurs étaient en retard, vous n'avez donc aucun malus d'absence bien joué !.",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Vous avez fait le bon choix",
+        "effectFulfillment": {
+          "capitalist": 20,
+          "communist": 20,
+          "liberal": 20,
+          "religious": 20,
+          "militarist": 20,
+          "ecologist": 20,
+          "nationalist": 20,
+          "loyalist": 20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "unlock": true,
+    "label": "Vous êtes en TP Noté, cependant, votre matériel est à ch***!",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Abandonner",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Le dire au professeur !",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [
+          10
+        ],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "unlock": false,
+    "label": "Le professeur s'en fou que le matériel ne fonctionne pas !",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Dommage",
+        "effectFulfillment": {
+          "capitalist": -20,
+          "communist": -20,
+          "liberal": -20,
+          "religious": -20,
+          "militarist": -20,
+          "ecologist": -20,
+          "nationalist": -20,
+          "loyalist": -20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "unlock": true,
+    "label": "Vous recevez un mail de votre professeur responsable vous avertissant que les cours en distanciel se fesait en presentiel!",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Y Allez",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [12],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne pas y allez",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [13],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "unlock": false,
+    "label": "Vous avez attraper le Covid et ratez tous les exams dû au fait d'être venu quand c'était en distanciel!",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Dommage",
+        "effectFulfillment": {
+          "capitalist": -20,
+          "communist": -20,
+          "liberal": -20,
+          "religious": -20,
+          "militarist": -20,
+          "ecologist": -20,
+          "nationalist": -20,
+          "loyalist": -20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "unlock": false,
+    "label": "Vous n'êtes pas allez au cours en distantiel présentiel malgré le mail de votre professeur et avez donc échapper au Covid!",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Vous pouvez suivre vos cours facilement sans malus ! ;D",
+        "effectFulfillment": {
+          "capitalist": 50,
+          "communist": 50,
+          "liberal": 50,
+          "religious": 50,
+          "militarist": 50,
+          "ecologist": 50,
+          "nationalist": 50,
+          "loyalist": 50
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "unlock": true,
+    "label": "Vous n'êtes pas passer pour la soutenance du projet C, que faire!",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Envoyez un mail au professeur.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [15],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [16],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "unlock": false,
+    "label": "Le professeur ne réponds pas à votre mail et vous demande quelque mois plus tard pourquoi vous n'êtes pas passez!",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": ":facepalm:",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "unlock": false,
+    "label": "Le professeur vous demande quelque mois plus tard pourquoi vous n'êtes pas passez lors de la soutenance C!",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": ":facepalm:",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
         "nextForMultiplayer": [],
         "difficulty": [
           "EASY",

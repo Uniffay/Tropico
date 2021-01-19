@@ -1,1 +1,616 @@
-[]
+[
+  {
+    "id": 0,
+    "unlock": true,
+    "label": "Edgar Amberg mets le feu à votre bateau!",
+    "seasons": [
+      "SUMMER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Demandez de le mettre au fer",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [2],
+        "nextForMultiplayer": [1],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire car c'est marrant quand même.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [3],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "unlock": false,
+    "label": "Quelqu'un a demander à mettre Edgar au fer.",
+    "seasons": [
+      "SUMMER",
+      "AUTUMN",
+      "SPRING",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Accepter la demande",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [2],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire car c'est marrant quand même.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [3],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "unlock": false,
+    "label": "Edgar Amberg a été mis au cachot mouahaha!",
+    "seasons": [
+      "SUMMER",
+      "AUTUMN",
+      "SPRING",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Plus de trolleur sur le bateau",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "unlock": false,
+    "label": "Edgar a fait peter un baril de forteresse sur votre bateau et vous avez coulé... Vous aurez dû le mettre au cahot :/!",
+    "seasons": [
+      "SUMMER",
+      "SPRING",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Votre bateau a coulé.",
+        "effectFulfillment": {
+          "capitalist": -10000,
+          "communist": -10000,
+          "liberal": -10000,
+          "religious": -10000,
+          "militarist": -10000,
+          "ecologist": -10000,
+          "nationalist": -10000,
+          "loyalist": -10000
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "unlock": true,
+    "label": "UN MEGALODONS BLANC VOUS ATTAQUE! IL EST BLANC WTF :O!",
+    "seasons": [
+      "SPRING"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Le combattre.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [5],
+        "nextForMultiplayer": [6],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Partir.",
+        "effectFulfillment": {
+          "capitalist": -1000,
+          "communist": -1000,
+          "liberal": -1000,
+          "religious": -1000,
+          "militarist": -1000,
+          "ecologist": -1000,
+          "nationalist": -1000,
+          "loyalist": -1000
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "unlock": false,
+    "label": "Le Mégalodon blanc a été vaincu, VOUS ETES MAINTENANT UNE LEGENDE !",
+    "seasons": [
+      "SPRING",
+      "SUMMER",
+      "AUTUMN",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "YOUPIIIII.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "unlock": false,
+    "label": "Vous voyez un joueur faire un mégalodon BLANC que faire?",
+    "seasons": [
+      "SPRING",
+      "AUTUMN",
+      "SUMMER",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Essayer de le voler.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -30,
+          "militarist": 10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [7],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Le laissez tranquille.",
+        "effectFulfillment": {
+          "capitalist": 30,
+          "communist": 10,
+          "liberal": -20,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": 30,
+          "nationalist": 20,
+          "loyalist": -20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "unlock": false,
+    "label": "Ils ont finit avant que vous arriviez et ont pris le loot fissa et sont partie!",
+    "seasons": [
+      "SPRING",
+      "AUTUMN",
+      "SUMMER",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Dommage.",
+        "effectFulfillment": {
+          "religious": 10,
+          "militarist": 10,
+          "ecologist": -20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "unlock": true,
+    "label": "Vous avez toutes les flammes et un crâne rituel pour faire un fort des damnés, voulez vous en lancez un?",
+    "seasons": [
+      "AUTUMN"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Oui.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -10,
+          "liberal": 10,
+          "religious": -10,
+          "militarist": 10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [11],
+        "nextForMultiplayer": [9],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Non.",
+        "effectFulfillment": {
+          "capitalist": 20,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -30,
+          "militarist": 20
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "unlock": false,
+    "label": "Un joueur a lancé un FDD, que faire!",
+    "seasons": [
+      "SPRING",
+      "AUTUMN",
+      "SUMMER",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Les combattres.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": 10,
+          "nationalist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [10],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne rien faire.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": 10,
+          "nationalist": -10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "unlock": false,
+    "label": "Ils étaient bien trop fort, vous n'avez pas réussis à voler leur FDD!",
+    "seasons": [
+      "SPRING",
+      "AUTUMN",
+      "SUMMER",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Dommage.",
+        "effectFulfillment": {
+          "capitalist": -10,
+          "communist": -10,
+          "liberal": -10,
+          "religious": -10,
+          "militarist": -10,
+          "ecologist": -10,
+          "nationalist": -10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "unlock": false,
+    "label": "Vous avez réussit le FDD",
+    "seasons": [
+      "SPRING",
+      "AUTUMN",
+      "SUMMER",
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Bien joué !",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": 10,
+          "religious": 20,
+          "militarist": 10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "unlock": true,
+    "label": "Le Kraken veut passez noël avec vous, que faire?",
+    "seasons": [
+      "WINTER"
+    ],
+    "image": "noImage.png",
+    "choices": [
+      {
+        "label": "Accepter.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": -10,
+          "liberal": 10,
+          "religious": 20,
+          "militarist": 10,
+          "loyalist": -10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      },
+      {
+        "label": "Ne Pas Accepter.",
+        "effectFulfillment": {
+          "capitalist": 10,
+          "communist": 10,
+          "liberal": -10,
+          "religious": -20,
+          "militarist": -10,
+          "loyalist": 10
+        },
+        "effectPartisan": {
+        },
+        "effectResource": {},
+        "nextForMe": [],
+        "nextForMultiplayer": [],
+        "difficulty": [
+          "EASY",
+          "MEDIUM",
+          "HARD"
+        ]
+      }
+    ]
+  }
+]

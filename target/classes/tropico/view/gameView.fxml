@@ -92,7 +92,7 @@
          <Polygon fill="#fdfdfd" layoutX="216.0" layoutY="56.0" onMouseClicked="#removeFactionBar" points="-24.79998779296875, -34.400001525878906, -6.1999969482421875, -19.199996948242188, -6.1999969482421875, -50.400001525878906" stroke="BLACK" strokeType="INSIDE" />
       </AnchorPane>
    </ScrollPane>
-   <AnchorPane fx:id="eventPane" layoutX="361.0" layoutY="158.0" prefHeight="462.0" prefWidth="571.0" style="-fx-background-color: black; -fx-background-radius: 20;">
+   <AnchorPane fx:id="eventPane" layoutX="361.0" layoutY="158.0" opacity="0.86" prefHeight="462.0" prefWidth="571.0" style="-fx-background-color: black; -fx-background-radius: 20;">
       <Label id="text" fx:id="eventLabel" layoutX="41.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="119.0" prefWidth="482.0" stylesheets="@app.css" text="TEXT LABEL" textAlignment="CENTER" textFill="WHITESMOKE" wrapText="true">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
