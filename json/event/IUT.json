@@ -200,7 +200,7 @@
         "effectResource": {
           "industry": -10
         },
-        "nextForMe": [1],
+        "nextForMe": [],
         "nextForMultiplayer": [],
         "difficulty": [
           "EASY",
