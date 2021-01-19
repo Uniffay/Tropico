@@ -380,7 +380,7 @@
     "seasons": [
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "cheat.png",
     "choices": [
       {
         "label": "S'excuser !",
@@ -435,7 +435,7 @@
     "seasons": [
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "humiliation.png",
     "choices": [
       {
         "label": "ENTRAINEZ VOUS MIEUX POUR LA PROCHAINE FOIS :D !",
@@ -612,7 +612,7 @@
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "bowsergangdead.png",
     "choices": [
       {
         "label": "Se venger.",
@@ -784,7 +784,7 @@
     "seasons": [
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "babybowsette.png",
     "choices": [
       {
         "label": "WOW!",
