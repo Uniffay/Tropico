@@ -8,7 +8,7 @@
     "WINTER",
     "AUTUMN"
   ],
-  "image": "noImage.png",
+  "image": "peachkidnapped.png",
   "choices": [
     {
       "label": "Aider Mario à vaincre ce malfrat.",
@@ -76,7 +76,7 @@
       "WINTER",
       "AUTUMN"
     ],
-    "image": "noImage.png",
+    "image": "peachxbowser.png",
     "choices": [
       {
         "label": "Vous et Mario les rejoignez.",
@@ -130,7 +130,7 @@
       "WINTER",
       "AUTUMN"
     ],
-    "image": "noImage.png",
+    "image": "babypeach.png",
     "choices": [
       {
         "label": "Avoir la garde complète des enfants !",
@@ -189,7 +189,7 @@
     "seasons": [
       "WINTER"
     ],
-    "image": "noImage.png",
+    "image": "toad.png",
     "choices": [
       {
         "label": "L'aider.",
@@ -236,7 +236,7 @@
     "seasons": [
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "boosettevolley.png",
     "choices": [
       {
         "label": "Y participer",
@@ -279,11 +279,11 @@
   {
     "id": 5,
     "unlock": false,
-    "label": "Vous arrivez en demi-final pour la compétition de Volley Ball mais Donkey Kong est dans l'équipe adverse !.",
+    "label": "Vous arrivez en demi-finale pour la compétition de Volley Ball mais Donkey Kong est dans l'équipe adverse !.",
     "seasons": [
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "donkeyvolley.png",
     "choices": [
       {
         "label": "Essayer d'acheter la victoire.",
@@ -305,7 +305,7 @@
         ]
       },
       {
-        "label": "Essayer de Tricher.",
+        "label": "Essayer de tricher.",
         "effectFulfillment": {
           "communist": -10,
           "ecologist": -10,
@@ -344,11 +344,11 @@
   {
     "id": 6,
     "unlock": false,
-    "label": "Vos adversaires vous ont laisser la victoire pour le match de Volley mais leur jeu d'acteur était trop bon et personne ne s'en ait rendu compte.",
+    "label": "Vos adversaires vous ont laissé la victoire pour le match de Volley mais leur jeu d'acteur était trop bon et personne ne s'en est rendu compte.",
     "seasons": [
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "donkeypleure.png",
     "choices": [
       {
         "label": "GO POUR LA FINALE !",
@@ -431,7 +431,7 @@
   {
     "id": 8,
     "unlock": false,
-    "label": "Vous avez été HUMILIE par vos adversaire lors de la demi-finale de Volley Ball !",
+    "label": "Vous avez été HUMILIÉ par vos adversaire lors de la demi-finale de Volley Ball !",
     "seasons": [
       "SUMMER"
     ],
@@ -464,11 +464,11 @@
   {
     "id": 9,
     "unlock": true,
-    "label": "Les troupes de Bowser sont devant votre château et dise que c'est pour demander des bonbons!",
+    "label": "Les troupes de Bowser sont devant votre château et disent que c'est pour demander des bonbons!",
     "seasons": [
       "AUTUMN"
     ],
-    "image": "noImage.png",
+    "image": "bowsergang.png",
     "choices": [
       {
         "label": "Ne pas s'en préoccuper !",
@@ -527,11 +527,11 @@
   {
     "id": 10,
     "unlock": true,
-    "label": "Vous voyez une jolie blonde devant le château de bowser !",
+    "label": "Vous voyez une jolie blonde devant le château de Bowser !",
     "seasons": [
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "bowsette.png",
     "choices": [
       {
         "label": "L'accoster !",
@@ -569,14 +569,14 @@
   {
     "id": 11,
     "unlock": false,
-    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, vous n'êtes pas préparer et mourrez ...",
+    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en fait une attaque surprise, vous n'êtes pas préparé et mourrez ...",
     "seasons": [
       "SPRING",
       "WINTER",
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "bowsergang.png",
     "choices": [
       {
         "label": "Vous êtes mort!",
@@ -605,7 +605,7 @@
   {
     "id": 12,
     "unlock": false,
-    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, mais vous étiez préparer et les détruisez facilement...",
+    "label": "Les troupes de Bowser n'était pas là pour des bonbons ! C'était en faite une attaque surprise, mais vous étiez préparé et les détruisez facilement...",
     "seasons": [
       "SPRING",
       "WINTER",
@@ -615,7 +615,7 @@
     "image": "noImage.png",
     "choices": [
       {
-        "label": "Se vengez.",
+        "label": "Se venger.",
         "effectFulfillment": {
           "communist": 10,
           "ecologist": 10,
@@ -650,7 +650,7 @@
         ]
       },
       {
-        "label": "Ne pas continuez ce massacre.",
+        "label": "Ne pas continuer ce massacre.",
         "effectFulfillment": {
           "communist": 10,
           "ecologist": 20,
@@ -680,7 +680,7 @@
   {
     "id": 13,
     "unlock": false,
-    "label": "Bowser a réussit à s'en sortir mais vous avez réussis à vous venger de cette attaque surprise !",
+    "label": "Bowser a réussi à s'en sortir mais vous avez réussi à vous venger de cette attaque surprise !",
     "seasons": [
       "SPRING",
       "WINTER",
@@ -731,7 +731,7 @@
     "seasons": [
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "bowsette.png",
     "choices": [
       {
         "label": "Ce n'est pas un problème :smirk: !",
@@ -780,7 +780,7 @@
   {
     "id": 15,
     "unlock": false,
-    "label": "Vous vous êtes mariés et avez eu plein d'enfants avec Bowsette <3 (qui vous coûtent une fortune)!",
+    "label": "Vous vous êtes marié et avez eu plein d'enfants avec Bowsette <3 (qui vous coûtent une fortune)!",
     "seasons": [
       "SPRING"
     ],
@@ -819,7 +819,7 @@
     "seasons": [
       "SPRING"
     ],
-    "image": "noImage.png",
+    "image": "bowsette.png",
     "choices": [
       {
         "label": "OUI!",
@@ -896,7 +896,7 @@
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "luma.png",
     "choices": [
       {
         "label": "FAIRE LA FÊTE!",
@@ -934,7 +934,7 @@
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "luma.png",
     "choices": [
       {
         "label": "CONTINUER!",
@@ -972,10 +972,10 @@
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "luma.png",
     "choices": [
       {
-        "label": "LES REJOINDRES :D!",
+        "label": "LES REJOINDRE :D!",
         "effectFulfillment": {
           "militarist": 10,
           "capitalist": 10,
@@ -1010,7 +1010,7 @@
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "luma.png",
     "choices": [
       {
         "label": "TELLEMENT DE LUMA!",
@@ -1048,7 +1048,7 @@
       "AUTUMN",
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "luma.png",
     "choices": [
       {
         "label": "MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!",
@@ -1079,11 +1079,11 @@
   {
     "id": 22,
     "unlock": false,
-    "label": "Vos adversaires de la finale de Volley Ball sont tombés malade, vous avez donc gagner la main de Boosette",
+    "label": "Vos adversaires de la finale de Volley Ball sont tombés malades, vous avez donc gagné la main de Boosette",
     "seasons": [
       "SUMMER"
     ],
-    "image": "noImage.png",
+    "image": "mariagedictator.png",
     "choices": [
       {
         "label": "Se marier.",
